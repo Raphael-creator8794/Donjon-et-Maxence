@@ -24,4 +24,5 @@ def fillGaps(lenght,what,word) :
         string += what
     return what
 
+
 #------------------------------------------------------------------------------- Fin des fonctions----------
