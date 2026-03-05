@@ -1,0 +1,12 @@
+{
+    "Player" : [
+    [None,None,None,None,None,None,None,None],
+    [None,None,"#000000","#000000","#000000","#000000",None,None],
+    [None,"#000000","#000000",orange,orange,"#000000","#000000",None],
+    [None,"#000000",orange,orange,orange,orange,"#000000",None],
+    [None,None,"#440439","#440439","#440439","#440439",None,None],
+    [None,"#440439",None,"#440439","#440439",None,"#440439",None],
+    [None,None,None,"#440439","#440439",None,None,None],
+    [None,None,"#440439",None,None,"#440439",None,None]
+    ]
+}
