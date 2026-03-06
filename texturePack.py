@@ -37,14 +37,14 @@ playerTexture = [
 verifTexture(playerTexture)
 
 grassTexture = [
-    [lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,green,lightGreen],
+    [lightGreen,lightGreen,lightGreen,green,lightGreen,lightGreen,green,lightGreen],
     [lightGreen,green,lightGreen,lightGreen,lightGreen,green,lightGreen,lightGreen],
-    [lightGreen,lightGreen,green,lightGreen,lightGreen,lightGreen,lightGreen,green],
-    [lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,green,lightGreen,lightGreen],
-    [brown,lightGreen,lightGreen,brown,lightGreen,lightGreen,brown,lightGreen],
-    [brown,lightGreen,brown,brown,lightGreen,lightGreen,brown,brown],
-    [brown,brown,brown,brown,brown,lightGreen,brown,brown],
-    [brown,brown,brown,brown,brown,brown,brown,brown]
+    [lightGreen,lightGreen,green,green,lightGreen,lightGreen,lightGreen,green],
+    [green,lightGreen,lightGreen,lightGreen,lightGreen,green,lightGreen,lightGreen],
+    [lightGreen,lightGreen,green,lightGreen,lightGreen,lightGreen,lightGreen,lightGreen],
+    [lightGreen,lightGreen,lightGreen,green,lightGreen,green,lightGreen,lightGreen],
+    [lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,green,lightGreen],
+    [lightGreen,green,lightGreen,lightGreen,lightGreen,green,lightGreen,green],
 ]
 verifTexture(grassTexture)
 
