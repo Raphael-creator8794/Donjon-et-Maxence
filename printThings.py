@@ -30,8 +30,10 @@ def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
     for i in range(8) :
         for j in range(8) :
             if pixelGrid[i][j] == None :
+                # Le pixel est vide
                 continue
             else :
+                # Creer un pixel à la position i,j de la couleur de la case i,j de pixelGrid
                 screen.create_rectangle(Xindex*divisionSize+j*pixelSize,Yindex*divisionSize+i*pixelSize,Xindex*divisionSize+(j+1)*pixelSize,Yindex*divisionSize+(i+1)*pixelSize,width = 0,fill = pixelGrid[i][j])
 
 if __name__ == "__main__" :
@@ -61,3 +63,4 @@ if __name__ == "__main__" :
     testButton.place(x = 400,y = 0)
 
     testWindow.mainloop()
+
