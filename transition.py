@@ -20,20 +20,25 @@ backgroundColor = "#D2DF89"
     Rien
 '''
 def transDown(screen,screenWidth,screenHeight) :
-    token = 0
+    token = 0 # Initialisation de la ligne de transition à 0
     lastCall = time()
-    amplitude = screenHeight // nbPoint
-    wideness = screenWidth // nbPoint
+    # nbPoint est une contante définit au début du programme pour désigner le nombre de carrées utiliser pour la transition
+    amplitude = screenHeight // nbPoint # Représente la hauteur des carrés
+    wideness = screenWidth // nbPoint # Représente la largeurs des carrés
     while token < 20 :
         now = time()
+        # On attend le moment venu pour afficher les carrées
         if now - lastCall > delay :
             lastCall = now
             for i in range(nbPoint) :
+                # On créer une ligne de carré plein (un gros trait quoi)
                 screen.create_rectangle(wideness*i,token*amplitude,wideness*(i+1),(token+1)*amplitude,fill = black)
+                # Puis une ligne en avance on creer des carrées avec 30% (2*15%) en moins de taille
                 screen.create_rectangle(wideness*(i+0.15),(token+1.15)*amplitude,wideness*(i+0.85),(token+1.85)*amplitude,fill = black)
+                # Et enfin une dernière ligne avec 2 lignes d'avance avec 50% (2*25%) en moins de taille
                 screen.create_rectangle(wideness*(i+0.25),(token+2.25)*amplitude,wideness*(i+0.75),(token+2.75)*amplitude,fill = black)
-            screen.update_idletasks()
-            token += 1
+            screen.update_idletasks() # On réactualise le fenetre pour afficher les carrées créé
+            token += 1 # Prochaine ligne
 
 '''----- transUp -----------
 > -- Objectif -- :
@@ -157,3 +162,4 @@ if __name__ == "__main__" :
     testButton.place(x = 400,y = 0)
 
     testWindow.mainloop()
+
