@@ -1,6 +1,15 @@
 #Quoicoubesque group
 from printThings import *
 
+'''----- verifTexture -----------
+> -- Objectif -- :
+    Cette fonction na pas de but utile. Elle ne fais que lever une interuption dans le cas où le format ne correspond pas aux attentes.
+    Est utile pour les développeur.
+> -- Paramètre -- :
+    texture : /list/ La grille a vérifier
+> -- Retourne -- :
+    Rien
+'''
 def verifTexture(texture) :
     if type(texture) != list :
         raise Exception("Is not a list")
@@ -62,4 +71,5 @@ verifTexture(crateTexture)
 
 matchTexture = {
     "grass" : grassTexture
+
 }
