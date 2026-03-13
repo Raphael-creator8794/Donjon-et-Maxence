@@ -42,6 +42,7 @@ def transRightLink() :
     transRight(screen,screenWidth,screenHeight)
 
 def move(direction,Xposition,Yposition) :
+    print(direction)
     printThings(screen,grassTexture,divisionSize,Xposition,Yposition)
     match direction :
         case "up" :
@@ -81,6 +82,8 @@ def clickSituation(event) :
     global state
     global Xposition
     global Yposition
+    Xposition = 0
+    Yposition = 0
     match state :
         case "menu" :
             if Xaxe > screenWidth//4 and Xaxe < 3*screenWidth//4 :
@@ -103,16 +106,19 @@ def clickSituation(event) :
 
 def arrowMove(event) :
     if state == "play":
-        dir = repr(event.char).lower()
-        if dir == "z":
+        dir = str(repr(event.char)).lower()
+        if dir == "'z'":
             move("up",Xposition,Yposition)
-        if dir == "q":
+            Yposition += 1
+        if dir == "'q'":
             move("left",Xposition,Yposition)
-        if dir == "s":
+            Xposition -= 1
+        if dir == "'s'":
             move("down",Xposition,Yposition)
-        if dir == "d":
+            Yposition -= 1
+        if dir == "'d'":
             move("right",Xposition,Yposition)
-
+            Xposition += 1
 def printHey() :
     print("Hey !")
 
