@@ -69,7 +69,7 @@ def printStart() :
     startArea = [["grass" for _ in range(maxX)] for _ in range(maxY)]
     printArea(screen,startArea,maxX,maxY,divisionSize)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
-    #printThings(screen,crateTexture,divisionSize,1,1)
+    printThings(screen,crateTexture,divisionSize,1,1)
 
 
 def printSettings() :
