@@ -53,8 +53,8 @@ crateTexture =  [
     [None,None,None,None,None,None,None,None],
     [None,brown,brown,brown,brown,brown,brown,None],
     [None,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,None],
-    [None,grey,grey,grey,grey,grey,grey,None],
-    [None,lightBrown,lightBrown,grey,grey,lightBrown,lightBrown,None],
+    [None,gold,gold,gold,gold,gold,gold,None],
+    [None,lightBrown,lightBrown,gold,gold,lightBrown,lightBrown,None],
     [None,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,None],
     [None,None,None,None,None,None,None,None]
 ]

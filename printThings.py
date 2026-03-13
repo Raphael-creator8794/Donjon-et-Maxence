@@ -13,6 +13,7 @@ darkGreen = "#003D0F"
 brown = "#2E2106"
 lightBrown = "#694703"
 grey = "#A6A3A3"
+gold = "#F8DC0B"
 
 #--- Main Function ----------------------------------------------------------------------
 def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
