@@ -13,13 +13,27 @@ darkGreen = "#003D0F"
 brown = "#2E2106"
 
 #--- Main Function ----------------------------------------------------------------------
+'''----- printThings -----------
+> -- Objectif -- :
+    Afficher à une certaine position un objet.
+> -- Paramètre -- :
+    screen : /Canvas/ Le canva sur lequel on affiche l'objet
+    pixelGrid : /list/ La couleur de chaque pixel de l'objet
+    divisionSize : /int/ La taille de la case où affiche l'objet
+    Xindex : /int/ La position horizontal de l'ojet
+    Yindex : /int/ La position vertical de l'ojet
+> -- Retourne -- :
+    Rien
+'''
 def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
     pixelSize = divisionSize//8
     for i in range(8) :
         for j in range(8) :
             if pixelGrid[i][j] == None :
+                # Le pixel est vide
                 continue
             else :
+                # Creer un pixel à la position i,j de la couleur de la case i,j de pixelGrid
                 screen.create_rectangle(Xindex*divisionSize+j*pixelSize,Yindex*divisionSize+i*pixelSize,Xindex*divisionSize+(j+1)*pixelSize,Yindex*divisionSize+(i+1)*pixelSize,width = 0,fill = pixelGrid[i][j])
 
 if __name__ == "__main__" :
@@ -47,4 +61,6 @@ if __name__ == "__main__" :
     testCanva.place(x = 0,y = 0)
     testButton = Button(testWindow,text = "switch",command = testPrintThings)
     testButton.place(x = 400,y = 0)
+
     testWindow.mainloop()
+

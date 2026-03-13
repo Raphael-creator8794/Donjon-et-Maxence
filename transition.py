@@ -3,32 +3,53 @@ from printThings import printThings
 from texturePack import *
 from time import time
 from tkinter import *
-"""from donjon import screen
-from donjon import screenWidth
-from donjon import screenHeight
-from donjon import backgroundColor"""
 
 delay = 0.01
 nbPoint = 20
 black = "#000000"
 backgroundColor = "#D2DF89"
 
+'''----- transDown -----------
+> -- Objectif -- :
+    Afficher une animation sur un canva, celle ci est orienté vers le bas
+> -- Paramètre -- :
+    screen : /Canvas/ Le canva sur lequel on affiche l'animation
+    screenWidth : /int/ Largeur du canva
+    screenHeight : /int/ Hauteur du canva
+> -- Retourne -- :
+    Rien
+'''
 def transDown(screen,screenWidth,screenHeight) :
-    token = 0
+    token = 0 # Initialisation de la ligne de transition à 0
     lastCall = time()
-    amplitude = screenHeight // nbPoint
-    wideness = screenWidth // nbPoint
+    # nbPoint est une contante définit au début du programme pour désigner le nombre de carrées utiliser pour la transition
+    amplitude = screenHeight // nbPoint # Représente la hauteur des carrés
+    wideness = screenWidth // nbPoint # Représente la largeurs des carrés
     while token < 20 :
         now = time()
+        # On attend le moment venu pour afficher les carrées
         if now - lastCall > delay :
             lastCall = now
             for i in range(nbPoint) :
+                # On créer une ligne de carré plein (un gros trait quoi)
                 screen.create_rectangle(wideness*i,token*amplitude,wideness*(i+1),(token+1)*amplitude,fill = black)
+                # Puis une ligne en avance on creer des carrées avec 30% (2*15%) en moins de taille
                 screen.create_rectangle(wideness*(i+0.15),(token+1.15)*amplitude,wideness*(i+0.85),(token+1.85)*amplitude,fill = black)
+                # Et enfin une dernière ligne avec 2 lignes d'avance avec 50% (2*25%) en moins de taille
                 screen.create_rectangle(wideness*(i+0.25),(token+2.25)*amplitude,wideness*(i+0.75),(token+2.75)*amplitude,fill = black)
-            screen.update_idletasks()
-            token += 1
+            screen.update_idletasks() # On réactualise le fenetre pour afficher les carrées créé
+            token += 1 # Prochaine ligne
 
+'''----- transUp -----------
+> -- Objectif -- :
+    Afficher une animation sur un canva, celle ci est orienté vers le haut
+> -- Paramètre -- :
+    screen : /Canvas/ Le canva sur lequel on affiche l'animation
+    screenWidth : /int/ Largeur du canva
+    screenHeight : /int/ Hauteur du canva
+> -- Retourne -- :
+    Rien
+'''
 def transUp(screen,screenWidth,screenHeight) :
     token = 20
     lastCall = time()
@@ -45,6 +66,16 @@ def transUp(screen,screenWidth,screenHeight) :
             screen.update_idletasks()
             token -= 1
 
+'''----- transLeft -----------
+> -- Objectif -- :
+    Afficher une animation sur un canva, celle ci est orienté vers la gauche
+> -- Paramètre -- :
+    screen : /Canvas/ Le canva sur lequel on affiche l'animation
+    screenWidth : /int/ Largeur du canva
+    screenHeight : /int/ Hauteur du canva
+> -- Retourne -- :
+    Rien
+'''
 def transLeft(screen,screenWidth,screenHeight) :
     token = 20
     lastCall = time()
@@ -61,6 +92,16 @@ def transLeft(screen,screenWidth,screenHeight) :
             screen.update_idletasks()
             token -= 1
 
+'''----- transRight -----------
+> -- Objectif -- :
+    Afficher une animation sur un canva, celle ci est orienté vers la droite
+> -- Paramètre -- :
+    screen : /Canvas/ Le canva sur lequel on affiche l'animation
+    screenWidth : /int/ Largeur du canva
+    screenHeight : /int/ Hauteur du canva
+> -- Retourne -- :
+    Rien
+'''
 def transRight(screen,screenWidth,screenHeight) :
     token = 0
     lastCall = time()
@@ -77,6 +118,18 @@ def transRight(screen,screenWidth,screenHeight) :
             screen.update_idletasks()
             token += 1
 
+'''----- printArea -----------
+> -- Objectif -- :
+    Afficher la zone de façon progressive
+> -- Paramètre -- :
+    screen : /Canvas/ Le canva sur lequel on affiche la zone
+    areaBlocks : /list/ La liste des blocks dans la zone
+    maxX : /int/ Le nombre de block dans la largeur
+    maxY : /int/ Le nombre de block dans la hauteur
+    divisionSize : /int/ La taille du block
+> -- Retourne -- :
+    Rien
+'''
 def printArea(screen,areaBlocks,maxX,maxY,divisionSize) :
     delay = 0
     for i in range(maxY) :
@@ -86,9 +139,10 @@ def printArea(screen,areaBlocks,maxX,maxY,divisionSize) :
         for j in Jrange :
             lastCall = time()
             while (time() - lastCall < delay) :
+                # On attend d'avoir attendu assez longtemps
                 continue
             printThings(screen,matchTexture[areaBlocks[i][j]],divisionSize,j,i)
-            screen.update_idletasks()
+            screen.update_idletasks() #Actualiser la fenetre
 
 if __name__ == "__main__" :
 
@@ -106,4 +160,6 @@ if __name__ == "__main__" :
     testCanva.place(x = 0,y = 0)
     testButton = Button(testWindow,text = "switch",command = transDownTest)
     testButton.place(x = 400,y = 0)
+
     testWindow.mainloop()
+
