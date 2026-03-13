@@ -1,5 +1,5 @@
 #Graphe
-from File import File
+from Fonction_utiles.File import File
 
 class Graphe :
 

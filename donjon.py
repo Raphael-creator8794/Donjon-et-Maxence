@@ -117,7 +117,15 @@ def clickSituation(event) :
                     Xposition -= 1
 
 def arrowMove(event) :
-    print(repr(event.char))
+    dir = repr(event.char).lower()
+    if dir == "z":
+        move("up",Xposition,Yposition)
+    if dir == "q":
+        move("left",Xposition,Yposition)
+    if dir == "s":
+        move("down",Xposition,Yposition)
+    if dir == "d":
+        move("right",Xposition,Yposition)
 
 def printHey() :
     print("Hey !")
