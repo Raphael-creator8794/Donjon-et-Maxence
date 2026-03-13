@@ -14,20 +14,20 @@ def verifTexture(texture) :
     if type(texture) != list :
         raise Exception("Is not a list")
     elif len(texture) != 8 :
-        raise Exception("Havn't 8 row")
+        raise Exception("Doesn't have 8 rows")
     else :
         for i in range(8) :
             if type(texture[i]) != list : 
                 raise Exception("Row " + str(i) + " isn't a list")
             elif len(texture[i]) != 8 :
-                raise Exception("Havn't 8 square at row " + str(i))
+                raise Exception("Doesn't have 8 squares at row " + str(i))
             else :
                 for j in range(8) :
                     if texture[i][j] == None :
                         continue
                     else :
                         if type(texture[i][j]) != str :
-                            raise TypeError("Unvalid type of the square "+str(j)+" at row "+str(i))
+                            raise TypeError("Unvalid type for square "+str(j)+" at row "+str(i))
                         """else :
                             if texture[i][j][0] != "#" or not(texture[i][j][1:].isdigit()) :
                                 raise ValueError("Unvalid value for the square "+str(j)+" at row "+str(i)+" : "+texture[i][j])
@@ -59,13 +59,13 @@ verifTexture(grassTexture)
 
 crateTexture =  [
     [None,None,None,None,None,None,None,None],
-    [None,None,green,green,green,green,green,None],
-    [None,green,brown,brown,brown,green,green,None],
-    [green,green,green,green,green,brown,green,None],
-    [green,green,brown,green,green,brown,green,None],
-    [green,brown,green,brown,green,brown,green,None],
-    [green,green,brown,green,green,green,None,None],
-    [green,green,green,green,green,None,None,None]
+    [None,None,None,None,None,None,None,None],
+    [None,brown,brown,brown,brown,brown,brown,None],
+    [None,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,None],
+    [None,grey,grey,grey,grey,grey,grey,None],
+    [None,lightBrown,lightBrown,grey,grey,lightBrown,lightBrown,None],
+    [None,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,None],
+    [None,None,None,None,None,None,None,None]
 ]
 verifTexture(crateTexture)
 
