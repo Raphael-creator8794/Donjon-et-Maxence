@@ -1,5 +1,5 @@
 #Quoicoubesque group
-from printThings import *
+from Visuel.printThings import *
 
 def verifTexture(texture) :
     if type(texture) != list :

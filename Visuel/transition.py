@@ -1,6 +1,6 @@
 #Quoicoubesque group
-from printThings import printThings
-from texturePack import *
+from Visuel.printThings import *
+from Visuel.texturePack import *
 from time import time
 from tkinter import *
 """from donjon import screen
