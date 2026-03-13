@@ -39,6 +39,15 @@ def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
                 # Creer un pixel à la position i,j de la couleur de la case i,j de pixelGrid
                 screen.create_rectangle(Xindex*divisionSize+j*pixelSize,Yindex*divisionSize+i*pixelSize,Xindex*divisionSize+(j+1)*pixelSize,Yindex*divisionSize+(i+1)*pixelSize,width = 0,fill = pixelGrid[i][j])
 
+def printMap(screen,roomProperties,visitedRoom,isFull,screenWidth,screenHeight):
+    factor = 0.2 + 0.8*isFull
+    start = isFull*(screenWidth*0.8)
+    screen.create_rectangle(start,0,screenWidth,screenHeight*factor,fill = black)
+    for i in range(len(visitedRoom)) :
+        if visitedRoom[i] :
+            screen.create_rectangle(start
+        
+
 if __name__ == "__main__" :
 
     def testPrintThings() :
@@ -66,4 +75,5 @@ if __name__ == "__main__" :
     testButton.place(x = 400,y = 0)
 
     testWindow.mainloop()
+
 
