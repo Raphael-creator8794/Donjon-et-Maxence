@@ -1,8 +1,8 @@
 #Quoicoubesque group
 from tkinter import *
-from transition import *
-from printThings import *
-from texturePack import *
+from Visuel.transition import *
+from Visuel.printThings import *
+from Visuel.texturePack import *
 
 # Global variable
 screenWidth = 800
