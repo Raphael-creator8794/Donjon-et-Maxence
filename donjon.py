@@ -1,4 +1,5 @@
 #Quoicoubesque group
+#modif test
 from tkinter import *
 from Visuel.transition import *
 from Visuel.printThings import *
@@ -42,9 +43,8 @@ def transLeftLink() :
 def transRightLink() :
     transRight(screen,screenWidth,screenHeight)
 
-def move(direction) :
-    print(direction)
-    printThings(screen,grassTexture,divisionSize,Xposition,Yposition)
+def move(direction,Xposition,Yposition,area) :
+    printThings(screen,area[Yposition][Xposition],divisionSize,Xposition,Yposition)
     match direction :
         case "up" :
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition-1)
@@ -62,15 +62,23 @@ def menu() :
     screen.create_rectangle(screenWidth//4,8*indexThickness,screenWidth*3//4,9*indexThickness,outline = borderColor,width = 3,fill="#D36221")
     screen.create_text(screenWidth//2,(8.5*indexThickness)//1,text = "Jouer",font = labelStyle)
     screen.create_rectangle(screenWidth//4,10*indexThickness,screenWidth*3//4,11*indexThickness,outline = borderColor,width = 3,fill="#994514")
-    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramétre",font = labelStyle)
+    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramètres",font = labelStyle)
     screen.create_rectangle(screenWidth//4,12*indexThickness,screenWidth*3//4,13*indexThickness,outline = borderColor,width = 3,fill="#57270B")
     screen.create_text(screenWidth//2,(12.5*indexThickness)//1,text = "Sortir",font = labelStyle)
 
 def printStart() :
-    startArea = [["grass" for _ in range(maxX)] for _ in range(maxY)]
+    global startArea
+    startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
+    #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
     printArea(screen,startArea,maxX,maxY,divisionSize)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
-    #printThings(screen,crateTexture,divisionSize,1,1)
+    '''printThings(screen,chestTexture,divisionSize,1,1)
+    printThings(screen,torchTexture,divisionSize,1,2)
+    printThings(screen,roundPotionTexture,divisionSize,1,3)
+    printThings(screen,squarePotionTexture,divisionSize,1,4)
+    printThings(screen,trianglePotionTexture,divisionSize,1,5)
+    printThings(screen,upsideDownTrianglePotionTexture,divisionSize,1,6)'''
+
 
 
 def printSettings() :
@@ -83,8 +91,7 @@ def clickSituation(event) :
     global state
     global Xposition
     global Yposition
-    Xposition = 0
-    Yposition = 0
+    global startArea
     match state :
         case "menu" :
             if Xaxe > screenWidth//4 and Xaxe < 3*screenWidth//4 :
@@ -101,7 +108,20 @@ def clickSituation(event) :
                         state = "exit"
         case "play" :
             #print(Yindex," - ",Yposition)
-            arrowMove(event)
+            if Xindex == Xposition :
+                if Yindex > Yposition :
+                    move("down",Xposition,Yposition, startArea)
+                    Yposition += 1
+                elif Yindex < Yposition : 
+                    move("up",Xposition,Yposition, startArea)
+                    Yposition -= 1
+            elif Yindex == Yposition :
+                if Xindex > Xposition :
+                    move("right",Xposition,Yposition, startArea)
+                    Xposition += 1
+                else :
+                    move("left",Xposition,Yposition, startArea)
+                    Xposition -= 1
 
 def arrowMove(event) :
     global Xposition
