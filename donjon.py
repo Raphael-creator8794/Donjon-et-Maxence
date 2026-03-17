@@ -1,9 +1,9 @@
 #Quoicoubesque group
 #modif test
 from tkinter import *
-from transition import *
-from printThings import *
-from texturePack import *
+from Visuel.transition import *
+from Visuel.printThings import *
+from Visuel.texturePack import *
 
 # Global variable
 screenWidth = 800
@@ -17,7 +17,8 @@ borderColor = "#FFFFFF"
 writtingStyle = "Verdana"
 labelStyle = (writtingStyle,"13")
 state = "menu"
-
+Xposition = (maxX-1)//2
+Yposition = (maxY-1)//2
 # Test variable
 testPlayer = [
     [None,None,None,None,None,None,None,None],
@@ -100,35 +101,36 @@ def clickSituation(event) :
                         state = "play"
                         transUpLink()
                         printStart()
-                        Xposition = (maxX-1)//2
-                        Yposition = (maxY-1)//2
                     case 10 :
                         state = "settings"
                     case 12 :
                         window.destroy()
                         state = "exit"
         case "play" :
-            Xindex = Xaxe//divisionSize
-            Yindex = Yaxe//divisionSize
-            #print(Yindex," - ",Yposition)
-            if Xindex == Xposition :
-                if Yindex > Yposition :
-                    move("down",Xposition,Yposition, startArea)
-                    Yposition += 1
-                elif Yindex < Yposition : 
-                    move("up",Xposition,Yposition, startArea)
-                    Yposition -= 1
-            elif Yindex == Yposition :
-                if Xindex > Xposition :
-                    move("right",Xposition,Yposition, startArea)
-                    Xposition += 1
-                else :
-                    move("left",Xposition,Yposition, startArea)
-                    Xposition -= 1
+            arrowMove(event)
 
 def arrowMove(event) :
-    print(repr(event.char))
-
+    global Xposition
+    global Yposition
+    global startArea
+    if state == "play":
+        dir = str(repr(event.char)).lower()
+        if dir == "'z'":
+            if Yposition > 0:
+                move("up",Xposition,Yposition, startArea)
+                Yposition -= 1
+        if dir == "'q'":
+            if Xposition > 0:
+                move("left",Xposition,Yposition, startArea)
+                Xposition -= 1
+        if dir == "'s'":
+            if Yposition < maxY-1:
+                move("down",Xposition,Yposition, startArea)
+                Yposition += 1
+        if dir == "'d'":
+            if Xposition < maxX-1:
+                move("right",Xposition,Yposition, startArea)
+                Xposition += 1
 def printHey() :
     print("Hey !")
 
