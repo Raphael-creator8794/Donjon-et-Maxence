@@ -107,6 +107,8 @@ def clickSituation(event) :
                         window.destroy()
                         state = "exit"
         case "play" :
+            Xindex = Xaxe//divisionSize
+            Yindex = Yaxe//divisionSize
             #print(Yindex," - ",Yposition)
             if Xindex == Xposition :
                 if Yindex > Yposition :

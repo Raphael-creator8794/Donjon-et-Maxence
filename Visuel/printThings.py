@@ -1,7 +1,7 @@
 #Quoicoubesque group
 from tkinter import *
 from random import randint
-from texturePack import *
+from Visuel.texturePack import *
 
 #--- Main Function ----------------------------------------------------------------------
 '''----- printThings -----------
