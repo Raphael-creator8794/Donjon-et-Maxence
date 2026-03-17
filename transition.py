@@ -87,7 +87,7 @@ def printArea(screen,areaBlocks,maxX,maxY,divisionSize) :
             lastCall = time()
             while (time() - lastCall < delay) :
                 continue
-            printThings(screen,matchTexture[areaBlocks[i][j]],divisionSize,j,i)
+            printThings(screen,areaBlocks[i][j],divisionSize,j,i)
             screen.update_idletasks()
 
 if __name__ == "__main__" :
