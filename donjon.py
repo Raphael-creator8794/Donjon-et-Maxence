@@ -16,6 +16,8 @@ borderColor = "#FFFFFF"
 writtingStyle = "Verdana"
 labelStyle = (writtingStyle,"13")
 state = "menu"
+global Xposition
+global Yposition
 
 # Test variable
 testPlayer = [
@@ -80,10 +82,7 @@ def clickSituation(event) :
     Xaxe = event.x
     Yaxe = event.y
     global state
-    global Xposition
-    global Yposition
-    Xposition = 0
-    Yposition = 0
+
     match state :
         case "menu" :
             if Xaxe > screenWidth//4 and Xaxe < 3*screenWidth//4 :
@@ -105,6 +104,8 @@ def clickSituation(event) :
             arrowMove(event)
 
 def arrowMove(event) :
+    print(Xposition)
+    print(Yposition) # pas bien défini regarder où est-ce qu'elle prend une valeur
     if state == "play":
         dir = str(repr(event.char)).lower()
         if dir == "'z'":
