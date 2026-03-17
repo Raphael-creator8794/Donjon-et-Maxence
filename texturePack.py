@@ -14,9 +14,11 @@ grey = "#474646"
 gold = "#F8DC0B"
 darkRed = "#8C3113"
 darkBlue = "#2B0D71"
-lightBlue = "#ABF2FF"
+glass = "#D4F6FC"
 neonGreen = "#00FF00"
-neonBlue = "#0000FF"
+neonBlue = "#006EFF"
+neonPink = "#FF00FF"
+neonPurple = "#AE00FF"
 
 '''----- verifTexture -----------
 > -- Objectif -- :
@@ -74,7 +76,7 @@ grassTexture = [
 ]
 verifTexture(grassTexture)
 
-crateTexture =  [
+chestTexture =  [
     [None,None,None,None,None,None,None,None],
     [None,None,None,None,None,None,None,None],
     [None,brown,brown,brown,brown,brown,brown,None],
@@ -84,7 +86,7 @@ crateTexture =  [
     [None,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,lightBrown,None],
     [None,None,None,None,None,None,None,None]
 ]
-verifTexture(crateTexture)
+verifTexture(chestTexture)
 
 torchTexture =  [
     [None,darkRed,None,orange,orange,None,None,darkRed],
@@ -101,14 +103,50 @@ verifTexture(torchTexture)
 roundPotionTexture =  [
     [None,None,None,None,None,None,None,None],
     [None,None,None,brown,brown,None,None,None],
-    [None,None,None,lightBlue,lightBlue,None,None,None],
-    [None,None,lightBlue,lightBlue,lightBlue,lightBlue,None,None],
-    [None,lightBlue,neonGreen,neonGreen,neonGreen,neonGreen,lightBlue,None],
-    [None,lightBlue,neonGreen,neonGreen,neonGreen,neonGreen,lightBlue,None],
-    [None,None,lightBlue,neonGreen,neonGreen,lightBlue,None,None],
-    [None,None,None,lightBlue,lightBlue,None,None,None]
+    [None,None,None,glass,glass,None,None,None],
+    [None,None,glass,glass,glass,glass,None,None],
+    [None,glass,neonBlue,neonBlue,neonBlue,neonBlue,glass,None],
+    [None,glass,neonBlue,neonBlue,neonBlue,neonBlue,glass,None],
+    [None,None,glass,neonBlue,neonBlue,glass,None,None],
+    [None,None,None,glass,glass,None,None,None]
 ]
 verifTexture(roundPotionTexture)
+
+squarePotionTexture =  [
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,brown,brown,None,None,None],
+    [None,None,None,glass,glass,None,None,None],
+    [None,glass,glass,glass,glass,glass,glass,None],
+    [None,glass,neonPink,neonPink,neonPink,neonPink,glass,None],
+    [None,glass,neonPink,neonPink,neonPink,neonPink,glass,None],
+    [None,glass,neonPink,neonPink,neonPink,neonPink,glass,None],
+    [None,glass,glass,glass,glass,glass,glass,None]
+]
+verifTexture(squarePotionTexture)
+
+trianglePotionTexture =  [
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,brown,brown,None,None,None],
+    [None,None,None,glass,glass,None,None,None],
+    [None,None,glass,glass,glass,glass,None,None],
+    [None,glass,neonGreen,neonGreen,neonGreen,neonGreen,glass,None],
+    [glass,neonGreen,neonGreen,neonGreen,neonGreen,neonGreen,neonGreen,glass],
+    [glass,glass,glass,glass,glass,glass,glass,glass]
+]
+verifTexture(trianglePotionTexture)
+
+upsideDownTrianglePotionTexture =  [
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,brown,brown,None,None,None],
+    [None,None,None,glass,glass,None,None,None],
+    [glass,glass,glass,glass,glass,glass,glass,glass],
+    [glass,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,glass],
+    [None,glass,neonPurple,neonPurple,neonPurple,neonPurple,glass,None],
+    [None,None,glass,neonPurple,neonPurple,glass,None,None],
+    [None,None,None,glass,glass,None,None,None]
+]
+verifTexture(upsideDownTrianglePotionTexture)
 
 def singleCarpet(color):
     carpetTexture =  [

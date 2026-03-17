@@ -68,12 +68,16 @@ def menu() :
 def printStart() :
     global startArea
     startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
-    createCarpet(startArea, 8, 8, 10, 11, darkBlue)
+    #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
     printArea(screen,startArea,maxX,maxY,divisionSize)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
-    printThings(screen,crateTexture,divisionSize,1,1)
+    '''printThings(screen,chestTexture,divisionSize,1,1)
     printThings(screen,torchTexture,divisionSize,1,2)
     printThings(screen,roundPotionTexture,divisionSize,1,3)
+    printThings(screen,squarePotionTexture,divisionSize,1,4)
+    printThings(screen,trianglePotionTexture,divisionSize,1,5)
+    printThings(screen,upsideDownTrianglePotionTexture,divisionSize,1,6)'''
+
 
 
 def printSettings() :
