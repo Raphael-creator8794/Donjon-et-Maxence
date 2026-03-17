@@ -42,8 +42,8 @@ def transLeftLink() :
 def transRightLink() :
     transRight(screen,screenWidth,screenHeight)
 
-def move(direction,Xposition,Yposition) :
-    printThings(screen,grassTexture,divisionSize,Xposition,Yposition)
+def move(direction,Xposition,Yposition,area) :
+    printThings(screen,area[Yposition][Xposition],divisionSize,Xposition,Yposition)
     match direction :
         case "up" :
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition-1)
@@ -66,10 +66,14 @@ def menu() :
     screen.create_text(screenWidth//2,(12.5*indexThickness)//1,text = "Sortir",font = labelStyle)
 
 def printStart() :
-    startArea = [["grass" for _ in range(maxX)] for _ in range(maxY)]
+    global startArea
+    startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
+    createCarpet(startArea, 8, 8, 10, 11, darkBlue)
     printArea(screen,startArea,maxX,maxY,divisionSize)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
     printThings(screen,crateTexture,divisionSize,1,1)
+    printThings(screen,torchTexture,divisionSize,1,2)
+    printThings(screen,roundPotionTexture,divisionSize,1,3)
 
 
 def printSettings() :
@@ -82,6 +86,7 @@ def clickSituation(event) :
     global state
     global Xposition
     global Yposition
+    global startArea
     match state :
         case "menu" :
             if Xaxe > screenWidth//4 and Xaxe < 3*screenWidth//4 :
@@ -104,17 +109,17 @@ def clickSituation(event) :
             #print(Yindex," - ",Yposition)
             if Xindex == Xposition :
                 if Yindex > Yposition :
-                    move("down",Xposition,Yposition)
+                    move("down",Xposition,Yposition, startArea)
                     Yposition += 1
                 elif Yindex < Yposition : 
-                    move("up",Xposition,Yposition)
+                    move("up",Xposition,Yposition, startArea)
                     Yposition -= 1
             elif Yindex == Yposition :
                 if Xindex > Xposition :
-                    move("right",Xposition,Yposition)
+                    move("right",Xposition,Yposition, startArea)
                     Xposition += 1
                 else :
-                    move("left",Xposition,Yposition)
+                    move("left",Xposition,Yposition, startArea)
                     Xposition -= 1
 
 def arrowMove(event) :

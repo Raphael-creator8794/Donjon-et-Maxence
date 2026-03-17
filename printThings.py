@@ -1,19 +1,7 @@
 #Quoicoubesque group
 from tkinter import *
 from random import randint
-
-backgroundColor = "#D2DF89"
-black = "#000000"
-white = "#FFFFFF"
-purple = "#440439"
-orange = "#F78012"
-lightGreen = "#00BE49"
-green = "#008132"
-darkGreen = "#003D0F"
-brown = "#2E2106"
-lightBrown = "#694703"
-grey = "#A6A3A3"
-gold = "#F8DC0B"
+from texturePack import *
 
 #--- Main Function ----------------------------------------------------------------------
 '''----- printThings -----------
@@ -39,14 +27,35 @@ def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
                 # Creer un pixel à la position i,j de la couleur de la case i,j de pixelGrid
                 screen.create_rectangle(Xindex*divisionSize+j*pixelSize,Yindex*divisionSize+i*pixelSize,Xindex*divisionSize+(j+1)*pixelSize,Yindex*divisionSize+(i+1)*pixelSize,width = 0,fill = pixelGrid[i][j])
 
-def printMap(screen,roomProperties,visitedRoom,isFull,screenWidth,screenHeight):
-    factor = 0.2 + 0.8*isFull
-    start = isFull*(screenWidth*0.8)
-    screen.create_rectangle(start,0,screenWidth,screenHeight*factor,fill = black)
-    for i in range(len(visitedRoom)) :
-        if visitedRoom[i] :
-            screen.create_rectangle(start
-        
+def createCarpet(area, x1, y1, x2, y2, color):
+    rows = y2 - y1
+    columns = x2 - x1
+    if rows == 0 and columns == 0:
+        area[y1][x1] = singleCarpet(color)
+    elif rows == 0:
+        area[y1][x1] = leftCarpet(color)
+        for i in range (x1 + 1, x2):
+            area[y1][i] = horizontalCarpet(color)
+        area[y1][x2] = rightCarpet(color)
+    elif columns == 0:
+        area[y1][x1] = topCarpet(color)
+        for i in range (y1 + 1, y2):
+            area[i][x1] = verticalCarpet(color)
+        area[y2][x1] = bottomCarpet(color)
+    else:
+        area[y1][x1] = topLeftCarpet(color)
+        area[y1][x2] = topRightCarpet(color)
+        area[y2][x2] = bottomRightCarpet(color)
+        area[y2][x1] = bottomLeftCarpet(color)
+        for i in range (x1 + 1, x2):
+            area[y1][i] = topSideCarpet(color)
+            area[y2][i] = bottomSideCarpet(color)
+        for i in range (y1 + 1, y2):
+            area[i][x1] = leftSideCarpet(color)
+            area[i][x2] = rightSideCarpet(color)
+        for i in range (x1 + 1, x2):
+            for j in range (y1 + 1, y2):
+                area[j][i] = middleCarpet(color)
 
 if __name__ == "__main__" :
 

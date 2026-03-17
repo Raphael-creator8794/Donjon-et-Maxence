@@ -141,8 +141,8 @@ def printArea(screen,areaBlocks,maxX,maxY,divisionSize) :
             while (time() - lastCall < delay) :
                 # On attend d'avoir attendu assez longtemps
                 continue
-            printThings(screen,matchTexture[areaBlocks[i][j]],divisionSize,j,i)
-            screen.update_idletasks() #Actualiser la fenetre
+            printThings(screen,areaBlocks[i][j],divisionSize,j,i)
+            screen.update_idletasks()
 
 if __name__ == "__main__" :
 
