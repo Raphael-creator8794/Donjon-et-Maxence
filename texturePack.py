@@ -18,6 +18,15 @@ lightBlue = "#ABF2FF"
 neonGreen = "#00FF00"
 neonBlue = "#0000FF"
 
+'''----- verifTexture -----------
+> -- Objectif -- :
+    Cette fonction na pas de but utile. Elle ne fais que lever une interuption dans le cas où le format ne correspond pas aux attentes.
+    Est utile pour les développeur.
+> -- Paramètre -- :
+    texture : /list/ La grille a vérifier
+> -- Retourne -- :
+    Rien
+'''
 def verifTexture(texture) :
     if type(texture) != list :
         raise Exception("Is not a list")
@@ -328,4 +337,5 @@ def bottomLeftCarpet(color):
 
 matchTexture = {
     "grass" : grassTexture
+
 }
