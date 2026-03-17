@@ -16,7 +16,8 @@ borderColor = "#FFFFFF"
 writtingStyle = "Verdana"
 labelStyle = (writtingStyle,"13")
 state = "menu"
-
+Xposition = (maxX-1)//2
+Yposition = (maxY-1)//2
 # Test variable
 testPlayer = [
     [None,None,None,None,None,None,None,None],
@@ -41,7 +42,7 @@ def transLeftLink() :
 def transRightLink() :
     transRight(screen,screenWidth,screenHeight)
 
-def move(direction,Xposition,Yposition) :
+def move(direction) :
     print(direction)
     printThings(screen,grassTexture,divisionSize,Xposition,Yposition)
     match direction :
@@ -93,8 +94,6 @@ def clickSituation(event) :
                         state = "play"
                         transUpLink()
                         printStart()
-                        Xposition = (maxX-1)//2
-                        Yposition = (maxY-1)//2
                     case 10 :
                         state = "settings"
                     case 12 :
@@ -105,19 +104,21 @@ def clickSituation(event) :
             arrowMove(event)
 
 def arrowMove(event) :
+    global Xposition
+    global Yposition
     if state == "play":
         dir = str(repr(event.char)).lower()
         if dir == "'z'":
-            move("up",Xposition,Yposition)
+            move("up")
             Yposition += 1
         if dir == "'q'":
-            move("left",Xposition,Yposition)
+            move("left")
             Xposition -= 1
         if dir == "'s'":
-            move("down",Xposition,Yposition)
+            move("down")
             Yposition -= 1
         if dir == "'d'":
-            move("right",Xposition,Yposition)
+            move("right")
             Xposition += 1
 def printHey() :
     print("Hey !")
