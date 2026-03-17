@@ -107,40 +107,25 @@ def clickSituation(event) :
                         window.destroy()
                         state = "exit"
         case "play" :
-            Xindex = Xaxe//divisionSize
-            Yindex = Yaxe//divisionSize
-            #print(Yindex," - ",Yposition)
-            if Xindex == Xposition :
-                if Yindex > Yposition :
-                    move("down",Xposition,Yposition, startArea)
-                    Yposition += 1
-                elif Yindex < Yposition : 
-                    move("up",Xposition,Yposition, startArea)
-                    Yposition -= 1
-            elif Yindex == Yposition :
-                if Xindex > Xposition :
-                    move("right",Xposition,Yposition, startArea)
-                    Xposition += 1
-                else :
-                    move("left",Xposition,Yposition, startArea)
-                    Xposition -= 1
+            arrowMove(event)
 
 def arrowMove(event) :
     global Xposition
     global Yposition
+    global startArea
     if state == "play":
         dir = str(repr(event.char)).lower()
         if dir == "'z'":
-            move("up")
+            move("up",Xposition,Yposition, startArea)
             Yposition += 1
         if dir == "'q'":
-            move("left")
+            move("left",Xposition,Yposition, startArea)
             Xposition -= 1
         if dir == "'s'":
-            move("down")
+            move("down",Xposition,Yposition, startArea)
             Yposition -= 1
         if dir == "'d'":
-            move("right")
+            move("right",Xposition,Yposition, startArea)
             Xposition += 1
 def printHey() :
     print("Hey !")
