@@ -116,17 +116,21 @@ def arrowMove(event) :
     if state == "play":
         dir = str(repr(event.char)).lower()
         if dir == "'z'":
-            move("up",Xposition,Yposition, startArea)
-            Yposition += 1
+            if Yposition > 0:
+                move("up",Xposition,Yposition, startArea)
+                Yposition -= 1
         if dir == "'q'":
-            move("left",Xposition,Yposition, startArea)
-            Xposition -= 1
+            if Xposition > 0:
+                move("left",Xposition,Yposition, startArea)
+                Xposition -= 1
         if dir == "'s'":
-            move("down",Xposition,Yposition, startArea)
-            Yposition -= 1
+            if Yposition < maxY-1:
+                move("down",Xposition,Yposition, startArea)
+                Yposition += 1
         if dir == "'d'":
-            move("right",Xposition,Yposition, startArea)
-            Xposition += 1
+            if Xposition < maxX-1:
+                move("right",Xposition,Yposition, startArea)
+                Xposition += 1
 def printHey() :
     print("Hey !")
 
