@@ -40,15 +40,13 @@ def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
                 # Creer un pixel à la position i,j de la couleur de la case i,j de pixelGrid
                 screen.create_rectangle(Xindex*divisionSize+j*pixelSize,Yindex*divisionSize+i*pixelSize,Xindex*divisionSize+(j+1)*pixelSize,Yindex*divisionSize+(i+1)*pixelSize,width = 0,fill = pixelGrid[i][j])
 
-'''----- printThings -----------
+'''----- printMenu -----------
 > -- Objectif -- :
-    Afficher à une certaine position un objet.
+    Afficher l'ecran l'accueil
 > -- Paramètre -- :
     screen : /Canvas/ Le canva sur lequel on affiche l'objet
-    pixelGrid : /list/ La couleur de chaque pixel de l'objet
-    divisionSize : /int/ La taille de la case où affiche l'objet
-    Xindex : /int/ La position horizontal de l'ojet
-    Yindex : /int/ La position vertical de l'ojet
+    screenWidth : /int/ La largeur du canva
+    screenHeight : /int/ La hauteur du canva
 > -- Retourne -- :
     Rien
 '''
