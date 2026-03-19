@@ -54,17 +54,6 @@ def move(direction,Xposition,Yposition) :
         case "right" :
             printThings(screen,playerTexture,divisionSize,Xposition+1,Yposition)
 
-def menu() :
-    screen.delete("all")
-    screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill="#D36221")
-    indexThickness = screenHeight//nbIndex
-    screen.create_rectangle(screenWidth//4,8*indexThickness,screenWidth*3//4,9*indexThickness,outline = borderColor,width = 3,fill="#D36221")
-    screen.create_text(screenWidth//2,(8.5*indexThickness)//1,text = "Jouer",font = labelStyle)
-    screen.create_rectangle(screenWidth//4,10*indexThickness,screenWidth*3//4,11*indexThickness,outline = borderColor,width = 3,fill="#994514")
-    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramétre",font = labelStyle)
-    screen.create_rectangle(screenWidth//4,12*indexThickness,screenWidth*3//4,13*indexThickness,outline = borderColor,width = 3,fill="#57270B")
-    screen.create_text(screenWidth//2,(12.5*indexThickness)//1,text = "Sortir",font = labelStyle)
-
 def printStart() :
     startArea = [["grass" for _ in range(maxX)] for _ in range(maxY)]
     printArea(screen,startArea,maxX,maxY,divisionSize)
@@ -130,16 +119,8 @@ window.config(bg = "#888888")
 
 screen = Canvas(window,height = screenHeight,width = screenWidth,bg = backgroundColor)
 screen.place(x = 0,y = 0)
-"""upButton = Button(window,text = "up",command = transUpLink)
-upButton.place(x = 430,y = 0)
-downButton = Button(window,text = "down",command = transDownLink)
-downButton.place(x = 430,y = 60)
-leftButton = Button(window,text = "left",command = transLeftLink)
-leftButton.place(x = 400,y = 30)
-rightButton = Button(window,text = "right",command = transRightLink)
-rightButton.place(x = 460,y = 30)"""
 screen.delete("all")
-menu()
+printMenu()
 screen.bind("<Button-1>", clickSituation )
 screen.bind("<Button-2>", printHey)
 window.bind("<Key>", arrowMove )
