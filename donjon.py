@@ -11,11 +11,7 @@ screenHeight = 600
 divisionSize = 50
 maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
-nbIndex = 20
 backgroundColor = "#D2DF89"
-borderColor = "#FFFFFF"
-writtingStyle = "Verdana"
-labelStyle = (writtingStyle,"13")
 state = "menu"
 
 # Test variable
