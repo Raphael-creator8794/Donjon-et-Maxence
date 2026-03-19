@@ -12,7 +12,6 @@ green = "#008132"
 darkGreen = "#003D0F"
 brown = "#2E2106"
 
-#--- Main Function ----------------------------------------------------------------------
 '''----- printThings -----------
 > -- Objectif -- :
     Afficher à une certaine position un objet.
@@ -35,6 +34,29 @@ def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
             else :
                 # Creer un pixel à la position i,j de la couleur de la case i,j de pixelGrid
                 screen.create_rectangle(Xindex*divisionSize+j*pixelSize,Yindex*divisionSize+i*pixelSize,Xindex*divisionSize+(j+1)*pixelSize,Yindex*divisionSize+(i+1)*pixelSize,width = 0,fill = pixelGrid[i][j])
+
+'''----- printThings -----------
+> -- Objectif -- :
+    Afficher à une certaine position un objet.
+> -- Paramètre -- :
+    screen : /Canvas/ Le canva sur lequel on affiche l'objet
+    pixelGrid : /list/ La couleur de chaque pixel de l'objet
+    divisionSize : /int/ La taille de la case où affiche l'objet
+    Xindex : /int/ La position horizontal de l'ojet
+    Yindex : /int/ La position vertical de l'ojet
+> -- Retourne -- :
+    Rien
+'''
+def printMenu(screen,screenWidth,screenHeight) :
+    screen.delete("all")
+    screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill="#D36221")
+    indexThickness = screenHeight//nbIndex
+    screen.create_rectangle(screenWidth//4,8*indexThickness,screenWidth*3//4,9*indexThickness,outline = borderColor,width = 3,fill="#D36221")
+    screen.create_text(screenWidth//2,(8.5*indexThickness)//1,text = "Jouer",font = labelStyle)
+    screen.create_rectangle(screenWidth//4,10*indexThickness,screenWidth*3//4,11*indexThickness,outline = borderColor,width = 3,fill="#994514")
+    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramétre",font = labelStyle)
+    screen.create_rectangle(screenWidth//4,12*indexThickness,screenWidth*3//4,13*indexThickness,outline = borderColor,width = 3,fill="#57270B")
+    screen.create_text(screenWidth//2,(12.5*indexThickness)//1,text = "Sortir",font = labelStyle)
 
 if __name__ == "__main__" :
 
