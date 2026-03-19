@@ -12,6 +12,11 @@ green = "#008132"
 darkGreen = "#003D0F"
 brown = "#2E2106"
 
+nbIndex = 20
+borderColor = "#FFFFFF"
+writtingStyle = "Verdana"
+labelStyle = (writtingStyle,"13")
+
 '''----- printThings -----------
 > -- Objectif -- :
     Afficher à une certaine position un objet.
