@@ -17,7 +17,7 @@ from Visuel.texturePack import *
     Rien
 '''
 def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
-    pixelSize = divisionSize//8
+    pixelSize = divisionSize/8
     for i in range(8) :
         for j in range(8) :
             if pixelGrid[i][j] == None :

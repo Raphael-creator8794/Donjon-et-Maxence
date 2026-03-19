@@ -4,6 +4,7 @@ from tkinter import *
 from Visuel.transition import *
 from Visuel.printThings import *
 from Visuel.texturePack import *
+from Inventory import *
 
 # Global variable
 screenWidth = 800
@@ -19,6 +20,7 @@ labelStyle = (writtingStyle,"13")
 state = "menu"
 Xposition = (maxX-1)//2
 Yposition = (maxY-1)//2
+iClicked = False
 # Test variable
 testPlayer = [
     [None,None,None,None,None,None,None,None],
@@ -107,12 +109,13 @@ def clickSituation(event) :
                         window.destroy()
                         state = "exit"
         case "play" :
-            arrowMove(event)
+            pass #arrowMove(event)
 
-def arrowMove(event) :
+def keySituation(event) :
     global Xposition
     global Yposition
     global startArea
+    global iClicked
     if state == "play":
         dir = str(repr(event.char)).lower()
         if dir == "'z'":
@@ -131,6 +134,10 @@ def arrowMove(event) :
             if Xposition < maxX-1:
                 move("right",Xposition,Yposition, startArea)
                 Xposition += 1
+        if dir == "'i'" :
+            iClicked = not(iClicked)
+            seeInventory(window, iClicked)
+
 def printHey() :
     print("Hey !")
 
@@ -153,5 +160,5 @@ screen.delete("all")
 menu()
 screen.bind("<Button-1>", clickSituation )
 screen.bind("<Button-2>", printHey)
-window.bind("<Key>", arrowMove )
+window.bind("<Key>", keySituation )
 window.mainloop()
