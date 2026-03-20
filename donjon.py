@@ -166,11 +166,7 @@ def colision(niveau):
         else:
             Xmoveright = True
     return Xmoveright,Xmoveleft,YmoveUp,YmoveDown
-def movablenotmovableObjects(movable,niveau):
-    if movable == False:
-        colision(niveau)
-    if movable == True:
-        pass
+
 
 window = Tk()
 window.title("Donjon")
