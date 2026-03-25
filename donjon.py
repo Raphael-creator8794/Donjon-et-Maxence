@@ -1,8 +1,10 @@
 #Quoicoubesque group
+#modif test
 from tkinter import *
 from Visuel.transition import *
 from Visuel.printThings import *
 from Visuel.texturePack import *
+from Inventory import *
 
 # Global variable
 screenWidth = 800
@@ -16,9 +18,9 @@ borderColor = "#FFFFFF"
 writtingStyle = "Verdana"
 labelStyle = (writtingStyle,"13")
 state = "menu"
-global Xposition
-global Yposition
-
+Xposition = (maxX-1)//2
+Yposition = (maxY-1)//2
+iClicked = False
 # Test variable
 testPlayer = [
     [None,None,None,None,None,None,None,None],
@@ -43,9 +45,8 @@ def transLeftLink() :
 def transRightLink() :
     transRight(screen,screenWidth,screenHeight)
 
-def move(direction,Xposition,Yposition) :
-    print(direction)
-    printThings(screen,grassTexture,divisionSize,Xposition,Yposition)
+def move(direction,Xposition,Yposition,area) :
+    printThings(screen,area[Yposition][Xposition],divisionSize,Xposition,Yposition)
     match direction :
         case "up" :
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition-1)
@@ -63,15 +64,23 @@ def menu() :
     screen.create_rectangle(screenWidth//4,8*indexThickness,screenWidth*3//4,9*indexThickness,outline = borderColor,width = 3,fill="#D36221")
     screen.create_text(screenWidth//2,(8.5*indexThickness)//1,text = "Jouer",font = labelStyle)
     screen.create_rectangle(screenWidth//4,10*indexThickness,screenWidth*3//4,11*indexThickness,outline = borderColor,width = 3,fill="#994514")
-    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramétre",font = labelStyle)
+    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramètres",font = labelStyle)
     screen.create_rectangle(screenWidth//4,12*indexThickness,screenWidth*3//4,13*indexThickness,outline = borderColor,width = 3,fill="#57270B")
     screen.create_text(screenWidth//2,(12.5*indexThickness)//1,text = "Sortir",font = labelStyle)
 
 def printStart() :
-    startArea = [["grass" for _ in range(maxX)] for _ in range(maxY)]
+    global startArea
+    startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
+    #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
     printArea(screen,startArea,maxX,maxY,divisionSize)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
-    #printThings(screen,crateTexture,divisionSize,1,1)
+    '''printThings(screen,chestTexture,divisionSize,1,1)
+    printThings(screen,torchTexture,divisionSize,1,2)
+    printThings(screen,roundPotionTexture,divisionSize,1,3)
+    printThings(screen,squarePotionTexture,divisionSize,1,4)
+    printThings(screen,trianglePotionTexture,divisionSize,1,5)
+    printThings(screen,upsideDownTrianglePotionTexture,divisionSize,1,6)'''
+
 
 
 def printSettings() :
@@ -82,7 +91,10 @@ def clickSituation(event) :
     Xaxe = event.x
     Yaxe = event.y
     global state
-
+    global Xposition
+    global Yposition
+    Xposition = 0
+    Yposition = 0
     match state :
         case "menu" :
             if Xaxe > screenWidth//4 and Xaxe < 3*screenWidth//4 :
@@ -92,34 +104,37 @@ def clickSituation(event) :
                         state = "play"
                         transUpLink()
                         printStart()
-                        Xposition = (maxX-1)//2
-                        Yposition = (maxY-1)//2
                     case 10 :
                         state = "settings"
                     case 12 :
                         window.destroy()
                         state = "exit"
         case "play" :
-            #print(Yindex," - ",Yposition)
-            arrowMove(event)
+            pass #arrowMove(event)
 
 def arrowMove(event) :
-    print(Xposition)
-    print(Yposition) # pas bien défini regarder où est-ce qu'elle prend une valeur
     if state == "play":
         dir = str(repr(event.char)).lower()
         if dir == "'z'":
-            move("up",Xposition,Yposition)
-            Yposition += 1
+            if Yposition > 0:
+                move("up",Xposition,Yposition, startArea)
+                Yposition -= 1
         if dir == "'q'":
-            move("left",Xposition,Yposition)
-            Xposition -= 1
+            if Xposition > 0:
+                move("left",Xposition,Yposition, startArea)
+                Xposition -= 1
         if dir == "'s'":
-            move("down",Xposition,Yposition)
-            Yposition -= 1
+            if Yposition < maxY-1:
+                move("down",Xposition,Yposition, startArea)
+                Yposition += 1
         if dir == "'d'":
-            move("right",Xposition,Yposition)
-            Xposition += 1
+            if Xposition < maxX-1:
+                move("right",Xposition,Yposition, startArea)
+                Xposition += 1
+        if dir == "'i'" :
+            iClicked = not(iClicked)
+            seeInventory(window, iClicked)
+
 def printHey() :
     print("Hey !")
 
@@ -142,5 +157,5 @@ screen.delete("all")
 menu()
 screen.bind("<Button-1>", clickSituation )
 screen.bind("<Button-2>", printHey)
-window.bind("<Key>", arrowMove )
+window.bind("<Key>", keySituation )
 window.mainloop()
