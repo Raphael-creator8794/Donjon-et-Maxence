@@ -113,6 +113,8 @@ def clickSituation(event) :
             pass #arrowMove(event)
 
 def arrowMove(event) :
+    global Xposition
+    global Yposition
     if state == "play":
         dir = str(repr(event.char)).lower()
         if dir == "'z'":
@@ -157,5 +159,5 @@ screen.delete("all")
 menu()
 screen.bind("<Button-1>", clickSituation )
 screen.bind("<Button-2>", printHey)
-window.bind("<Key>", keySituation )
+window.bind("<Key>", arrowMove )
 window.mainloop()
