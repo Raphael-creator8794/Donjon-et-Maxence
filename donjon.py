@@ -5,7 +5,7 @@ from Visuel.transition import *
 from Visuel.printThings import *
 from Visuel.texturePack import *
 from Inventory import *
-
+import json
 # Global variable
 screenWidth = 800
 screenHeight = 600
@@ -21,6 +21,7 @@ state = "menu"
 Xposition = (maxX-1)//2
 Yposition = (maxY-1)//2
 iClicked = False
+level = 1
 # Test variable
 testPlayer = [
     [None,None,None,None,None,None,None,None],
@@ -74,13 +75,13 @@ def printStart() :
     #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
     printArea(screen,startArea,maxX,maxY,divisionSize)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
+    printThings(screen,squarePotionTexture,divisionSize,3,2)
     '''printThings(screen,chestTexture,divisionSize,1,1)
     printThings(screen,torchTexture,divisionSize,1,2)
     printThings(screen,roundPotionTexture,divisionSize,1,3)
     printThings(screen,squarePotionTexture,divisionSize,1,4)
     printThings(screen,trianglePotionTexture,divisionSize,1,5)
     printThings(screen,upsideDownTrianglePotionTexture,divisionSize,1,6)'''
-
 
 
 def printSettings() :
@@ -116,22 +117,23 @@ def keySituation(event) :
     global Yposition
     global startArea
     global iClicked
+    global level
     if state == "play":
         dir = str(repr(event.char)).lower()
         if dir == "'z'":
-            if Yposition > 0:
+            if Yposition > 0 and colision(level)[3] is True:
                 move("up",Xposition,Yposition, startArea)
                 Yposition -= 1
         if dir == "'q'":
-            if Xposition > 0:
+            if Xposition > 0 and colision(level)[1] is True:
                 move("left",Xposition,Yposition, startArea)
                 Xposition -= 1
         if dir == "'s'":
-            if Yposition < maxY-1:
+            if Yposition < maxY-1 and colision(level)[2] is True:
                 move("down",Xposition,Yposition, startArea)
                 Yposition += 1
         if dir == "'d'":
-            if Xposition < maxX-1:
+            if Xposition < maxX-1 and colision(level)[0] is True:
                 move("right",Xposition,Yposition, startArea)
                 Xposition += 1
         if dir == "'i'" :
@@ -140,6 +142,31 @@ def keySituation(event) :
 
 def printHey() :
     print("Hey !")
+
+def colision(niveau):
+    global Xposition
+    global Yposition
+    with open("Jeu.json","r",encoding="utf-8") as fichier:
+        dict = json.load(fichier)
+        le_niveau = dict[str(niveau)]
+        if le_niveau[Yposition-1][Xposition] is True:
+            YmoveDown = False
+        else:
+            YmoveDown = True
+        if le_niveau[Yposition+1][Xposition] is True:
+            YmoveUp = False
+        else:
+            YmoveUp = True
+        if le_niveau[Yposition][Xposition-1] is True:
+            Xmoveleft = False
+        else:
+            Xmoveleft = True
+        if le_niveau[Yposition][Xposition+1] is True:
+            Xmoveright = False
+        else:
+            Xmoveright = True
+    return Xmoveright,Xmoveleft,YmoveUp,YmoveDown
+
 
 window = Tk()
 window.title("Donjon")
