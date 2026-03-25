@@ -72,6 +72,7 @@ def menu() :
 def printStart() :
     global startArea
     startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
+    startArea[3][2] = squarePotionTexture
     #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
     printArea(screen,startArea,maxX,maxY,divisionSize)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
@@ -139,6 +140,16 @@ def keySituation(event) :
         if dir == "'i'" :
             iClicked = not(iClicked)
             seeInventory(window, iClicked)
+
+def modifierjson(Json,X,Y,data,niveau):
+    with open(Json,"r",encoding="utf-8") as fichier:
+        dict = json.load(fichier)
+        listex2 = dict[niveau]
+        listex2[X][Y] = data
+        dict[niveau] = listex2
+    with open(Json,"w",encoding="utf-8") as fichier:
+        json.dump(dict,fichier,indent = 2)
+
 
 def printHey() :
     print("Hey !")
