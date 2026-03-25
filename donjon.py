@@ -149,19 +149,19 @@ def colision(niveau):
     with open("Jeu.json","r",encoding="utf-8") as fichier:
         dict = json.load(fichier)
         le_niveau = dict[str(niveau)]
-        if le_niveau[Yposition-1][Xposition] is True:
+        if le_niveau[Yposition-1][Xposition] is None:
             YmoveDown = False
         else:
             YmoveDown = True
-        if le_niveau[Yposition+1][Xposition] is True:
+        if le_niveau[Yposition+1][Xposition] is None:
             YmoveUp = False
         else:
             YmoveUp = True
-        if le_niveau[Yposition][Xposition-1] is True:
+        if le_niveau[Yposition][Xposition-1] is None:
             Xmoveleft = False
         else:
             Xmoveleft = True
-        if le_niveau[Yposition][Xposition+1] is True:
+        if le_niveau[Yposition][Xposition+1] is None:
             Xmoveright = False
         else:
             Xmoveright = True
