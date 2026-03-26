@@ -2,7 +2,7 @@
 from Visuel.FloatLoop import *
 from tkinter import *
 from json import *
-from Visuel.printThings import *
+from Visuel.PrintThings import *
 from File import *
 #from texturePack import *
 
