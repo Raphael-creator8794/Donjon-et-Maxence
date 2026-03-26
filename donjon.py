@@ -12,11 +12,7 @@ screenHeight = 600
 divisionSize = 50
 maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
-nbIndex = 20
 backgroundColor = "#D2DF89"
-borderColor = "#FFFFFF"
-writtingStyle = "Verdana"
-labelStyle = (writtingStyle,"13")
 state = "menu"
 Xposition = (maxX-1)//2
 Yposition = (maxY-1)//2
@@ -186,16 +182,8 @@ window.config(bg = "#888888")
 
 screen = Canvas(window,height = screenHeight,width = screenWidth,bg = backgroundColor)
 screen.place(x = 0,y = 0)
-"""upButton = Button(window,text = "up",command = transUpLink)
-upButton.place(x = 430,y = 0)
-downButton = Button(window,text = "down",command = transDownLink)
-downButton.place(x = 430,y = 60)
-leftButton = Button(window,text = "left",command = transLeftLink)
-leftButton.place(x = 400,y = 30)
-rightButton = Button(window,text = "right",command = transRightLink)
-rightButton.place(x = 460,y = 30)"""
 screen.delete("all")
-menu()
+printMenu(screen,screenWidth,screenHeight)
 screen.bind("<Button-1>", clickSituation )
 screen.bind("<Button-2>", printHey)
 window.bind("<Key>", keySituation )
