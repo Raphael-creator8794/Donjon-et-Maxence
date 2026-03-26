@@ -1,9 +1,9 @@
 #Quoicoubesque group
 #modif test
 from tkinter import *
-from Visuel.transition import *
-from Visuel.printThings import *
-from Visuel.texturePack import *
+from Visuel.Transition import *
+from Visuel.PrintThings import *
+from Visuel.TexturePack import *
 from Inventory import *
 from Visuel.TextureEditor import *
 import json
