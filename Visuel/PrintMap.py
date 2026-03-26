@@ -1,8 +1,8 @@
 #
 
 from tkinter import *
-from printThings import *
-from texturePack import *
+from PrintThings import *
+from TexturePack import *
 
 def roomsToMap(rooms) :
     map = [[None for _ in range(20)] for _ in range(20)]
