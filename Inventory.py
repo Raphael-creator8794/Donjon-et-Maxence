@@ -1,6 +1,6 @@
 #Quoicoubesque group
 from tkinter import *
-from Visuel.printThings import *
+from Visuel.PrintThings import *
 inventory = []
 def seeInventory(window, iClicked):
     global inventory

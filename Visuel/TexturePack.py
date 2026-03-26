@@ -1,6 +1,5 @@
 #Quoicoubesque group
 from json import *
-
 glass = "#D4F6FC"
 white = "#FFFFFF"
 grey = "#474646"
@@ -379,6 +378,7 @@ def bottomLeftCarpet(color):
     ]
     verifTexture(carpetTexture)
     return carpetTexture
+
 
 with open("PlayersTextures.json","r") as textureBase :
     matchTexture = load(textureBase)
