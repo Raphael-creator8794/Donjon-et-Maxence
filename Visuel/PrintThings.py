@@ -1,7 +1,7 @@
 #Quoicoubesque group
 from tkinter import *
 from random import randint
-from Visuel.texturePack import *
+from Visuel.TexturePack import *
 
 nbIndex = 20
 borderColor = "#FFFFFF"
