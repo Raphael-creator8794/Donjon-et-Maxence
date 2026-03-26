@@ -74,7 +74,7 @@ def printStart() :
     global level
     startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
     #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
-    modifierjson("Jeu.json",3,2,{"squarePotiontexture":True},str(level))
+    modifierjson("Jeu.json",3,2,{"squarePotionTexture":True},str(level))
     printArea(screen,startArea,maxX,maxY,divisionSize)
     with open("Jeu.json","r",encoding="utf-8") as fichier:
         dict = json.load(fichier)
@@ -82,7 +82,6 @@ def printStart() :
         for i in le_niveaux:
             for dico in i:
                 for texture in dico:
-                    print(texture)
                     if texture != "grassTexture":
                         printThings(screen,matchTexture[texture],divisionSize,2,3)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
@@ -136,9 +135,8 @@ def keySituation(event) :
             if dir == "'z'":
                 if Yposition > 0 and colision(level)[3] is True:
                     if deplacable(level)[3] is True:
-                        for cle in le_niveau[Yposition-1][Xposition].keys():
-                            modifierjson("Jeu.json",Yposition-2,Xposition,{str(cle): True},str(level))
-                        modifierjson("Jeu.json",Yposition-1,Xposition,{"grassTexture": False},str(level))
+                        modifierjson("Jeu.json",Yposition-2,Xposition,{list(le_niveau[Yposition-1][Xposition])[0] : True},str(level))
+                        modifierjson("Jeu.json",Yposition-1,Xposition,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
                         printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition-2)
                         printThings(screen,grassTexture,divisionSize,Xposition,Yposition-1)
                     move("up",Xposition,Yposition, startArea)
@@ -146,9 +144,8 @@ def keySituation(event) :
             if dir == "'q'":
                 if Xposition > 0 and colision(level)[1] is True:
                     if deplacable(level)[1]:
-                        for cle in le_niveau[Yposition][Xposition-1].keys():
-                            modifierjson("Jeu.json",Yposition,Xposition-2,{str(cle): True},str(level))
-                        modifierjson("Jeu.json",Yposition,Xposition-1,{"grassTexture": False},str(level))
+                        modifierjson("Jeu.json",Yposition,Xposition-2,{list(le_niveau[Yposition][Xposition-1])[0]: True},str(level))
+                        modifierjson("Jeu.json",Yposition,Xposition-1,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
                         printThings(screen,squarePotionTexture,divisionSize,Xposition-2,Yposition)
                         printThings(screen,grassTexture,divisionSize,Xposition-1,Yposition)
                     move("left",Xposition,Yposition, startArea)
@@ -156,9 +153,8 @@ def keySituation(event) :
             if dir == "'s'":
                 if Yposition < maxY-1 and colision(level)[2] is True:
                     if deplacable(level)[2] is True:
-                        for cle in le_niveau[Yposition+1][Xposition].keys():
-                            modifierjson("Jeu.json",Yposition+2,Xposition,{str(cle): True},str(level))
-                        modifierjson("Jeu.json",Yposition+1,Xposition,{"grassTexture": False},str(level))
+                        modifierjson("Jeu.json",Yposition+2,Xposition,{list(le_niveau[Yposition+1][Xposition])[0]: True},str(level))
+                        modifierjson("Jeu.json",Yposition+1,Xposition,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
                         printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition+2)
                         printThings(screen,grassTexture,divisionSize,Xposition,Yposition+1)
                     move("down",Xposition,Yposition, startArea)
@@ -167,8 +163,8 @@ def keySituation(event) :
                 if Xposition < maxX-1 and colision(level)[0] is True:
                     if deplacable(level)[0] is True:
                         for cle in le_niveau[Yposition][Xposition+2].keys():
-                            modifierjson("Jeu.json",Yposition,Xposition+2,{str(cle): True},str(level))
-                        modifierjson("Jeu.json",Yposition,Xposition+1,{"grassTexture": False},str(level))
+                            modifierjson("Jeu.json",Yposition,Xposition+2,{list(le_niveau[Yposition][Xposition+1])[0]: True},str(level))
+                        modifierjson("Jeu.json",Yposition,Xposition+1,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
                         printThings(screen,squarePotionTexture,divisionSize,Xposition+2,Yposition)
                         printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
                     move("right",Xposition,Yposition, startArea)
