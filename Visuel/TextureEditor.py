@@ -1,19 +1,13 @@
 #
-from FloatLoop import *
+from Visuel.FloatLoop import *
 from tkinter import *
 from json import *
-from printThings import *
+from Visuel.printThings import *
 from File import *
+#from texturePack import *
 
-page = floatLoop(0,0,1)
+page = floatLoop(0,0,2)
 isOpen = False
-topColor = "#5E2B0E"
-middlecolor = "#9C9B46"
-bottomColor = "#D1C97B"
-red = "#D40000"
-white = "#FFFFFF"
-lightGrey = "#B9B9B9"
-black = "#000000"
 actualColor = black
 tool = "brush"
 

@@ -5,7 +5,9 @@ from Visuel.transition import *
 from Visuel.printThings import *
 from Visuel.texturePack import *
 from Inventory import *
+from Visuel.TextureEditor import *
 import json
+
 # Global variable
 screenWidth = 800
 screenHeight = 600
@@ -54,17 +56,6 @@ def move(direction,Xposition,Yposition,area) :
         case "right" :
             printThings(screen,playerTexture,divisionSize,Xposition+1,Yposition)
 
-def menu() :
-    screen.delete("all")
-    screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill="#D36221")
-    indexThickness = screenHeight//nbIndex
-    screen.create_rectangle(screenWidth//4,8*indexThickness,screenWidth*3//4,9*indexThickness,outline = borderColor,width = 3,fill="#D36221")
-    screen.create_text(screenWidth//2,(8.5*indexThickness)//1,text = "Jouer",font = labelStyle)
-    screen.create_rectangle(screenWidth//4,10*indexThickness,screenWidth*3//4,11*indexThickness,outline = borderColor,width = 3,fill="#994514")
-    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramètres",font = labelStyle)
-    screen.create_rectangle(screenWidth//4,12*indexThickness,screenWidth*3//4,13*indexThickness,outline = borderColor,width = 3,fill="#57270B")
-    screen.create_text(screenWidth//2,(12.5*indexThickness)//1,text = "Sortir",font = labelStyle)
-
 def printStart() :
     global startArea
     startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
@@ -102,11 +93,17 @@ def clickSituation(event) :
                         printStart()
                     case 10 :
                         state = "settings"
+                        transDownLink()
+                        printEditor(screen,screenWidth,screenHeight)
                     case 12 :
                         window.destroy()
                         state = "exit"
         case "play" :
             pass #arrowMove(event)
+        case "settings" :
+            if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
+                printMenu(screen,screenWidth,screenHeight)
+                startArea = "menu"
 
 def keySituation(event) :
     global Xposition
@@ -241,7 +238,7 @@ def deplacable(niveau):
     return deplaceright,deplacleft,deplacup,deplacdown
 window = Tk()
 window.title("Donjon")
-window.geometry("1200x700")
+window.geometry(str(screenWidth)+"x"+str(screenHeight))
 window.config(bg = "#888888")
 
 screen = Canvas(window,height = screenHeight,width = screenWidth,bg = backgroundColor)
