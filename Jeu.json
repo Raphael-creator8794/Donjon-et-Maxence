@@ -2,10 +2,10 @@
   "1": [
     [
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
         "grassTexture": false
@@ -14,63 +14,54 @@
         "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
         "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
         "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
         "grassTexture": false
       },
       {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
         "grassTexture": false
@@ -82,98 +73,101 @@
         "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
         "grassTexture": false
       },
       {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
         "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
         "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "squarePotiontexture": true
-      },
-      {
         "grassTexture": false
       },
       {
         "grassTexture": false
+      },
+      {
+        "squarePotionTexture": true
       },
       {
         "grassTexture": false
@@ -188,142 +182,42 @@
         "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
         "grassTexture": false
       },
       {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": true
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      }
-    ],
-    [
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
-      }
-    ],
-    [
-      {
-        "grasstexture": false
-      },
-      {
-        "grasstexture": false
+        "squarePotionTexture": true
       },
       {
         "grassTexture": false
@@ -341,352 +235,458 @@
         "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       }
     ],
     [
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": true
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
       },
       {
-        "grasstexture": false
+        "grassTexture": false
+      }
+    ],
+    [
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      }
+    ],
+    [
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
       }
     ]
   ]
