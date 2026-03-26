@@ -71,10 +71,20 @@ def menu() :
 
 def printStart() :
     global startArea
+    global level
     startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
     #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
+    modifierjson("Jeu.json",3,2,{"squarePotiontexture":True},str(level))
     printArea(screen,startArea,maxX,maxY,divisionSize)
-    printThings(screen,squarePotionTexture,divisionSize,2,3)
+    with open("Jeu.json","r",encoding="utf-8") as fichier:
+        dict = json.load(fichier)
+        le_niveaux = dict[str(level)]
+        for i in le_niveaux:
+            for dico in i:
+                for texture in dico:
+                    print(texture)
+                    if texture != "grassTexture":
+                        printThings(screen,matchTexture[texture],divisionSize,2,3)
     printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
     '''printThings(screen,chestTexture,divisionSize,1,1)
     printThings(screen,torchTexture,divisionSize,1,2)
@@ -186,7 +196,6 @@ def colision(niveau):
     with open("Jeu.json","r",encoding="utf-8") as fichier:
         dict = json.load(fichier)
         le_niveau = dict[str(niveau)]
-
         for valeur in le_niveau[Yposition-1][Xposition].values():
             if valeur is None:
                 
