@@ -20,6 +20,13 @@ neonBlue = "#006EFF"
 neonPurple = "#AE00FF"
 neonPink = "#FF00FF"
 
+# Désolé Maëva
+topColor = "#5E2B0E"
+middlecolor = "#9C9B46"
+bottomColor = "#D1C97B"
+red = "#D40000"
+lightGrey = "#B9B9B9"
+
 '''----- verifTexture -----------
 > -- Objectif -- :
     Cette fonction na pas de but utile. Elle ne fais que lever une interuption dans le cas où le format ne correspond pas aux attentes.
