@@ -66,7 +66,6 @@ if __name__ == "__main__" :
         global level
         startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
         #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
-        #modifierjson("Jeu.json",3,2,{"squarePotionTexture":True},str(level))
         printArea(screen,startArea,maxX,maxY,divisionSize)
         with open("Jeu.json","r",encoding="utf-8") as fichier:
             dict = json.load(fichier)
@@ -75,7 +74,7 @@ if __name__ == "__main__" :
                 for dico in range(len(le_niveaux[ligne])):
                     for texture in le_niveaux[ligne][dico]:
                         if texture != "grassTexture":
-                            printThings(screen,matchTexture[texture],divisionSize,dico,ligne)
+                            printThings(screen,matchTexture[texture],divisionSize,ligne,dico)
         printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
         '''printThings(screen,chestTexture,divisionSize,1,1)
         printThings(screen,torchTexture,divisionSize,1,2)
@@ -113,7 +112,7 @@ if __name__ == "__main__" :
                             window.destroy()
                             state = "exit"
             case "play" :
-                pass #arrowMove(event)
+                pass
             case "settings" :
                 if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
                     printMenu(screen,screenWidth,screenHeight)
@@ -170,6 +169,11 @@ if __name__ == "__main__" :
                 if dir == "'i'" :
                     iClicked = not(iClicked)
                     seeInventory(window, iClicked)
+                if lirecase("Jeu.json",Xposition,Yposition,level) == "roundPotionTexture":
+                    level += 1
+                    print(level)
+                    transUpLink()
+
 
     def modifierjson(Json,X,Y,data,niveau):
         with open(Json,"r",encoding="utf-8") as fichier:
@@ -180,6 +184,12 @@ if __name__ == "__main__" :
         with open(Json,"w",encoding="utf-8") as fichier:
             json.dump(dict,fichier,indent = 2)
 
+    def lirecase(Json,X,Y,niveau):
+        with open(Json,"r",encoding="utf-8") as fichier:
+            dict = json.load(fichier)
+            listex2 = dict[str(niveau)]
+            data = listex2[X][Y]
+            return list(data.keys())[0]
 
     def printHey() :
         print("Hey !")
