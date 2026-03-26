@@ -1,6 +1,7 @@
 #Quoicoubesque group
 from tkinter import *
 from random import randint
+from texturePack import *
 
 backgroundColor = "#D2DF89"
 black = "#000000"
