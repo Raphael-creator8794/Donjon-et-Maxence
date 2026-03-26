@@ -103,7 +103,7 @@ def clickSituation(event) :
         case "settings" :
             if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
                 printMenu(screen,screenWidth,screenHeight)
-                startArea = "menu"
+                state = "menu"
 
 def keySituation(event) :
     global Xposition
