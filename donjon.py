@@ -5,7 +5,9 @@ from Visuel.transition import *
 from Visuel.printThings import *
 from Visuel.texturePack import *
 from Inventory import *
+from Visuel.TextureEditor import *
 import json
+
 # Global variable
 screenWidth = 800
 screenHeight = 600
@@ -91,11 +93,17 @@ def clickSituation(event) :
                         printStart()
                     case 10 :
                         state = "settings"
+                        transDownLink()
+                        printEditor(screen,screenWidth,screenHeight)
                     case 12 :
                         window.destroy()
                         state = "exit"
         case "play" :
             pass #arrowMove(event)
+        case "settings" :
+            if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
+                printMenu(screen,screenWidth,screenHeight)
+                startArea = "menu"
 
 def keySituation(event) :
     global Xposition
@@ -230,7 +238,7 @@ def deplacable(niveau):
     return deplaceright,deplacleft,deplacup,deplacdown
 window = Tk()
 window.title("Donjon")
-window.geometry("1200x700")
+window.geometry(str(screenWidth)+"x"+str(screenHeight))
 window.config(bg = "#888888")
 
 screen = Canvas(window,height = screenHeight,width = screenWidth,bg = backgroundColor)

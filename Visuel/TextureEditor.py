@@ -1,8 +1,8 @@
 #
-from FloatLoop import *
+from Visuel.FloatLoop import *
 from tkinter import *
 from json import *
-from printThings import *
+from Visuel.printThings import *
 from File import *
 #from texturePack import *
 
