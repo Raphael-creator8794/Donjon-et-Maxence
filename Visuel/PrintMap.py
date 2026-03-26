@@ -14,7 +14,6 @@ def roomsToMap(rooms) :
                     map[j+Ypos][y+Xpos] = i
     return map
 
-
 def printMap(screen,screenWidth,screenHeight,map) :
     screen.create_rectangle(0,0,screenWidth,screenHeight,fill = black)
     minLenght = min(screenHeight,screenWidth)
@@ -78,9 +77,9 @@ if __name__ == "__main__" :
         corner = not(corner)
         testCanva.delete("all")
         if corner :
-            printMap(testCanva,canvaWidth,canvaHeight,testMap)
-        else :
             printMap(testCanva,canvaWidth/10,canvaHeight/10,testMap)
+        else :
+            printMap(testCanva,canvaWidth,canvaHeight,testMap)
     
     testMap = roomsToMap(testLevel)
     testWindow = Tk()

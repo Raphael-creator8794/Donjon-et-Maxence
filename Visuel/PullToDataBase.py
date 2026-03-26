@@ -14,5 +14,5 @@ dicTexture = {
     "upsideDownTrianglePotionTexture" : upsideDownTrianglePotionTexture
 }
 
-with open("DefaultTexture.json","w") as dataBase :
-    dump(dicTexture,dataBase,indent = 4)
+"""with open("DefaultTexture.json","w") as dataBase :
+    dump(dicTexture,dataBase,indent = 4)"""

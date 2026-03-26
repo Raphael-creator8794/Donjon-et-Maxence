@@ -4,8 +4,9 @@ from tkinter import *
 from json import *
 from printThings import *
 from File import *
+#from texturePack import *
 
-page = floatLoop(0,0,1)
+page = floatLoop(0,0,2)
 isOpen = False
 actualColor = black
 tool = "brush"
