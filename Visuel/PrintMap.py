@@ -72,10 +72,19 @@ if __name__ == "__main__" :
             "seen" : True
         }
     ]
+    corner = False
+    def switchSize(event) :
+        global corner
+        corner = not(corner)
+        testCanva.delete("all")
+        if corner :
+            printMap(testCanva,canvaWidth,canvaHeight,testMap)
+        else :
+            printMap(testCanva,canvaWidth/10,canvaHeight/10,testMap)
+    
     testMap = roomsToMap(testLevel)
-
     testWindow = Tk()
-    testWindow.title("Test Donjon")
+    testWindow.title("Test map")
     canvaHeight = 500
     canvaWidth = 500
     testWindow.geometry(str(canvaWidth)+"x"+str(canvaHeight))
@@ -84,4 +93,5 @@ if __name__ == "__main__" :
     testCanva.place(x = 0,y = 0)
 
     printMap(testCanva,canvaWidth,canvaHeight,testMap)
+    testCanva.bind("<Button-1>", switchSize)
     testWindow.mainloop()

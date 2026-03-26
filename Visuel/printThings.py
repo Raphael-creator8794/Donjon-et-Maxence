@@ -3,16 +3,6 @@ from tkinter import *
 from random import randint
 from texturePack import *
 
-backgroundColor = "#D2DF89"
-black = "#000000"
-white = "#FFFFFF"
-purple = "#440439"
-orange = "#F78012"
-lightGreen = "#00BE49"
-green = "#008132"
-darkGreen = "#003D0F"
-brown = "#2E2106"
-
 nbIndex = 20
 borderColor = "#FFFFFF"
 writtingStyle = "Verdana"

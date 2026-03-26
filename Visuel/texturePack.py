@@ -1,4 +1,5 @@
 #Quoicoubesque group
+from json import *
 
 glass = "#D4F6FC"
 white = "#FFFFFF"
@@ -19,6 +20,13 @@ darkBlue = "#2B0D71"
 neonBlue = "#006EFF"
 neonPurple = "#AE00FF"
 neonPink = "#FF00FF"
+
+# Désolé Maëva
+topColor = "#5E2B0E"
+middlecolor = "#9C9B46"
+bottomColor = "#D1C97B"
+red = "#D40000"
+lightGrey = "#B9B9B9"
 
 '''----- verifTexture -----------
 > -- Objectif -- :
@@ -372,8 +380,5 @@ def bottomLeftCarpet(color):
     verifTexture(carpetTexture)
     return carpetTexture
 
-
-matchTexture = {
-    "grass" : grassTexture
-
-}
+with open("PlayersTextures.json","r") as textureBase :
+    matchTexture = load(textureBase)
