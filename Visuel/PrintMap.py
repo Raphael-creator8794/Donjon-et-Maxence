@@ -40,6 +40,17 @@ def printMap(screen,screenWidth,screenHeight,map) :
                         partRoomTexture[y][1] = darkBlue
                 printThings(screen,partRoomTexture,partRoomSize,j,i)
 
+isExtended = False
+def switchMapSize(screen,Xaxe,Yaxe,screenWidth,screenHeight,map) :
+    global isExtended
+    if isExtended :
+        isExtended = not(isExtended)
+        printMap(screen,screenWidth/10,screenHeight/10,map)
+    elif Xaxe<screenWidth/10 and Yaxe<screenHeight/10 :
+        isExtended
+        printMap(screen,screenWidth,screenHeight,map)
+            
+
 if __name__ == "__main__" :
     testLevel = [
         {
