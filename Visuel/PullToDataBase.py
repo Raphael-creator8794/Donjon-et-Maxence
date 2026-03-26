@@ -1,7 +1,7 @@
 #Maxence FERTRE
 
 from json import *
-from texturePack import *
+from TexturePack import *
 
 dicTexture = {
     "grassTexture" : grassTexture ,
