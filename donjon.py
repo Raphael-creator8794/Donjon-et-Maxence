@@ -118,47 +118,54 @@ def keySituation(event) :
     global startArea
     global iClicked
     global level
-    if state == "play":
-        dir = str(repr(event.char)).lower()
-        if dir == "'z'":
-            if Yposition > 0 and colision(level)[3] is True:
-                if deplacable(level)[3] is True:
-                    modifierjson("Jeu.json",Yposition-2,Xposition,True,str(level))
-                    modifierjson("Jeu.json",Yposition-1,Xposition,False,str(level))
-                    printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition-2)
-                    printThings(screen,grassTexture,divisionSize,Xposition,Yposition-1)
-                move("up",Xposition,Yposition, startArea)
-                Yposition -= 1
-        if dir == "'q'":
-            if Xposition > 0 and colision(level)[1] is True:
-                if deplacable(level)[1]:
-                    modifierjson("Jeu.json",Yposition,Xposition-2,True,str(level))
-                    modifierjson("Jeu.json",Yposition,Xposition-1,False,str(level))
-                    printThings(screen,squarePotionTexture,divisionSize,Xposition-2,Yposition)
-                    printThings(screen,grassTexture,divisionSize,Xposition-1,Yposition)
-                move("left",Xposition,Yposition, startArea)
-                Xposition -= 1
-        if dir == "'s'":
-            if Yposition < maxY-1 and colision(level)[2] is True:
-                if deplacable(level)[2] is True:
-                    modifierjson("Jeu.json",Yposition+2,Xposition,True,str(level))
-                    modifierjson("Jeu.json",Yposition+1,Xposition,False,str(level))
-                    printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition+2)
-                    printThings(screen,grassTexture,divisionSize,Xposition,Yposition+1)
-                move("down",Xposition,Yposition, startArea)
-                Yposition += 1
-        if dir == "'d'":
-            if Xposition < maxX-1 and colision(level)[0] is True:
-                if deplacable(level)[0] is True:
-                    modifierjson("Jeu.json",Yposition,Xposition+2,True,str(level))
-                    modifierjson("Jeu.json",Yposition,Xposition+1,False,str(level))
-                    printThings(screen,squarePotionTexture,divisionSize,Xposition+2,Yposition)
-                    printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
-                move("right",Xposition,Yposition, startArea)
-                Xposition += 1
-        if dir == "'i'" :
-            iClicked = not(iClicked)
-            seeInventory(window, iClicked)
+    with open("Jeu.json","r",encoding="utf-8") as fichier:
+        dict = json.load(fichier)
+        le_niveau = dict[str(level)]
+        if state == "play":
+            dir = str(repr(event.char)).lower()
+            if dir == "'z'":
+                if Yposition > 0 and colision(level)[3] is True:
+                    if deplacable(level)[3] is True:
+                        for cle in le_niveau[Yposition-1][Xposition].keys():
+                            modifierjson("Jeu.json",Yposition-2,Xposition,{str(cle): True},str(level))
+                        modifierjson("Jeu.json",Yposition-1,Xposition,{"grassTexture": False},str(level))
+                        printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition-2)
+                        printThings(screen,grassTexture,divisionSize,Xposition,Yposition-1)
+                    move("up",Xposition,Yposition, startArea)
+                    Yposition -= 1
+            if dir == "'q'":
+                if Xposition > 0 and colision(level)[1] is True:
+                    if deplacable(level)[1]:
+                        for cle in le_niveau[Yposition][Xposition-1].keys():
+                            modifierjson("Jeu.json",Yposition,Xposition-2,{str(cle): True},str(level))
+                        modifierjson("Jeu.json",Yposition,Xposition-1,{"grassTexture": False},str(level))
+                        printThings(screen,squarePotionTexture,divisionSize,Xposition-2,Yposition)
+                        printThings(screen,grassTexture,divisionSize,Xposition-1,Yposition)
+                    move("left",Xposition,Yposition, startArea)
+                    Xposition -= 1
+            if dir == "'s'":
+                if Yposition < maxY-1 and colision(level)[2] is True:
+                    if deplacable(level)[2] is True:
+                        for cle in le_niveau[Yposition+1][Xposition].keys():
+                            modifierjson("Jeu.json",Yposition+2,Xposition,{str(cle): True},str(level))
+                        modifierjson("Jeu.json",Yposition+1,Xposition,{"grassTexture": False},str(level))
+                        printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition+2)
+                        printThings(screen,grassTexture,divisionSize,Xposition,Yposition+1)
+                    move("down",Xposition,Yposition, startArea)
+                    Yposition += 1
+            if dir == "'d'":
+                if Xposition < maxX-1 and colision(level)[0] is True:
+                    if deplacable(level)[0] is True:
+                        for cle in le_niveau[Yposition][Xposition+2].keys():
+                            modifierjson("Jeu.json",Yposition,Xposition+2,{str(cle): True},str(level))
+                        modifierjson("Jeu.json",Yposition,Xposition+1,{"grassTexture": False},str(level))
+                        printThings(screen,squarePotionTexture,divisionSize,Xposition+2,Yposition)
+                        printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
+                    move("right",Xposition,Yposition, startArea)
+                    Xposition += 1
+            if dir == "'i'" :
+                iClicked = not(iClicked)
+                seeInventory(window, iClicked)
 
 def modifierjson(Json,X,Y,data,niveau):
     with open(Json,"r",encoding="utf-8") as fichier:
@@ -179,22 +186,29 @@ def colision(niveau):
     with open("Jeu.json","r",encoding="utf-8") as fichier:
         dict = json.load(fichier)
         le_niveau = dict[str(niveau)]
-        if le_niveau[Yposition-1][Xposition] is None:
-            YmoveDown = False
-        else:
-            YmoveDown = True
-        if le_niveau[Yposition+1][Xposition] is None:
-            YmoveUp = False
-        else:
-            YmoveUp = True
-        if le_niveau[Yposition][Xposition-1] is None:
-            Xmoveleft = False
-        else:
-            Xmoveleft = True
-        if le_niveau[Yposition][Xposition+1] is None:
-            Xmoveright = False
-        else:
-            Xmoveright = True
+
+        for valeur in le_niveau[Yposition-1][Xposition].values():
+            if valeur is None:
+                
+                YmoveDown = False
+            else:
+                YmoveDown = True
+
+        for valeur in le_niveau[Yposition+1][Xposition].values():
+            if valeur is None:
+                YmoveUp = False
+            else:
+                YmoveUp = True
+        for valeur in le_niveau[Yposition][Xposition-1].values():
+            if valeur is None:
+                Xmoveleft = False
+            else:
+                Xmoveleft = True
+        for valeur in le_niveau[Yposition][Xposition+1].values():
+            if valeur is None:
+                Xmoveright = False
+            else:
+                Xmoveright = True
     return Xmoveright,Xmoveleft,YmoveUp,YmoveDown
 
 def deplacable(niveau):
@@ -203,25 +217,30 @@ def deplacable(niveau):
     with open("Jeu.json","r",encoding="utf-8") as fichier:
         dict = json.load(fichier)
         le_niveau = dict[str(niveau)]
-        if le_niveau[Yposition-1][Xposition] is True:
-            deplacdown = True
-        else:
-            deplacdown = False
-        
-        if le_niveau[Yposition+1][Xposition] is True:
-            deplacup = True
-        else:
-            deplacup = False
 
-        if le_niveau[Yposition][Xposition-1] is True:
-            deplacleft = True
-        else:
-            deplacleft = False
+        for valeur in le_niveau[Yposition-1][Xposition].values():
+            if valeur is True:
+                deplacdown = True
+            else:
+                deplacdown = False
 
-        if le_niveau[Yposition][Xposition+1] is True:
-            deplaceright = True
-        else:
-            deplaceright = False
+        for valeur in le_niveau[Yposition+1][Xposition].values():
+            if  valeur is True:
+                deplacup = True
+            else:
+                deplacup = False
+
+        for valeur in le_niveau[Yposition][Xposition-1].values():
+            if valeur is True:
+                deplacleft = True
+            else:
+                deplacleft = False
+
+        for valeur in le_niveau[Yposition][Xposition+1].values():
+            if valeur is True:
+                deplaceright = True
+            else:
+                deplaceright = False
 
     return deplaceright,deplacleft,deplacup,deplacdown
 window = Tk()
