@@ -15,13 +15,15 @@ labelStyle = (writtingStyle,"13")
     screen : /Canvas/ Le canva sur lequel on affiche l'objet
     pixelGrid : /list/ La couleur de chaque pixel de l'objet
     divisionSize : /int/ La taille de la case où affiche l'objet
-    Xindex : /int/ La position horizontal de l'ojet
-    Yindex : /int/ La position vertical de l'ojet
+    Xindex : /int/ La position horizontal de l'objet
+    Yindex : /int/ La position vertical de l'objet
 > -- Retourne -- :
     Rien
 '''
 def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
     pixelSize = divisionSize/8
+    if type(pixelGrid) == str :
+        pixelGrid = matchTexture[pixelGrid]
     for i in range(8) :
         for j in range(8) :
             if pixelGrid[i][j] == None :
