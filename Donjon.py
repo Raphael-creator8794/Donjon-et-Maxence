@@ -18,7 +18,6 @@ screenHeight = 600
 divisionSize = 50
 maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
-backgroundColor = "#D2DF89"
 state = "menu"
 Xposition = (maxX-1)//2
 Yposition = (maxY-1)//2
@@ -71,7 +70,7 @@ if __name__ == "__main__" :
 
     def printSettings() :
         screen.delete("all")
-        screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill="#D36221")
+        screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill=orange)
 
     def clickSituation(event) :
         Xaxe = event.x
@@ -127,7 +126,7 @@ if __name__ == "__main__" :
     window = Tk()
     window.title("Donjon")
     window.geometry(str(screenWidth)+"x"+str(screenHeight))
-    window.config(bg = "#888888")
+    window.config(bg = lightGrey)
 
     screen = Canvas(window,height = screenHeight,width = screenWidth,bg = backgroundColor)
     screen.place(x = 0,y = 0)
