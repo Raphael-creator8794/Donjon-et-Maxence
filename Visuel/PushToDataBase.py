@@ -2,8 +2,6 @@
 
 from json import *
 from TexturePack import *
-forestTexture = [[white for _ in range(8)] for _ in range(8)]
-
 
 dicTexture = {
     "grassTexture" : grassTexture ,
@@ -15,12 +13,13 @@ dicTexture = {
     "crateTexture" : crateTexture ,
     "trianglePotionTexture" : trianglePotionTexture ,
     "upsideDownTrianglePotionTexture" : upsideDownTrianglePotionTexture ,
-    "forestTexture" : forestTexture ,
+    #"forestTexture" : forestTexture ,
     "void" : [[white for _ in range(8)] for _ in range(8)]
 }
 
-with open("DefaultTexture.json","w") as dataBase :
+
+"""with open("DefaultTexture.json","w") as dataBase :
     dump(dicTexture,dataBase,indent = 4)
 
 with open("PlayersTextures.json","w") as dataBase :
-    dump(dicTexture,dataBase,indent = 4)
+    dump(dicTexture,dataBase,indent = 4)"""

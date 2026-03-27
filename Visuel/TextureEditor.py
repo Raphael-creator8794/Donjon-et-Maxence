@@ -9,6 +9,7 @@ from File import *
 page = floatLoop(0,0,3)
 isOpen = False
 actualColor = black
+isAdmin = True
 tool = "brush"
 
 listTexture = [[]]
@@ -199,6 +200,9 @@ def saveTexture(textureName,texture) :
   dicTexture[textureName] = texture
   with open("PlayersTextures.json","w") as textureBase :
     dump(dicTexture,textureBase,indent = 4)
+  if isAdmin :
+    with open("DefaultTexture.json","w") as textureBase :
+      dump(dicTexture,textureBase,indent = 4)
 
 def restoreOldTexture(textureName) :
   with open("DefaultTexture.json","r") as textureBase :

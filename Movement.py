@@ -9,6 +9,7 @@ isMovable = {
     "squarePotionTexture" : False ,
     "trianglePotionTexture" : False ,
     "upsideDownTrianglePotionTexture" : False ,
+    "doorTexture" : False ,
     "crateTexture" : True ,
     "torchTexture" : True ,
     "chestTexture" : True 
