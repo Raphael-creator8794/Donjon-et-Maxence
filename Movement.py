@@ -3,8 +3,15 @@ from Donjon import Xposition,Yposition,maxX,maxY,divisionSize
 from Visuel.PrintThings import *
 isMovable = {
     "brickWallTexture" : False ,
+    "forestTexture" : False ,
+    "treeTexture" : False ,
+    "roundPotionTexture" : False ,
     "squarePotionTexture" : False ,
-    "crateTexture" : True
+    "trianglePotionTexture" : False ,
+    "upsideDownTrianglePotionTexture" : False ,
+    "crateTexture" : True ,
+    "torchTexture" : True ,
+    "chestTexture" : True 
 }
 
 def colision(niveau):

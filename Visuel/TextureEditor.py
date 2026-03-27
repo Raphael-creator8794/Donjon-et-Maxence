@@ -6,7 +6,7 @@ from Visuel.PrintThings import *
 from File import *
 #from texturePack import *
 
-page = floatLoop(0,0,2)
+page = floatLoop(0,0,3)
 isOpen = False
 actualColor = black
 tool = "brush"

@@ -52,7 +52,7 @@
         ],
         [
             "#00BE49",
-            "#008132",
+            "#00BE49",
             "#00BE49",
             "#008132",
             "#00BE49",
@@ -495,6 +495,16 @@
         [
             null,
             null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
             "#3E2A1C",
             "#3E2A1C",
             "#3E2A1C",
@@ -505,10 +515,10 @@
         [
             null,
             "#3E2A1C",
-            "#D8A76F",
-            "#D8A76F",
-            "#D8A76F",
-            "#D8A76F",
+            "#E6B980",
+            "#E6B980",
+            "#E6B980",
+            "#E6B980",
             "#3E2A1C",
             "#3E2A1C"
         ],
@@ -528,16 +538,6 @@
             "#D8A76F",
             "#D8A76F",
             "#D8A76F",
-            "#3E2A1C",
-            "#E6B980",
-            "#3E2A1C"
-        ],
-        [
-            "#3E2A1C",
-            "#E6B980",
-            "#E6B980",
-            "#E6B980",
-            "#E6B980",
             "#3E2A1C",
             "#E6B980",
             "#3E2A1C"
@@ -737,86 +737,250 @@
             null
         ]
     ],
+    "treeTexture": [
+        [
+            null,
+            null,
+            null,
+            null,
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49"
+        ],
+        [
+            null,
+            "#008132",
+            "#008132",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49"
+        ],
+        [
+            "#008132",
+            "#008132",
+            "#008132",
+            "#008132",
+            "#5E2B0E",
+            "#5E2B0E",
+            "#00BE49",
+            "#00BE49"
+        ],
+        [
+            "#008132",
+            "#008132",
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E",
+            "#00BE49",
+            "#00BE49",
+            null
+        ],
+        [
+            null,
+            "#008132",
+            "#008132",
+            "#5E2B0E",
+            "#5E2B0E",
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            "#5E2B0E",
+            "#5E2B0E",
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E",
+            null,
+            null
+        ]
+    ],
+    "forestTexture": [
+        [
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#008132",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49"
+        ],
+        [
+            "#440439",
+            "#00BE49",
+            "#008132",
+            "#008132",
+            "#008132",
+            "#00BE49",
+            "#440439",
+            "#008132"
+        ],
+        [
+            "#00BE49",
+            "#00BE49",
+            "#008132",
+            "#5E2B0E",
+            "#008132",
+            "#00BE49",
+            "#008132",
+            "#008132"
+        ],
+        [
+            "#00BE49",
+            "#008132",
+            "#00BE49",
+            "#5E2B0E",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49"
+        ],
+        [
+            "#008132",
+            "#008132",
+            "#008132",
+            "#5E2B0E",
+            "#00BE49",
+            "#00BE49",
+            "#008132",
+            "#00BE49"
+        ],
+        [
+            "#008132",
+            "#5E2B0E",
+            "#008132",
+            "#5E2B0E",
+            "#00BE49",
+            "#008132",
+            "#008132",
+            "#008132"
+        ],
+        [
+            "#00BE49",
+            "#5E2B0E",
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#008132",
+            "#5E2B0E",
+            "#008132"
+        ],
+        [
+            "#00BE49",
+            "#00BE49",
+            "#00BE49",
+            "#440439",
+            "#00BE49",
+            "#00BE49",
+            "#5E2B0E",
+            "#00BE49"
+        ]
+    ],
     "void": [
         [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
         ],
         [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
         ],
         [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
         ],
         [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
         ],
         [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
         ],
         [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
         ],
         [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
         ],
         [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
         ]
     ]
 }

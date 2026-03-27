@@ -57,6 +57,12 @@ if __name__ == "__main__" :
         global level
         actualArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
         objects = [[None for _ in range(maxX)] for _ in range(maxY)]
+        for i in range(maxX) :
+            objects[0][i] = "forestTexture"
+            objects[-1][i] = "forestTexture"
+        for i in range(maxY) :
+            objects[i][0] = "forestTexture"
+            objects[i][-1] = "forestTexture"
         objects[3][3] = "crateTexture"
         printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
         with open("Jeu.json","r",encoding="utf-8") as fichier:
