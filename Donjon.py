@@ -7,8 +7,9 @@ if notDefined :
     from Visuel.Transition import *
     from Visuel.PrintThings import *
     from Visuel.TexturePack import *
-    from Inventory import *
     from Visuel.TextureEditor import *
+    from Visuel.PrintMap import *
+    from Inventory import *
     from Movement import *
     import json
 
@@ -23,7 +24,8 @@ state = "menu"
 Xposition = (maxX-1)//2
 Yposition = (maxY-1)//2
 iClicked = False
-level = 1
+level = 0
+actualRoom = 4
 
 if __name__ == "__main__" :
 
@@ -55,18 +57,15 @@ if __name__ == "__main__" :
         global actualArea
         global objects
         global level
-        actualArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
-        objects = [[None for _ in range(maxX)] for _ in range(maxY)]
+        global actualMap
+        global actualRoom
+        with open("Levels.json","r") as datas :
+            levelDatas = load(datas)[level]
+        actualArea = levelDatas[actualRoom]["area"]
+        objects = levelDatas[actualRoom]["objects"]
         objects[3][3] = "crateTexture"
+        actualMap = levelDatas[actualRoom]
         printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-        with open("Jeu.json","r",encoding="utf-8") as fichier:
-            dict = json.load(fichier)
-            le_niveaux = dict[str(level)]
-            for ligne in range(len(le_niveaux)):
-                for dico in range(len(le_niveaux[ligne])):
-                    for texture in le_niveaux[ligne][dico]:
-                        if texture != "grassTexture":
-                            printThings(screen,matchTexture[texture],divisionSize,dico,ligne)
         printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
 
     def printSettings() :
@@ -97,7 +96,8 @@ if __name__ == "__main__" :
                             window.destroy()
                             state = "exit"
             case "play" :
-                pass #arrowMove(event)
+                if Xaxe < screenWidth/10 and Yaxe < screenHeight/10 :
+                    printMap(screen,screenWidth,screenHeight,roomsToMap(actualMap))
             case "settings" :
                 if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
                     printMenu(screen,screenWidth,screenHeight)
@@ -110,16 +110,13 @@ if __name__ == "__main__" :
         global objects
         global iClicked
         global level
-        with open("Jeu.json","r",encoding="utf-8") as fichier:
-            dict = json.load(fichier)
-            le_niveau = dict[str(level)]
-            if state == "play":
-                pressedKey = str(repr(event.char)).lower()
-                if pressedKey == "'i'" :
-                    iClicked = not(iClicked)
-                    seeInventory(window, iClicked)
-                else :
-                    moveDir(screen,pressedKey,actualArea,objects)
+        if state == "play":
+            pressedKey = str(repr(event.char)).lower()
+            if pressedKey == "'i'" :
+                iClicked = not(iClicked)
+                seeInventory(window, iClicked)
+            else :
+                moveDir(screen,pressedKey,actualArea,objects)
 
     def printHey() :
         print("Hey !")
