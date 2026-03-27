@@ -9,8 +9,9 @@ if notDefined :
     from Visuel.TexturePack import *
     from Inventory import *
     from Visuel.TextureEditor import *
-    from Mouvement import *
+    from Movement import *
     import json
+
 # Global variable
 screenWidth = 800
 screenHeight = 600
@@ -23,6 +24,7 @@ Xposition = (maxX-1)//2
 Yposition = (maxY-1)//2
 iClicked = False
 level = 1
+
 if __name__ == "__main__" :
 
     # Test variable
@@ -49,25 +51,14 @@ if __name__ == "__main__" :
     def transRightLink() :
         transRight(screen,screenWidth,screenHeight)
 
-    def move(direction,Xposition,Yposition,area) :
-        printThings(screen,area[Yposition][Xposition],divisionSize,Xposition,Yposition)
-        match direction :
-            case "up" :
-                printThings(screen,playerTexture,divisionSize,Xposition,Yposition-1)
-            case "down" :
-                printThings(screen,playerTexture,divisionSize,Xposition,Yposition+1)
-            case "left" :
-                printThings(screen,playerTexture,divisionSize,Xposition-1,Yposition)
-            case "right" :
-                printThings(screen,playerTexture,divisionSize,Xposition+1,Yposition)
-
     def printStart() :
-        global startArea
+        global actualArea
+        global objects
         global level
-        startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
-        #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
-        #modifierjson("Jeu.json",3,2,{"squarePotionTexture":True},str(level))
-        printArea(screen,startArea,maxX,maxY,divisionSize)
+        actualArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
+        objects = [[None for _ in range(maxX)] for _ in range(maxY)]
+        objects[3][3] = "crateTexture"
+        printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
         with open("Jeu.json","r",encoding="utf-8") as fichier:
             dict = json.load(fichier)
             le_niveaux = dict[str(level)]
@@ -77,13 +68,6 @@ if __name__ == "__main__" :
                         if texture != "grassTexture":
                             printThings(screen,matchTexture[texture],divisionSize,dico,ligne)
         printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
-        '''printThings(screen,chestTexture,divisionSize,1,1)
-        printThings(screen,torchTexture,divisionSize,1,2)
-        printThings(screen,roundPotionTexture,divisionSize,1,3)
-        printThings(screen,squarePotionTexture,divisionSize,1,4)
-        printThings(screen,trianglePotionTexture,divisionSize,1,5)
-        printThings(screen,upsideDownTrianglePotionTexture,divisionSize,1,6)'''
-
 
     def printSettings() :
         screen.delete("all")
@@ -122,68 +106,23 @@ if __name__ == "__main__" :
     def keySituation(event) :
         global Xposition
         global Yposition
-        global startArea
+        global actualArea
+        global objects
         global iClicked
         global level
         with open("Jeu.json","r",encoding="utf-8") as fichier:
             dict = json.load(fichier)
             le_niveau = dict[str(level)]
             if state == "play":
-                dir = str(repr(event.char)).lower()
-                if dir == "'z'":
-                    if Yposition > 0 and colision(level)[3] is True:
-                        if deplacable(level)[3] is True:
-                            modifierjson("Jeu.json",Yposition-2,Xposition,{list(le_niveau[Yposition-1][Xposition])[0] : True},str(level))
-                            modifierjson("Jeu.json",Yposition-1,Xposition,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                            printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition-2)
-                            printThings(screen,grassTexture,divisionSize,Xposition,Yposition-1)
-                        move("up",Xposition,Yposition, startArea)
-                        Yposition -= 1
-                if dir == "'q'":
-                    if Xposition > 0 and colision(level)[1] is True:
-                        if deplacable(level)[1]:
-                            modifierjson("Jeu.json",Yposition,Xposition-2,{list(le_niveau[Yposition][Xposition-1])[0]: True},str(level))
-                            modifierjson("Jeu.json",Yposition,Xposition-1,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                            printThings(screen,squarePotionTexture,divisionSize,Xposition-2,Yposition)
-                            printThings(screen,grassTexture,divisionSize,Xposition-1,Yposition)
-                        move("left",Xposition,Yposition, startArea)
-                        Xposition -= 1
-                if dir == "'s'":
-                    if Yposition < maxY-1 and colision(level)[2] is True:
-                        if deplacable(level)[2] is True:
-                            modifierjson("Jeu.json",Yposition+2,Xposition,{list(le_niveau[Yposition+1][Xposition])[0]: True},str(level))
-                            modifierjson("Jeu.json",Yposition+1,Xposition,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                            printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition+2)
-                            printThings(screen,grassTexture,divisionSize,Xposition,Yposition+1)
-                        move("down",Xposition,Yposition, startArea)
-                        Yposition += 1
-                if dir == "'d'":
-                    if Xposition < maxX-1 and colision(level)[0] is True:
-                        if deplacable(level)[0] is True:
-                            for cle in le_niveau[Yposition][Xposition+2].keys():
-                                modifierjson("Jeu.json",Yposition,Xposition+2,{list(le_niveau[Yposition][Xposition+1])[0]: True},str(level))
-                            modifierjson("Jeu.json",Yposition,Xposition+1,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                            printThings(screen,squarePotionTexture,divisionSize,Xposition+2,Yposition)
-                            printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
-                        move("right",Xposition,Yposition, startArea)
-                        Xposition += 1
-                if dir == "'i'" :
+                pressedKey = str(repr(event.char)).lower()
+                if pressedKey == "'i'" :
                     iClicked = not(iClicked)
                     seeInventory(window, iClicked)
-
-    def modifierjson(Json,X,Y,data,niveau):
-        with open(Json,"r",encoding="utf-8") as fichier:
-            dict = json.load(fichier)
-            listex2 = dict[niveau]
-            listex2[X][Y] = data
-            dict[niveau] = listex2
-        with open(Json,"w",encoding="utf-8") as fichier:
-            json.dump(dict,fichier,indent = 2)
-
+                else :
+                    moveDir(screen,pressedKey,actualArea,objects)
 
     def printHey() :
         print("Hey !")
-
 
     window = Tk()
     window.title("Donjon")

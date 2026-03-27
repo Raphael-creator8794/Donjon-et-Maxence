@@ -191,63 +191,10 @@
         "grassTexture": false
       },
       {
-        "grassTexture": false
+        "grassTexture": true
       },
       {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      }
-    ],
-    [
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
-      },
-      {
-        "grassTexture": false
+        "grassTexture": true
       },
       {
         "grassTexture": false
@@ -397,6 +344,59 @@
         "grassTexture": false
       },
       {
+        "grassTexture": true
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": true
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      }
+    ],
+    [
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
+        "grassTexture": false
+      },
+      {
         "grassTexture": false
       },
       {
@@ -503,7 +503,7 @@
         "grassTexture": false
       },
       {
-        "grassTexture": false
+        "grassTexture": true
       },
       {
         "grassTexture": false
