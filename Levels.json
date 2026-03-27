@@ -6,6 +6,7 @@
             "Xpos" : 9 ,
             "Ypos" : 5 ,
             "seen" : true ,
+            "door" : [[]] ,
             "area" : [
                 ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
                 ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
@@ -21,10 +22,10 @@
                 ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"]
             ] ,
             "objects" : [
-                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "doorTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "doorTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
                 ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
                 ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
-                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["doorTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
                 ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
                 ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
                 ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
