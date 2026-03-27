@@ -83,6 +83,17 @@ grassTexture = [
 ]
 verifTexture(grassTexture)
 
+crateTexture = [
+    ["#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#CD853F", "#CD853F", "#CD853F", "#CD853F", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#CD853F", "#DEB887", "#DEB887", "#CD853F", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#CD853F", "#DEB887", "#DEB887", "#CD853F", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#CD853F", "#CD853F", "#CD853F", "#CD853F", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B"]
+]
+
 chestTexture =  [
     [None,None,None,None,None,None,None,None],
     [None,None,None,None,None,None,None,None],
