@@ -66,17 +66,6 @@ if __name__ == "__main__" :
         objects[3][3] = "crateTexture"
         actualMap = levelDatas[actualRoom]
         printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-<<<<<<< HEAD
-        with open("Jeu.json","r",encoding="utf-8") as fichier:
-            dict = json.load(fichier)
-            le_niveaux = dict[str(level)]
-            for ligne in range(len(le_niveaux)):
-                for dico in range(len(le_niveaux[ligne])):
-                    for texture in le_niveaux[ligne][dico]:
-                        if texture != "grassTexture":
-                            printThings(screen,matchTexture[texture],divisionSize,ligne,dico)
-=======
->>>>>>> dab4ad6261f124a8cb3c23a8ca07d32794515f16
         printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
 
     def printSettings() :
@@ -107,12 +96,8 @@ if __name__ == "__main__" :
                             window.destroy()
                             state = "exit"
             case "play" :
-<<<<<<< HEAD
-                pass
-=======
                 if Xaxe < screenWidth/10 and Yaxe < screenHeight/10 :
                     printMap(screen,screenWidth,screenHeight,roomsToMap(actualMap))
->>>>>>> dab4ad6261f124a8cb3c23a8ca07d32794515f16
             case "settings" :
                 if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
                     printMenu(screen,screenWidth,screenHeight)
