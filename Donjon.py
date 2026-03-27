@@ -9,7 +9,7 @@ if notDefined :
     from Visuel.TexturePack import *
     from Inventory import *
     from Visuel.TextureEditor import *
-    from Mouvement import *
+    from Movement import *
     import json
 
 # Global variable
