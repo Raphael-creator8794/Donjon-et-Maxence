@@ -55,16 +55,10 @@ if __name__ == "__main__" :
         global actualArea
         global objects
         global level
-<<<<<<< HEAD
-        startArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
-        #createCarpet(startArea, 8, 8, 10, 11, darkBlue)
-        printArea(screen,startArea,maxX,maxY,divisionSize)
-=======
         actualArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
         objects = [[None for _ in range(maxX)] for _ in range(maxY)]
         objects[3][3] = "crateTexture"
         printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
->>>>>>> 327a4c30483c14292b3a3f8c8bd2d9c2d86c966c
         with open("Jeu.json","r",encoding="utf-8") as fichier:
             dict = json.load(fichier)
             le_niveaux = dict[str(level)]
@@ -124,32 +118,8 @@ if __name__ == "__main__" :
                 if pressedKey == "'i'" :
                     iClicked = not(iClicked)
                     seeInventory(window, iClicked)
-<<<<<<< HEAD
-                if lirecase("Jeu.json",Xposition,Yposition,level) == "roundPotionTexture":
-                    level += 1
-                    print(level)
-                    transUpLink()
-
-
-    def modifierjson(Json,X,Y,data,niveau):
-        with open(Json,"r",encoding="utf-8") as fichier:
-            dict = json.load(fichier)
-            listex2 = dict[niveau]
-            listex2[X][Y] = data
-            dict[niveau] = listex2
-        with open(Json,"w",encoding="utf-8") as fichier:
-            json.dump(dict,fichier,indent = 2)
-
-    def lirecase(Json,X,Y,niveau):
-        with open(Json,"r",encoding="utf-8") as fichier:
-            dict = json.load(fichier)
-            listex2 = dict[str(niveau)]
-            data = listex2[X][Y]
-            return list(data.keys())[0]
-=======
                 else :
                     moveDir(screen,pressedKey,actualArea,objects)
->>>>>>> 327a4c30483c14292b3a3f8c8bd2d9c2d86c966c
 
     def printHey() :
         print("Hey !")
