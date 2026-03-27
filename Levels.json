@@ -1,32 +1,196 @@
 [
     [
         {
-            "height" : 2 ,
-            "width" : 3 ,
-            "Xpos" : 1 ,
-            "Ypos" : 1 ,
-            "seen" : true
+            "height" : 4 ,
+            "width" : 2 ,
+            "Xpos" : 9 ,
+            "Ypos" : 5 ,
+            "seen" : true ,
+            "area" : [
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"]
+            ] ,
+            "objects" : [
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"]
+            ]
         } ,
         {
             "height" : 3 ,
-            "width" : 1 ,
+            "width" : 4 ,
+            "Xpos" : 5 ,
+            "Ypos" : 6 ,
+            "seen" : true ,
+            "area" : [
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"]
+            ] ,
+            "objects" : [
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"]
+            ]
+        } ,
+        {
+            "height" : 3 ,
+            "width" : 3 ,
             "Xpos" : 4 ,
-            "Ypos" : 1 ,
+            "Ypos" : 9 ,
+            "seen" : true ,
+            "area" : [
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"]
+            ] ,
+            "objects" : [
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"]
+            ]
+        } ,
+        {
+            "height" : 5 ,
+            "width" : 5 ,
+            "Xpos" : 7 ,
+            "Ypos" : 9 ,
+            "seen" : true ,
+            "area" : [
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"]
+            ] ,
+            "objects" : [
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"]
+            ]
+        } ,
+        {
+            "height" : 3 ,
+            "width" : 3 ,
+            "Xpos" : 11 ,
+            "Ypos" : 5 ,
+            "seen" : true ,
+            "area" : [
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"]
+            ] ,
+            "objects" : [
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "forestTexture"],
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"]
+            ]
+        }
+    ] ,
+    [
+        {
+            "height" : 2 ,
+            "width" : 4 ,
+            "Xpos" : 11 ,
+            "Ypos" : 5 ,
             "seen" : true
         } ,
         {
             "height" : 3 ,
             "width" : 3 ,
-            "Xpos" : 1 ,
-            "Ypos" : 3 ,
-            "seen" : false
-        } ,
-        {
-            "height" : 7 ,
-            "width" : 7 ,
-            "Xpos" : 2 ,
-            "Ypos" : 4 ,
+            "Xpos" : 11 ,
+            "Ypos" : 5 ,
             "seen" : true
         }
+        
     ]
 ]

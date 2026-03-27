@@ -130,7 +130,7 @@ def transRight(screen,screenWidth,screenHeight) :
 > -- Retourne -- :
     Rien
 '''
-def printArea(screen,areaBlocks,objects,maxX,maxY,divisionSize) :
+def printArea(screen,areaBlocks,objects,maxX,maxY,divisionSize,animation = True) :
     delay = 0
     for i in range(maxY) :
         Jrange = list(range(maxX))
@@ -144,7 +144,8 @@ def printArea(screen,areaBlocks,objects,maxX,maxY,divisionSize) :
             printThings(screen,areaBlocks[i][j],divisionSize,j,i)
             if objects[i][j] != None :
                 printThings(screen,objects[i][j],divisionSize,j,i)
-            screen.update_idletasks()
+            if animation :
+                screen.update_idletasks()
 
 if __name__ == "__main__" :
 
