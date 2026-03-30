@@ -2,30 +2,29 @@
 from json import *
 glass = "#D4F6FC"
 white = "#FFFFFF"
+lightGrey = "#B9B9B9"
 grey = "#474646"
 black = "#000000"
-brown = "#2E2106"
-lightBrown = "#694703"
-darkGreen = "#003D0F"
-green = "#008132"
-lightGreen = "#00BE49"
-neonGreen = "#00FF00"
-backgroundColor = "#D2DF89"
-gold = "#F8DC0B"
-orange = "#F78012"
-darkRed = "#8C3113"
 purple = "#440439"
+brown = "#2E2106"
+topColor = "#5E2B0E"
+lightBrown = "#694703"
+middlecolor = "#9C9B46"
+bottomColor = "#D1C97B"
+backgroundColor = "#D2DF89"
+neonGreen = "#00FF00"
+lightGreen = "#00BE49"
+green = "#008132"
+darkGreen = "#003D0F"
 darkBlue = "#2B0D71"
 neonBlue = "#006EFF"
 neonPurple = "#AE00FF"
 neonPink = "#FF00FF"
-
-# Désolé Maëva
-topColor = "#5E2B0E"
-middlecolor = "#9C9B46"
-bottomColor = "#D1C97B"
 red = "#D40000"
-lightGrey = "#B9B9B9"
+darkRed = "#8C3113"
+orange = "#F78012"
+gold = "#F8DC0B"
+
 
 '''----- verifTexture -----------
 > -- Objectif -- :
@@ -395,3 +394,4 @@ with open("PlayersTextures.json","r") as textureBase :
     matchTexture = load(textureBase)
 
 matchTexture["void"] = [[None for _ in range(8)] for _ in range(8)]
+matchTexture["doorTexture"] = [[None for _ in range(8)] for _ in range(8)]

@@ -4,7 +4,7 @@ from Visuel.TexturePack import *
 from time import time
 from tkinter import *
 
-delay = 0.01
+delay = 0.001
 nbPoint = 20
 black = "#000000"
 backgroundColor = "#D2DF89"
@@ -39,6 +39,7 @@ def transDown(screen,screenWidth,screenHeight) :
                 screen.create_rectangle(wideness*(i+0.25),(token+2.25)*amplitude,wideness*(i+0.75),(token+2.75)*amplitude,fill = black)
             screen.update_idletasks() # On réactualise le fenetre pour afficher les carrées créé
             token += 1 # Prochaine ligne
+    screen.delete("all")
 
 '''----- transUp -----------
 > -- Objectif -- :
@@ -65,6 +66,7 @@ def transUp(screen,screenWidth,screenHeight) :
                 screen.create_rectangle(wideness*(i+0.25),(token-2.25)*amplitude,wideness*(i+0.75),(token-2.75)*amplitude,fill = black)
             screen.update_idletasks()
             token -= 1
+    screen.delete("all")
 
 '''----- transLeft -----------
 > -- Objectif -- :
@@ -91,6 +93,7 @@ def transLeft(screen,screenWidth,screenHeight) :
                 screen.create_rectangle(wideness*(token-2.25),amplitude*(i+0.25),wideness*(token-2.75),amplitude*(i+0.75),fill = black)
             screen.update_idletasks()
             token -= 1
+    screen.delete("all")
 
 '''----- transRight -----------
 > -- Objectif -- :
@@ -117,6 +120,7 @@ def transRight(screen,screenWidth,screenHeight) :
                 screen.create_rectangle(wideness*(token+2.25),amplitude*(i+0.25),wideness*(token+2.75),amplitude*(i+0.75),fill = black)
             screen.update_idletasks()
             token += 1
+    screen.delete("all")
 
 '''----- printArea -----------
 > -- Objectif -- :
@@ -131,19 +135,20 @@ def transRight(screen,screenWidth,screenHeight) :
     Rien
 '''
 def printArea(screen,areaBlocks,objects,maxX,maxY,divisionSize,animation = True) :
-    delay = 0
+    delay = 0.000
     for i in range(maxY) :
         Jrange = list(range(maxX))
         if ((-1)**i) == -1 :
             Jrange = Jrange[::-1]
+        lastCall = time()
         for j in Jrange :
-            lastCall = time()
             while (time() - lastCall < delay) :
                 # On attend d'avoir attendu assez longtemps
                 continue
             printThings(screen,areaBlocks[i][j],divisionSize,j,i)
             if objects[i][j] != None :
                 printThings(screen,objects[i][j],divisionSize,j,i)
+            lastCall = time()
             if animation :
                 screen.update_idletasks()
 

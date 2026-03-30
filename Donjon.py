@@ -21,11 +21,7 @@ maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
 backgroundColor = "#D2DF89"
 state = "menu"
-Xposition = (maxX-1)//2
-Yposition = (maxY-1)//2
 iClicked = False
-level = 0
-actualRoom = 4
 
 if __name__ == "__main__" :
 
@@ -54,17 +50,12 @@ if __name__ == "__main__" :
         transRight(screen,screenWidth,screenHeight)
 
     def printStart() :
-        global actualArea
-        global objects
-        global level
-        global actualMap
-        global actualRoom
-        with open("Levels.json","r") as datas :
-            levelDatas = load(datas)[level]
-        actualArea = levelDatas[actualRoom]["area"]
-        objects = levelDatas[actualRoom]["objects"]
-        objects[3][3] = "crateTexture"
-        actualMap = levelDatas[actualRoom]
+        """with open("Jeu.json","r",encoding="utf-8") as fichier:
+            dict = json.load(fichier)
+            le_niveaux = dict[str(level)]
+            if texture != "grassTexture":
+                printThings(screen,matchTexture[texture],divisionSize,dico,ligne)"""
+
         printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
         printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
 
@@ -76,8 +67,6 @@ if __name__ == "__main__" :
         Xaxe = event.x
         Yaxe = event.y
         global state
-        global Xposition
-        global Yposition
         global startArea
         match state :
             case "menu" :
@@ -97,7 +86,7 @@ if __name__ == "__main__" :
                             state = "exit"
             case "play" :
                 if Xaxe < screenWidth/10 and Yaxe < screenHeight/10 :
-                    printMap(screen,screenWidth,screenHeight,roomsToMap(actualMap))
+                    printMap(screen,screenWidth,screenHeight,roomsToMap(levelDatas))
             case "settings" :
                 if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
                     printMenu(screen,screenWidth,screenHeight)
@@ -116,7 +105,7 @@ if __name__ == "__main__" :
                 iClicked = not(iClicked)
                 seeInventory(window, iClicked)
             else :
-                moveDir(screen,pressedKey,actualArea,objects)
+                moveDir(screen,pressedKey,screenWidth,screenHeight)
 
     def printHey() :
         print("Hey !")
@@ -126,7 +115,7 @@ if __name__ == "__main__" :
     window.geometry(str(screenWidth)+"x"+str(screenHeight))
     window.config(bg = "#888888")
 
-    screen = Canvas(window,height = screenHeight,width = screenWidth,bg = backgroundColor)
+    screen = Canvas(window,height = screenHeight,width = screenWidth,bg = black)
     screen.place(x = 0,y = 0)
     screen.delete("all")
     printMenu(screen,screenWidth,screenHeight)
