@@ -3,23 +3,24 @@
 from json import *
 from TexturePack import *
 
-dicTexture = {
-    "grassTexture" : grassTexture ,
-    "playerTexture" : playerTexture ,
-    "torchTexture" : torchTexture ,
-    "chestTexture" : chestTexture ,
-    "roundPotionTexture" : roundPotionTexture ,
-    "squarePotionTexture" : squarePotionTexture ,
-    "crateTexture" : crateTexture ,
-    "trianglePotionTexture" : trianglePotionTexture ,
-    "upsideDownTrianglePotionTexture" : upsideDownTrianglePotionTexture ,
-    #"forestTexture" : forestTexture ,
-    "void" : [[white for _ in range(8)] for _ in range(8)]
-}
+whiteTexture = [
+    ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'], 
+    ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'], 
+    ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'], 
+    ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'], 
+    ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'], 
+    ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'], 
+    ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'], 
+    ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF']
+]
 
+with open("DefaultTexture.json","r") as dataBase :
+    dicTexture = load(dataBase)
 
-"""with open("DefaultTexture.json","w") as dataBase :
+dicTexture["redFolwerTexture"] = dicTexture["blueFolwerTexture"]
+
+with open("DefaultTexture.json","w") as dataBase :
     dump(dicTexture,dataBase,indent = 4)
 
 with open("PlayersTextures.json","w") as dataBase :
-    dump(dicTexture,dataBase,indent = 4)"""
+    dump(dicTexture,dataBase,indent = 4)

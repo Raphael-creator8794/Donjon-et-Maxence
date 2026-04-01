@@ -17,19 +17,8 @@ actualArea = levelDatas[actualRoom]["area"]
 objects = levelDatas[actualRoom]["objects"]
 objects[3][3] = "crateTexture"
 
-isMovable = {
-    "brickWallTexture" : False ,
-    "forestTexture" : False ,
-    "treeTexture" : False ,
-    "roundPotionTexture" : False ,
-    "squarePotionTexture" : False ,
-    "trianglePotionTexture" : False ,
-    "upsideDownTrianglePotionTexture" : False ,
-    "doorTexture" : False ,
-    "crateTexture" : True ,
-    "torchTexture" : True ,
-    "chestTexture" : True 
-}
+isMovable = ["crateTexture","torchTexture","chestTexture"]
+isInteractible = []
 
 def colision(niveau):
     global Xposition
@@ -135,7 +124,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
                 passRoom()
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
-            elif isMovable[theObject] :
+            elif theObject in isMovable :
                 if objects[Yposition-2][Xposition] == None :
                     printThings(screen,actualArea[Yposition-1][Xposition],divisionSize,Xposition,Yposition-1)
                     printThings(screen,objects[Yposition-1][Xposition],divisionSize,Xposition,Yposition-2)
@@ -158,7 +147,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
                 passRoom()
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
-            elif isMovable[theObject] :
+            elif theObject in isMovable :
                 if objects[Yposition][Xposition-2] == None :
                     printThings(screen,actualArea[Yposition][Xposition-1],divisionSize,Xposition-1,Yposition)
                     printThings(screen,objects[Yposition][Xposition-1],divisionSize,Xposition-2,Yposition)
@@ -181,7 +170,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
                 passRoom()
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
-            elif isMovable[theObject] :
+            elif theObject in isMovable :
                 if objects[Yposition+2][Xposition] == None :
                     printThings(screen,actualArea[Yposition+1][Xposition],divisionSize,Xposition,Yposition+1)
                     printThings(screen,objects[Yposition+1][Xposition],divisionSize,Xposition,Yposition+2)
@@ -204,7 +193,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
                 passRoom()
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
-            elif isMovable[theObject] :
+            elif theObject in isMovable :
                 if objects[Yposition][Xposition+2] == None :
                     printThings(screen,actualArea[Yposition][Xposition+1],divisionSize,Xposition+1,Yposition)
                     printThings(screen,objects[Yposition][Xposition+1],divisionSize,Xposition+2,Yposition)
@@ -214,6 +203,9 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
                     Xposition += 1
         except IndexError :
             return
+    
+    if actualArea[Yposition][Xposition] in isInteractible :
+        pass
 
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
