@@ -394,4 +394,3 @@ with open("PlayersTextures.json","r") as textureBase :
     matchTexture = load(textureBase)
 
 matchTexture["void"] = [[None for _ in range(8)] for _ in range(8)]
-matchTexture["doorTexture"] = [[None for _ in range(8)] for _ in range(8)]
