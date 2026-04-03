@@ -132,7 +132,7 @@ def editTexture(event,canva,screenSize,textureName,texture) :
     elif Yposition//pixelColorSize == 3 :
       colorList = pastColors.getValues()
     else :
-      pass
+      return
     try :
       match Xposition//pixelColorSize :
         case 5 :

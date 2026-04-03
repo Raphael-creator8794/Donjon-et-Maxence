@@ -6,6 +6,7 @@ from Donjon import maxX,maxY,divisionSize
 #from Donjon import Xposition,Yposition
 from Visuel.PrintThings import *
 from Visuel.Transition import *
+from time import time
 
 Xposition = (maxX-1)//2
 Yposition = (maxY-1)//2
@@ -16,6 +17,8 @@ actualRoom = 4
 actualArea = levelDatas[actualRoom]["area"]
 objects = levelDatas[actualRoom]["objects"]
 objects[3][3] = "crateTexture"
+lastTimeMovement = 0
+delayMovement = 0.1
 
 isMovable = ["crateTexture","torchTexture","chestTexture"]
 isInteractible = []
@@ -111,7 +114,13 @@ def passRoom() :
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
     global Yposition
-    
+    global lastTimeMovement
+
+    if lastTimeMovement + delayMovement > time() :
+        return
+    else :
+        lastTimeMovement = time()
+
     if dir == "'z'":
         try :
             theObject = objects[Yposition-1][Xposition] 
@@ -204,8 +213,30 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
         except IndexError :
             return
     
-    if actualArea[Yposition][Xposition] in isInteractible :
-        pass
+    interact(screen)
+    """if actualArea[Yposition][Xposition] in isInteractible :
+        pass"""
+
+def interact(screen) :
+    match actualArea[Yposition][Xposition] :
+        case "redPressurePlateTextureOff" :
+            actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
+            printThings(screen,"redPressurePlateTextureOn",divisionSize,Xposition,Yposition)
+            printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case "redPressurePlateTextureOn" :
+            actualArea[Yposition][Xposition] = "redPressurePlateTextureOff"
+            printThings(screen,"redPressurePlateTextureOff",divisionSize,Xposition,Yposition)
+            printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case "bluePressurePlateTextureOff" :
+            actualArea[Yposition][Xposition] = "bluePressurePlateTextureOn"
+            printThings(screen,"bluePressurePlateTextureOn",divisionSize,Xposition,Yposition)
+            printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case "bluePressurePlateTextureOn" :
+            actualArea[Yposition][Xposition] = "bluePressurePlateTextureOff"
+            printThings(screen,"bluePressurePlateTextureOff",divisionSize,Xposition,Yposition)
+            printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case _ :
+            return
 
 
 '''

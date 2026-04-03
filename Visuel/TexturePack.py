@@ -4,6 +4,7 @@ glass = "#D4F6FC"
 white = "#FFFFFF"
 lightGrey = "#B9B9B9"
 grey = "#474646"
+darkGrey = "#383636"
 black = "#000000"
 purple = "#440439"
 brown = "#2E2106"
@@ -18,7 +19,9 @@ green = "#008132"
 darkGreen = "#003D0F"
 darkBlue = "#2B0D71"
 neonBlue = "#006EFF"
+darkPurple = "#5B0086"
 neonPurple = "#AE00FF"
+lightPurple = "#D489F7"
 neonPink = "#FF00FF"
 red = "#D40000"
 darkRed = "#8C3113"
@@ -78,9 +81,33 @@ grassTexture = [
     [lightGreen,lightGreen,green,lightGreen,lightGreen,lightGreen,lightGreen,lightGreen],
     [lightGreen,lightGreen,lightGreen,green,lightGreen,green,lightGreen,lightGreen],
     [lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,green,lightGreen],
-    [lightGreen,green,lightGreen,lightGreen,lightGreen,green,lightGreen,green],
+    [lightGreen,green,lightGreen,lightGreen,lightGreen,green,lightGreen,green]
 ]
 verifTexture(grassTexture)
+
+lavaTexture = [
+    [orange,orange,orange,gold,orange,orange,gold,orange],
+    [orange,gold,orange,orange,orange,gold,orange,orange],
+    [orange,orange,gold,gold,orange,orange,orange,gold],
+    [gold,orange,orange,orange,orange,gold,orange,orange],
+    [orange,orange,gold,orange,orange,orange,orange,orange],
+    [orange,orange,orange,gold,orange,gold,orange,orange],
+    [orange,orange,orange,orange,orange,orange,gold,orange],
+    [orange,gold,orange,orange,orange,gold,orange,gold]
+]
+verifTexture(lavaTexture)
+
+stoneTexture = [
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,lightGrey,grey,None,None,None],
+    [None,None,lightGrey,grey,grey,grey,None,None],
+    [None,None,lightGrey,grey,grey,darkGrey,darkGrey,None],
+    [None,lightGrey,grey,grey,darkGrey,darkGrey,darkGrey,None],
+    [None,grey,grey,grey,darkGrey,darkGrey,darkGrey,None],
+    [None,None,None,None,None,None,None,None]
+]
+verifTexture(playerTexture)
 
 crateTexture = [
     ["#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B"],
@@ -105,7 +132,7 @@ chestTexture =  [
 ]
 verifTexture(chestTexture)
 
-torchTexture =  [
+torchOnTexture =  [
     [None,darkRed,None,orange,orange,None,None,darkRed],
     [None,None,orange,gold,orange,orange,None,None],
     [darkRed,None,orange,gold,gold,orange,None,None],
@@ -115,7 +142,43 @@ torchTexture =  [
     [None,None,None,grey,grey,None,None,None],
     [None,None,grey,grey,grey,grey,None,None]
 ]
-verifTexture(torchTexture)
+verifTexture(torchOnTexture)
+
+torchOffTexture =  [
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,black,black,None,None,None],
+    [None,None,grey,grey,grey,grey,None,None],
+    [None,None,None,grey,grey,None,None,None],
+    [None,None,None,grey,grey,None,None,None],
+    [None,None,None,grey,grey,None,None,None],
+    [None,None,grey,grey,grey,grey,None,None]
+]
+verifTexture(torchOffTexture)
+
+keyTexture =  [
+    [None,None,None,gold,gold,None,None,None],
+    [None,None,gold,None,None,gold,None,None],
+    [None,None,None,gold,gold,None,None,None],
+    [None,None,None,None,gold,None,None,None],
+    [None,None,gold,gold,gold,None,None,None],
+    [None,None,None,gold,gold,None,None,None],
+    [None,None,None,None,gold,None,None,None],
+    [None,None,None,gold,gold,None,None,None]
+]
+verifTexture(keyTexture)
+
+orbTexture =  [
+    [None,None,None,darkPurple,darkPurple,None,None,None],
+    [None,None,darkPurple,neonPurple,neonPurple,neonPurple,None,None],
+    [None,darkPurple,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,None],
+    [darkPurple,neonPurple,white,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple],
+    [neonPurple,neonPurple,neonPurple,lightPurple,neonPurple,neonPurple,neonPurple,neonPurple],
+    [None,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,None],
+    [None,None,neonPurple,neonPurple,neonPurple,neonPurple,None,None],
+    [None,None,None,neonPurple,neonPurple,None,None,None]
+]
+verifTexture(orbTexture)
 
 roundPotionTexture =  [
     [None,None,None,None,None,None,None,None],
