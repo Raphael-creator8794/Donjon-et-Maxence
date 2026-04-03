@@ -21,7 +21,6 @@ bannerWidth = int((screenWidth*0.3)//1)
 divisionSize = 50
 maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
-backgroundColor = "#D2DF89"
 state = "menu"
 iClicked = False
 
@@ -63,7 +62,7 @@ if __name__ == "__main__" :
 
     def printSettings() :
         screen.delete("all")
-        screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill="#D36221")
+        screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill=orange)
 
     def clickSituation(event) :
         Xaxe = event.x
