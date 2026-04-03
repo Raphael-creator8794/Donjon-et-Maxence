@@ -13,7 +13,7 @@ Yposition = (maxY-1)//2
 level = 0
 with open("Levels.json","r") as datas :
     levelDatas = load(datas)[level]
-actualRoom = 4
+actualRoom = 0
 actualArea = levelDatas[actualRoom]["area"]
 objects = levelDatas[actualRoom]["objects"]
 objects[3][3] = "crateTexture"
