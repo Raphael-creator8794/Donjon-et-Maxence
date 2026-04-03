@@ -19,7 +19,9 @@ green = "#008132"
 darkGreen = "#003D0F"
 darkBlue = "#2B0D71"
 neonBlue = "#006EFF"
+darkPurple = "#5B0086"
 neonPurple = "#AE00FF"
+lightPurple = "#D489F7"
 neonPink = "#FF00FF"
 red = "#D40000"
 darkRed = "#8C3113"
@@ -153,6 +155,30 @@ torchOffTexture =  [
     [None,None,grey,grey,grey,grey,None,None]
 ]
 verifTexture(torchOffTexture)
+
+keyTexture =  [
+    [None,None,None,gold,gold,None,None,None],
+    [None,None,gold,None,None,gold,None,None],
+    [None,None,None,gold,gold,None,None,None],
+    [None,None,None,None,gold,None,None,None],
+    [None,None,gold,gold,gold,None,None,None],
+    [None,None,None,gold,gold,None,None,None],
+    [None,None,None,None,gold,None,None,None],
+    [None,None,None,gold,gold,None,None,None]
+]
+verifTexture(keyTexture)
+
+orbTexture =  [
+    [None,None,None,darkPurple,darkPurple,None,None,None],
+    [None,None,darkPurple,neonPurple,neonPurple,neonPurple,None,None],
+    [None,darkPurple,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,None],
+    [darkPurple,neonPurple,white,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple],
+    [neonPurple,neonPurple,neonPurple,lightPurple,neonPurple,neonPurple,neonPurple,neonPurple],
+    [None,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,None],
+    [None,None,neonPurple,neonPurple,neonPurple,neonPurple,None,None],
+    [None,None,None,neonPurple,neonPurple,None,None,None]
+]
+verifTexture(orbTexture)
 
 roundPotionTexture =  [
     [None,None,None,None,None,None,None,None],
