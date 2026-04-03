@@ -11,11 +11,13 @@ if notDefined :
     from Visuel.PrintMap import *
     from Inventory import *
     from Movement import *
+    from CreateComments import *
     import json
 
 # Global variable
 screenWidth = 800
 screenHeight = 600
+bannerWidth = int((screenWidth*0.3)//1)
 divisionSize = 50
 maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
@@ -84,6 +86,7 @@ if __name__ == "__main__" :
                             window.destroy()
                             state = "exit"
             case "play" :
+                return
                 if Xaxe < screenWidth/10 and Yaxe < screenHeight/10 :
                     printMap(screen,screenWidth,screenHeight,roomsToMap(levelDatas))
             case "settings" :
@@ -109,16 +112,22 @@ if __name__ == "__main__" :
     def printHey(event = None) :
         print("Hey !")
 
+    def addAie(event) :
+        addComment(commentBanner,"Aïe")
+
     window = Tk()
     window.title("Donjon")
-    window.geometry(str(screenWidth)+"x"+str(screenHeight))
-    window.config(bg = lightGrey)
+    window.geometry(str(screenWidth+bannerWidth)+"x"+str(screenHeight))
+    window.config(bg = "#888888")
 
     screen = Canvas(window,height = screenHeight,width = screenWidth,bg = black)
     screen.place(x = 0,y = 0)
-    screen.delete("all")
     printMenu(screen,screenWidth,screenHeight)
     screen.bind("<Button-1>", clickSituation )
     screen.bind("<a>", printHey)
+    commentBanner = Canvas(window,height = screenHeight,width = bannerWidth,bg = black)
+    commentBanner.place(x = screenWidth,y = 0)
+    initParametres(screenHeight,bannerWidth,10)
+    commentBanner.bind("<Button-1>", addAie )
     window.bind("<Key>", keySituation )
     window.mainloop()
