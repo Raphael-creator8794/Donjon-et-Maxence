@@ -156,30 +156,6 @@ torchOffTexture =  [
 ]
 verifTexture(torchOffTexture)
 
-keyTexture =  [
-    [None,None,None,gold,gold,None,None,None],
-    [None,None,gold,None,None,gold,None,None],
-    [None,None,None,gold,gold,None,None,None],
-    [None,None,None,None,gold,None,None,None],
-    [None,None,gold,gold,gold,None,None,None],
-    [None,None,None,gold,gold,None,None,None],
-    [None,None,None,None,gold,None,None,None],
-    [None,None,None,gold,gold,None,None,None]
-]
-verifTexture(keyTexture)
-
-orbTexture =  [
-    [None,None,None,darkPurple,darkPurple,None,None,None],
-    [None,None,darkPurple,neonPurple,neonPurple,neonPurple,None,None],
-    [None,darkPurple,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,None],
-    [darkPurple,neonPurple,white,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple],
-    [neonPurple,neonPurple,neonPurple,lightPurple,neonPurple,neonPurple,neonPurple,neonPurple],
-    [None,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,neonPurple,None],
-    [None,None,neonPurple,neonPurple,neonPurple,neonPurple,None,None],
-    [None,None,None,neonPurple,neonPurple,None,None,None]
-]
-verifTexture(orbTexture)
-
 roundPotionTexture =  [
     [None,None,None,None,None,None,None,None],
     [None,None,None,brown,brown,None,None,None],
