@@ -36,6 +36,7 @@ def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
 def printMenu(screen,screenWidth,screenHeight) :
     screen.delete("all")
     screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill="#D36221")
+    screen.create_rectangle(0,screenHeight//4,screenWidth,screenHeight,fill=backgroundColor)
     indexThickness = screenHeight//nbIndex
     screen.create_rectangle(screenWidth//4,8*indexThickness,screenWidth*3//4,9*indexThickness,outline = borderColor,width = 3,fill="#D36221")
     screen.create_text(screenWidth//2,(8.5*indexThickness)//1,text = "Jouer",font = labelStyle)

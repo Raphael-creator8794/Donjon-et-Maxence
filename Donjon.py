@@ -7,8 +7,9 @@ if notDefined :
     from Visuel.Transition import *
     from Visuel.PrintThings import *
     from Visuel.TexturePack import *
-    from Inventory import *
     from Visuel.TextureEditor import *
+    from Visuel.PrintMap import *
+    from Inventory import *
     from Movement import *
     import json
 
@@ -19,10 +20,7 @@ divisionSize = 50
 maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
 state = "menu"
-Xposition = (maxX-1)//2
-Yposition = (maxY-1)//2
 iClicked = False
-level = 1
 
 if __name__ == "__main__" :
 
@@ -51,21 +49,13 @@ if __name__ == "__main__" :
         transRight(screen,screenWidth,screenHeight)
 
     def printStart() :
-        global actualArea
-        global objects
-        global level
-        actualArea = [[grassTexture for _ in range(maxX)] for _ in range(maxY)]
-        objects = [[None for _ in range(maxX)] for _ in range(maxY)]
-        objects[3][3] = "crateTexture"
-        printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-        with open("Jeu.json","r",encoding="utf-8") as fichier:
+        """with open("Jeu.json","r",encoding="utf-8") as fichier:
             dict = json.load(fichier)
             le_niveaux = dict[str(level)]
-            for ligne in range(len(le_niveaux)):
-                for dico in range(len(le_niveaux[ligne])):
-                    for texture in le_niveaux[ligne][dico]:
-                        if texture != "grassTexture":
-                            printThings(screen,matchTexture[texture],divisionSize,dico,ligne)
+            if texture != "grassTexture":
+                printThings(screen,matchTexture[texture],divisionSize,dico,ligne)"""
+
+        printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
         printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
 
     def printSettings() :
@@ -76,8 +66,6 @@ if __name__ == "__main__" :
         Xaxe = event.x
         Yaxe = event.y
         global state
-        global Xposition
-        global Yposition
         global startArea
         match state :
             case "menu" :
@@ -96,7 +84,8 @@ if __name__ == "__main__" :
                             window.destroy()
                             state = "exit"
             case "play" :
-                pass #arrowMove(event)
+                if Xaxe < screenWidth/10 and Yaxe < screenHeight/10 :
+                    printMap(screen,screenWidth,screenHeight,roomsToMap(levelDatas))
             case "settings" :
                 if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
                     printMenu(screen,screenWidth,screenHeight)
@@ -109,18 +98,15 @@ if __name__ == "__main__" :
         global objects
         global iClicked
         global level
-        with open("Jeu.json","r",encoding="utf-8") as fichier:
-            dict = json.load(fichier)
-            le_niveau = dict[str(level)]
-            if state == "play":
-                pressedKey = str(repr(event.char)).lower()
-                if pressedKey == "'i'" :
-                    iClicked = not(iClicked)
-                    seeInventory(window, iClicked)
-                else :
-                    moveDir(screen,pressedKey,actualArea,objects)
+        if state == "play":
+            pressedKey = str(repr(event.char)).lower()
+            if pressedKey == "'i'" :
+                iClicked = not(iClicked)
+                seeInventory(window, iClicked)
+            else :
+                moveDir(screen,pressedKey,screenWidth,screenHeight)
 
-    def printHey() :
+    def printHey(event = None) :
         print("Hey !")
 
     window = Tk()
@@ -128,11 +114,11 @@ if __name__ == "__main__" :
     window.geometry(str(screenWidth)+"x"+str(screenHeight))
     window.config(bg = lightGrey)
 
-    screen = Canvas(window,height = screenHeight,width = screenWidth,bg = backgroundColor)
+    screen = Canvas(window,height = screenHeight,width = screenWidth,bg = black)
     screen.place(x = 0,y = 0)
     screen.delete("all")
     printMenu(screen,screenWidth,screenHeight)
     screen.bind("<Button-1>", clickSituation )
-    screen.bind("<Button-2>", printHey)
+    screen.bind("<a>", printHey)
     window.bind("<Key>", keySituation )
     window.mainloop()

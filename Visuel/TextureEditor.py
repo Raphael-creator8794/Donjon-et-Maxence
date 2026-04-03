@@ -6,9 +6,9 @@ from Visuel.PrintThings import *
 from File import *
 #from texturePack import *
 
-page = floatLoop(0,0,2)
 isOpen = False
 actualColor = black
+isAdmin = True
 tool = "brush"
 
 listTexture = [[]]
@@ -19,6 +19,7 @@ for nameTexture in matchTexture.keys() :
     listTexture.append([nameTexture])
 for _ in range(3-len(listTexture[-1])) :
   listTexture[-1].append("void")
+page = floatLoop(0,0,len(listTexture)-1)
 
 preSetColors = [topColor,middlecolor,bottomColor,black,white,red,purple,gold]
 pastColors = File(7)
@@ -147,7 +148,16 @@ def editTexture(event,canva,screenSize,textureName,texture) :
         case 15 :
           actualColor = colorList[5]
         case 17 :
-          actualColor = colorList[6]
+          def changeColor() :
+            global actualColor
+            actualColor = "#" + askColor.get()
+            popupAskColor.destroy()
+          popupAskColor = Toplevel(popup)
+          askColor = Entry(popupAskColor)
+          sendButton = Button(popupAskColor,text = "send",command = changeColor )
+          askColor.pack()
+          sendButton.pack()
+          #actualColor = colorList[6]
     except IndexError :
       pass
     if not(actualColor in pastColors.getValues()) :
@@ -199,6 +209,9 @@ def saveTexture(textureName,texture) :
   dicTexture[textureName] = texture
   with open("PlayersTextures.json","w") as textureBase :
     dump(dicTexture,textureBase,indent = 4)
+  if isAdmin :
+    with open("DefaultTexture.json","w") as textureBase :
+      dump(dicTexture,textureBase,indent = 4)
 
 def restoreOldTexture(textureName) :
   with open("DefaultTexture.json","r") as textureBase :

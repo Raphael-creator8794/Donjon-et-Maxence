@@ -1,11 +1,24 @@
+"""definingMovement = True
+if definingMovement :
+    definingMovement = False"""
 import json
-from Donjon import Xposition,Yposition,maxX,maxY,divisionSize
+from Donjon import maxX,maxY,divisionSize
+#from Donjon import Xposition,Yposition
 from Visuel.PrintThings import *
-isMovable = {
-    "brickWallTexture" : False ,
-    "squarePotionTexture" : False ,
-    "crateTexture" : True
-}
+from Visuel.Transition import *
+
+Xposition = (maxX-1)//2
+Yposition = (maxY-1)//2
+level = 0
+with open("Levels.json","r") as datas :
+    levelDatas = load(datas)[level]
+actualRoom = 4
+actualArea = levelDatas[actualRoom]["area"]
+objects = levelDatas[actualRoom]["objects"]
+objects[3][3] = "crateTexture"
+
+isMovable = ["crateTexture","torchTexture","chestTexture"]
+isInteractible = []
 
 def colision(niveau):
     global Xposition
@@ -78,7 +91,24 @@ def movePlayer(screen,direction,Xposition,Yposition,area) :
             case "right" :
                 printThings(screen,playerTexture,divisionSize,Xposition+1,Yposition)
 
-def moveDir(screen,dir,area,objects) :
+def passRoom() :
+    global actualArea
+    global objects
+    global actualMap
+    global actualRoom
+    global Xposition
+    global Yposition
+    for i in levelDatas[actualRoom]["door"] :
+        if i[0] == Xposition and i[1] == Yposition :
+            break
+    actualRoom = i[2]
+    Xposition = i[3]
+    Yposition = i[4]
+    actualMap = levelDatas[actualRoom]
+    actualArea = levelDatas[actualRoom]["area"]
+    objects = levelDatas[actualRoom]["objects"]
+
+def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
     global Yposition
     
@@ -86,13 +116,19 @@ def moveDir(screen,dir,area,objects) :
         try :
             theObject = objects[Yposition-1][Xposition] 
             if theObject == None :
-                movePlayer(screen,"up",Xposition,Yposition, area)
+                movePlayer(screen,"up",Xposition,Yposition, actualArea)
                 Yposition -= 1
-            elif isMovable[theObject] :
+            elif theObject == "doorTexture" :
+                Yposition -= 1
+                transUp(screen,screenWidth,screenHeight)
+                passRoom()
+                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+            elif theObject in isMovable :
                 if objects[Yposition-2][Xposition] == None :
-                    printThings(screen,area[Yposition-1][Xposition],divisionSize,Xposition,Yposition-1)
+                    printThings(screen,actualArea[Yposition-1][Xposition],divisionSize,Xposition,Yposition-1)
                     printThings(screen,objects[Yposition-1][Xposition],divisionSize,Xposition,Yposition-2)
-                    movePlayer(screen,"up",Xposition,Yposition, area)
+                    movePlayer(screen,"up",Xposition,Yposition, actualArea)
                     objects[Yposition-2][Xposition] = objects[Yposition-1][Xposition]
                     objects[Yposition-1][Xposition] = None
                     Yposition -= 1
@@ -103,13 +139,19 @@ def moveDir(screen,dir,area,objects) :
         try :
             theObject = objects[Yposition][Xposition-1] 
             if theObject == None :
-                movePlayer(screen,"left",Xposition,Yposition, area)
+                movePlayer(screen,"left",Xposition,Yposition, actualArea)
                 Xposition -= 1
-            elif isMovable[theObject] :
+            elif theObject == "doorTexture" :
+                Xposition -= 1
+                transLeft(screen,screenWidth,screenHeight)
+                passRoom()
+                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+            elif theObject in isMovable :
                 if objects[Yposition][Xposition-2] == None :
-                    printThings(screen,area[Yposition][Xposition-1],divisionSize,Xposition-1,Yposition)
+                    printThings(screen,actualArea[Yposition][Xposition-1],divisionSize,Xposition-1,Yposition)
                     printThings(screen,objects[Yposition][Xposition-1],divisionSize,Xposition-2,Yposition)
-                    movePlayer(screen,"left",Xposition,Yposition, area)
+                    movePlayer(screen,"left",Xposition,Yposition, actualArea)
                     objects[Yposition][Xposition-2] = objects[Yposition][Xposition-1]
                     objects[Yposition][Xposition-1] = None
                     Xposition -= 1
@@ -120,13 +162,19 @@ def moveDir(screen,dir,area,objects) :
         try :
             theObject = objects[Yposition+1][Xposition] 
             if theObject == None :
-                movePlayer(screen,"down",Xposition,Yposition, area)
+                movePlayer(screen,"down",Xposition,Yposition, actualArea)
                 Yposition += 1
-            elif isMovable[theObject] :
+            elif theObject == "doorTexture" :
+                Yposition += 1
+                transDown(screen,screenWidth,screenHeight)
+                passRoom()
+                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+            elif theObject in isMovable :
                 if objects[Yposition+2][Xposition] == None :
-                    printThings(screen,area[Yposition+1][Xposition],divisionSize,Xposition,Yposition+1)
+                    printThings(screen,actualArea[Yposition+1][Xposition],divisionSize,Xposition,Yposition+1)
                     printThings(screen,objects[Yposition+1][Xposition],divisionSize,Xposition,Yposition+2)
-                    movePlayer(screen,"down",Xposition,Yposition, area)
+                    movePlayer(screen,"down",Xposition,Yposition, actualArea)
                     objects[Yposition+2][Xposition] = objects[Yposition+1][Xposition]
                     objects[Yposition+1][Xposition] = None
                     Yposition += 1
@@ -137,18 +185,27 @@ def moveDir(screen,dir,area,objects) :
         try :
             theObject = objects[Yposition][Xposition+1] 
             if theObject == None :
-                movePlayer(screen,"right",Xposition,Yposition, area)
+                movePlayer(screen,"right",Xposition,Yposition, actualArea)
                 Xposition += 1
-            elif isMovable[theObject] :
+            elif theObject == "doorTexture" :
+                Xposition += 1
+                transRight(screen,screenWidth,screenHeight)
+                passRoom()
+                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+            elif theObject in isMovable :
                 if objects[Yposition][Xposition+2] == None :
-                    printThings(screen,area[Yposition][Xposition+1],divisionSize,Xposition+1,Yposition)
+                    printThings(screen,actualArea[Yposition][Xposition+1],divisionSize,Xposition+1,Yposition)
                     printThings(screen,objects[Yposition][Xposition+1],divisionSize,Xposition+2,Yposition)
-                    movePlayer(screen,"right",Xposition,Yposition, area)
+                    movePlayer(screen,"right",Xposition,Yposition, actualArea)
                     objects[Yposition][Xposition+2] = objects[Yposition][Xposition+1]
                     objects[Yposition][Xposition+1] = None
                     Xposition += 1
         except IndexError :
             return
+    
+    if actualArea[Yposition][Xposition] in isInteractible :
+        pass
 
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
