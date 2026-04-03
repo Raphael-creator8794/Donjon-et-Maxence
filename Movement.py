@@ -13,7 +13,7 @@ Yposition = (maxY-1)//2
 level = 0
 with open("Levels.json","r") as datas :
     levelDatas = load(datas)[level]
-actualRoom = 4
+actualRoom = 0
 actualArea = levelDatas[actualRoom]["area"]
 objects = levelDatas[actualRoom]["objects"]
 objects[3][3] = "crateTexture"
@@ -238,6 +238,8 @@ def interact(screen) :
         case _ :
             return
 
+
+'''
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition
@@ -279,3 +281,4 @@ def moveDirOld(screen,dir,area,le_niveau,level) :
                 printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
             movePlayer(screen,"right",Xposition,Yposition, area)
             Xposition += 1 
+'''
