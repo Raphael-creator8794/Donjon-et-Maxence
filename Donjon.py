@@ -107,7 +107,7 @@ if __name__ == "__main__" :
             else :
                 moveDir(screen,pressedKey,screenWidth,screenHeight)
 
-    def printHey() :
+    def printHey(event = None) :
         print("Hey !")
 
     window = Tk()
@@ -120,6 +120,6 @@ if __name__ == "__main__" :
     screen.delete("all")
     printMenu(screen,screenWidth,screenHeight)
     screen.bind("<Button-1>", clickSituation )
-    screen.bind("<Button-2>", printHey)
+    screen.bind("<a>", printHey)
     window.bind("<Key>", keySituation )
     window.mainloop()
