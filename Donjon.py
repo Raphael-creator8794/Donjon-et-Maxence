@@ -58,7 +58,7 @@ if __name__ == "__main__" :
                 printThings(screen,matchTexture[texture],divisionSize,dico,ligne)"""
 
         printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-        printThings(screen,playerTexture,divisionSize,(maxX-1)//2,(maxY-1)//2)
+        printThings(screen,playerTexture,divisionSize,(maxX-13)//2,(maxY-1)//2)
 
     def printSettings() :
         screen.delete("all")
