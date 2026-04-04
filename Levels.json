@@ -24,14 +24,14 @@
             "objects" : [
                 ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
                 ["forestTexture", null, null, null, null, null, null, "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
-                ["forestTexture", null, null, null, null, null, null, "brickWallTexture",null, null, null, null, null, null, null, null],
-                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null, null, null, null, null, null, null, null],
+                ["forestTexture", null, null, null, null, null, "stoneTexture", "brickWallTexture",null, null, null, null, null, null, null, null],
+                ["forestTexture", "stoneTexture", null, null, null, null, null, "brickWallTexture", null, null, null, null, null, null, null, null],
                 ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
                 ["forestTexture", null, null, null, null, null, null, null, null,null, null, null, null, null, null, null],
                 ["forestTexture", null, null, null, null, null, null, null, null,null, null, null, null, null, null, null],
                 ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
                 ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
-                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
+                ["forestTexture", null, "stoneTexture", null, null, "stoneTexture", null, "brickWallTexture", null,null, null, null, null, null, null, null],
                 ["forestTexture", null, null, null, null, null, null, "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
                 ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"]
             ]
