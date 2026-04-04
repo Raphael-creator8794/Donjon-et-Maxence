@@ -8,7 +8,7 @@ from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
 
-Xposition = (maxX-1)//2
+Xposition = (maxX-13)//2
 Yposition = (maxY-1)//2
 level = 0
 with open("Levels.json","r") as datas :
