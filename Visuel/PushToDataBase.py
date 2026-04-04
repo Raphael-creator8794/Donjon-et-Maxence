@@ -17,7 +17,7 @@ whiteTexture = [
 with open("DefaultTexture.json","r") as dataBase :
     dicTexture = load(dataBase)
 
-dicTexture["blueBaseTexture"] = whiteTexture
+dicTexture["lavaTexture"] = lavaTexture
 
 with open("DefaultTexture.json","w") as dataBase :
     dump(dicTexture,dataBase,indent = 4)
