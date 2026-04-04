@@ -1,5 +1,6 @@
 #Quoicoubesque group
 from json import *
+lightBlue = "#A0F1FF"
 glass = "#D4F6FC"
 white = "#FFFFFF"
 lightGrey = "#B9B9B9"
@@ -23,7 +24,9 @@ darkPurple = "#5B0086"
 neonPurple = "#AE00FF"
 lightPurple = "#D489F7"
 neonPink = "#FF00FF"
+lightRed = "#FE0000"
 red = "#D40000"
+otherDarkRed = "#B50202"
 darkRed = "#8C3113"
 orange = "#F78012"
 gold = "#F8DC0B"
