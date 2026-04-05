@@ -6,7 +6,7 @@
             "Xpos" : 5 ,
             "Ypos" : 6 ,
             "seen" : true ,
-            "door" : [] ,
+            "door" :  [[15,6,14,7],[1,6,1,6]] ,
             "area" : [
                 ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
                 ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
@@ -100,8 +100,8 @@
             "objects" : [
                 ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
                 ["brickWallTexture", "brickWallTexture", "blueBaseTexture", "brickWallTexture", "brickWallTexture", "greenBaseTexture", "brickWallTexture","brickWallTexture", "redBaseTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture","brickWallTexture"],
-                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, "redJewelTexture", null, "blueJewelTexture", null,"brickWallTexture"],
-                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, "greenJewelTexture", null, null, null,"brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, "greenJewelTexture", null, "redJewelTexture", null, "blueJewelTexture", null,"brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", null, null, "brickWallTexture"],
                 [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
                 [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
@@ -120,7 +120,7 @@
             "Xpos" : 5 ,
             "Ypos" : 6 ,
             "seen" : true ,
-            "door" : [] ,
+            "door" : [[14,7],[14,8]] ,
             "area" : [
                 ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
                 ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
@@ -136,7 +136,7 @@
                 ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"]
             ] ,
             "objects" : [
-                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "doorTexture", "doorTexture", "doorTexture", "doorTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "ChaindoorTexture", "ChaindoorTexture", "ChaindoorTexture", "ChaindoorTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
                 ["brickWallTexture", null, null, "chestTexture", null, null, null, null, null, null, null, null, "orbTexture", null, null,"brickWallTexture"],
                 ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
                 ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],

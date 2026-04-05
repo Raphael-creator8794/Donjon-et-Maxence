@@ -19,7 +19,7 @@ objects = levelDatas[actualRoom]["objects"]
 lastTimeMovement = 0
 delayMovement = 0.1
 
-isMovable = ["crateTexture","torchTexture","chestTexture"]
+isMovable = ["crateTexture","torchTexture","chestTexture","stoneTexture","blueJewelTexture","greenJewelTexture","redJewelTexture"]
 isInteractible = []
 
 def colision(niveau):
@@ -126,12 +126,14 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"up",Xposition,Yposition, actualArea)
                 Yposition -= 1
-            elif theObject == "doorTexture" :
+            elif theObject  == "Holedown" :
                 Yposition -= 1
                 transUp(screen,screenWidth,screenHeight)
                 passRoom()
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+                level += 1
+                #printStart()
             elif theObject in isMovable :
                 if objects[Yposition-2][Xposition] == None :
                     printThings(screen,actualArea[Yposition-1][Xposition],divisionSize,Xposition,Yposition-1)
@@ -155,6 +157,8 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
                 passRoom()
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+                level += 1
+                #printStart()
             elif theObject in isMovable :
                 if objects[Yposition][Xposition-2] == None :
                     printThings(screen,actualArea[Yposition][Xposition-1],divisionSize,Xposition-1,Yposition)
@@ -172,12 +176,14 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"down",Xposition,Yposition, actualArea)
                 Yposition += 1
-            elif theObject == "doorTexture" :
+            elif theObject == "HoleUp" :
                 Yposition += 1
                 transDown(screen,screenWidth,screenHeight)
                 passRoom()
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+                level += 1
+                #printStart()
             elif theObject in isMovable :
                 if objects[Yposition+2][Xposition] == None :
                     printThings(screen,actualArea[Yposition+1][Xposition],divisionSize,Xposition,Yposition+1)
@@ -195,12 +201,14 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"right",Xposition,Yposition, actualArea)
                 Xposition += 1
-            elif theObject == "doorTexture" :
+            elif theObject == "Holedown" or theObject == "HoleUp" :
                 Xposition += 1
                 transRight(screen,screenWidth,screenHeight)
                 passRoom()
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+                level += 1
+                #printStart()
             elif theObject in isMovable :
                 if objects[Yposition][Xposition+2] == None :
                     printThings(screen,actualArea[Yposition][Xposition+1],divisionSize,Xposition+1,Yposition)
