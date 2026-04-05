@@ -10,13 +10,12 @@ from time import time
 
 Xposition = (maxX-13)//2
 Yposition = (maxY-1)//2
-level = 0
+level = 2
 with open("Levels.json","r") as datas :
     levelDatas = load(datas)[level]
 actualRoom = 0
 actualArea = levelDatas[actualRoom]["area"]
 objects = levelDatas[actualRoom]["objects"]
-objects[3][3] = "crateTexture"
 lastTimeMovement = 0
 delayMovement = 0.1
 
