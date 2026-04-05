@@ -2461,24 +2461,24 @@
     ],
     "orbTexture": [
         [
-            null,
-            null,
+            "#DBA10D",
+            "#DEFF00",
             "#AE00FF",
             "#AE00FF",
             "#AE00FF",
             "#AE00FF",
-            null,
-            null
+            "#DEFF00",
+            "#DBA10D"
         ],
         [
-            null,
+            "#DEFF00",
             "#AE00FF",
             "#AE00FF",
             "#D489F7",
             "#D489F7",
             "#AE00FF",
             "#5B0086",
-            null
+            "#DEFF00"
         ],
         [
             "#AE00FF",
@@ -2521,24 +2521,24 @@
             "#5B0086"
         ],
         [
-            null,
+            "#DEFF00",
             "#5B0086",
             "#AE00FF",
             "#AE00FF",
             "#AE00FF",
             "#5B0086",
             "#5B0086",
-            null
+            "#DEFF00"
         ],
         [
-            null,
-            null,
+            "#DBA10D",
+            "#DEFF00",
             "#5B0086",
             "#5B0086",
             "#5B0086",
             "#5B0086",
-            null,
-            null
+            "#DEFF00",
+            "#DBA10D"
         ]
     ],
     "torchOffTexture": [
