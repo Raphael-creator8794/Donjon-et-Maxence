@@ -10,7 +10,7 @@ from time import time
 
 Xposition = (maxX-13)//2
 Yposition = (maxY-1)//2
-level = 3
+level = 4
 with open("Levels.json","r") as datas :
     levelDatas = load(datas)[level]
 actualRoom = 0
