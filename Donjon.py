@@ -56,11 +56,28 @@ if __name__ == "__main__" :
             le_niveaux = dict[str(level)]
             if texture != "grassTexture":
                 printThings(screen,matchTexture[texture],divisionSize,dico,ligne)"""
+        
+        
         if level == 0:
             createCarpet(actualArea,10,4,13,7,darkBlue)
             createCarpet(actualArea,11,5,12,6,red)
-        printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-        printThings(screen,playerTexture,divisionSize,(maxX-13)//2,(maxY-1)//2)
+            printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+            printThings(screen,playerTexture,divisionSize,(maxX-13)//2,(maxY)//2)
+        elif level == 1:
+            printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+            printThings(screen,playerTexture,divisionSize,(maxX-13)//2,(maxY)//2)
+        elif level == 2:
+            printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+            printThings(screen,playerTexture,divisionSize,(maxX-15)//2,(maxY)//2)
+        elif level == 3:
+            printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+            printThings(screen,playerTexture,divisionSize,(maxX-15)//2,(maxY)//2)
+        elif level == 4:
+            printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+            printThings(screen,playerTexture,divisionSize,(maxX-15)//2,(maxY)//2)
+
+
+        
 
 
     def printSettings() :
