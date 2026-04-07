@@ -8,20 +8,31 @@ from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
 
-Xposition = (maxX-1)//2
-Yposition = (maxY-1)//2
-level = 0
+level = 1
+
+if level == 0 or level == 1:
+    Xposition = (maxX-13)//2
+    Yposition = (maxY)//2
+elif level == 2:
+    Xposition = (maxX-15)//2
+    Yposition = (maxY)//2
+elif level == 3:
+    Xposition = (maxX-15)//2
+    Yposition = (maxY)//2
+elif level == 4:
+    Xposition = (maxX-15)//2
+    Yposition = (maxY)//2
+
+
 with open("Levels.json","r") as datas :
     levelDatas = load(datas)[level]
-actualRoom = 4
+actualRoom = 0
 actualArea = levelDatas[actualRoom]["area"]
 objects = levelDatas[actualRoom]["objects"]
-objects[3][3] = "crateTexture"
-objects[3][5] = "stairsTexture"
 lastTimeMovement = 0
 delayMovement = 0.1
 
-isMovable = ["crateTexture","torchTexture","chestTexture"]
+isMovable = ["crateTexture","torchTexture","chestTexture","stoneTexture","blueJewelTexture","greenJewelTexture","redJewelTexture"]
 isInteractible = []
 
 def colision(niveau):
@@ -102,12 +113,22 @@ def passRoom() :
     global actualRoom
     global Xposition
     global Yposition
+    global levelDatas
+    global level
     for i in levelDatas[actualRoom]["door"] :
         if i[0] == Xposition and i[1] == Yposition :
             break
-    actualRoom = i[2]
     Xposition = i[3]
     Yposition = i[4]
+    level += 1
+    print(level)
+    with open("Levels.json","r") as datas :
+        levelDatas = load(datas)[level]
+        actualRoom = 0
+        actualArea = levelDatas[actualRoom]["area"]
+        objects = levelDatas[actualRoom]["objects"]
+    '''
+    actualRoom = i[2]
     actualMap = levelDatas[actualRoom]
     actualArea = actualMap["area"]
     objects = actualMap["objects"]
@@ -128,7 +149,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"up",Xposition,Yposition, actualArea)
                 Yposition -= 1
-            elif theObject == "doorTexture" :
+            elif theObject  == "Holedown" :
                 Yposition -= 1
                 transUp(screen,screenWidth,screenHeight)
                 passRoom()
@@ -151,7 +172,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"left",Xposition,Yposition, actualArea)
                 Xposition -= 1
-            elif theObject == "doorTexture" :
+            elif theObject == "Holedown" or theObject == "HoleUp" :
                 Xposition -= 1
                 transLeft(screen,screenWidth,screenHeight)
                 passRoom()
@@ -174,7 +195,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"down",Xposition,Yposition, actualArea)
                 Yposition += 1
-            elif theObject == "doorTexture" :
+            elif theObject == "HoleUp" :
                 Yposition += 1
                 transDown(screen,screenWidth,screenHeight)
                 passRoom()
@@ -197,7 +218,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"right",Xposition,Yposition, actualArea)
                 Xposition += 1
-            elif theObject == "doorTexture" :
+            elif theObject == "Holedown" or theObject == "HoleUp" :
                 Xposition += 1
                 transRight(screen,screenWidth,screenHeight)
                 passRoom()
@@ -241,6 +262,8 @@ def interact(screen) :
         case _ :
             return
 
+
+'''
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition
@@ -282,3 +305,4 @@ def moveDirOld(screen,dir,area,le_niveau,level) :
                 printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
             movePlayer(screen,"right",Xposition,Yposition, area)
             Xposition += 1 
+'''
