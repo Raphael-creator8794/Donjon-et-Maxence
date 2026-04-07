@@ -17,7 +17,7 @@ def initParametres(bannerHeight,width,lineHeight) :
     bannerWidth = width
     lineThickness = lineHeight
     nbLine = bannerHeight//lineHeight
-    textStyle = ("Verdana",str(lineHeight))
+    textStyle = ("Verdana",str(lineHeight//2))
     pastComment = File(nbLine)
 
 def addComment(canva , comment) :
@@ -25,6 +25,6 @@ def addComment(canva , comment) :
     pastComment.push(comment)
     canva.delete("all")
     listComment = pastComment.getValues()[::-1]
-    bannerCenter = bannerWidth
+    bannerCenter = bannerWidth/2
     for i in range(len(listComment)) :
-        canva.create_text(0,(i+0.5)*lineThickness,text = listComment[i],fill = "#FFFFFF",font = textStyle)
+        canva.create_text(bannerCenter,(i+0.5)*lineThickness,text = listComment[i],fill = "#FFFFFF",font = textStyle)

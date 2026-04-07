@@ -147,7 +147,7 @@ if __name__ == "__main__" :
     screen.bind("<a>", printHey)
     commentBanner = Canvas(window,height = screenHeight,width = bannerWidth,bg = black)
     commentBanner.place(x = screenWidth,y = 0)
-    initParametres(screenHeight,bannerWidth,10)
+    initParametres(screenHeight,bannerWidth,20)
     commentBanner.bind("<Button-1>", addAie )
     window.bind("<Key>", keySituation )
     window.mainloop()
