@@ -8,12 +8,12 @@ from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
 from Inventory import *
-
+from File import*
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 0
+level = 1
 nbMove = 0
-
+color_file = File(3)
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
     Yposition = (maxY)//2
@@ -155,7 +155,7 @@ def passRoom() :
     global Yposition
     global levelDatas
     global level
-    for i in levelDatas[actualRoom]["door"] :
+    for i in levelDatas[0]["door"] :
         if i[0] == Xposition and i[1] == Yposition :
             break
     Xposition = i[3]
@@ -274,6 +274,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
 def interact(screen,screenWidth,screenHeight) :
     global level
     global objects
+    global color_file
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -291,6 +292,14 @@ def interact(screen,screenWidth,screenHeight) :
             actualArea[Yposition][Xposition] = "bluePressurePlateTextureOff"
             printThings(screen,"bluePressurePlateTextureOff",divisionSize,Xposition,Yposition)
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case "greyPressurePlateTextureOff" :
+            actualArea[Yposition][Xposition] = "greyPressurePlateTextureOn"
+            printThings(screen,"greyPressurePlateTextureOn",divisionSize,Xposition,Yposition)
+            printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case "greyPressurePlateTextureOn" :
+            actualArea[Yposition][Xposition] = "greyPressurePlateTextureOff"
+            printThings(screen,"greyPressurePlateTextureOff",divisionSize,Xposition,Yposition)
+            printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
         case "lavaTexture" :
             respawn(screen,screenWidth,screenHeight)
 
@@ -306,47 +315,49 @@ def interact(screen,screenWidth,screenHeight) :
                 objects[6][15] = "Holedown"
                 printThings(screen,"HoleUp",divisionSize,15,5)
                 printThings(screen,"Holedown",divisionSize,15,6)
-            print(objects[9][15])
-            print(objects[2][15])
         case 1 :
+            print("Xposition : ",Xposition)
+            print("Yposition : ",Yposition)
             if Xposition == 1 and (Yposition == 1 or Yposition == 10):
                 addObject("smallTorchTexture")
+                actualArea[Yposition][Xposition] = "StoneGroundTexture"
+                
             if Xposition == 6 and (Yposition == 1 or Yposition == 10):
                 if findObjectIndex("smallTorchTexture"):
-                    objects[Xposition][Yposition] = "smallTorchTexture"
+                    objects[Yposition][Xposition] = "smallTorchTexture"
                     printThings(screen, "smallTorchTexture", divisionSize, Xposition, Yposition)
                     removeObject("smallTorchTexture")
-            if objects[6][1] == "smallTorchTexture" and objects[6][10] == "smallTorchTexture":
-                for i in range (8, 16):
+            if objects[1][6] == "smallTorchTexture" and objects[10][6] == "smallTorchTexture":
+                for i in range (8, 15):
                     for j in range (5, 7):
-                        actualArea[i][j] = "roofTexture"
+                        actualArea[j][i] = "roofTexture"
                         printThings(screen, "roofTexture", divisionSize, i, j)
             if Xposition == 8 and (Yposition == 5 or Yposition == 6):
-                if actualArea[Xposition][Yposition] == "roofTexture":
+                if actualArea[Yposition][Xposition] == "roofTexture":
                     for i in range (8,10):
-                        objects[i][10] = "brickWallHoleSpearUp"
+                        objects[10][i] = "brickWallHoleSpearUp"
                         printThings(screen, "brickWallHoleSpearUp", divisionSize, i, 10)
                         for j in range (7, 10):
-                            objects[i][j] = "spearTexture"
+                            objects[j][i] = "spearTexture"
                             printThings(screen, "spearTexture", divisionSize, i, j)
-                        objects[i][6] = "spearPointTexture"
+                        objects[6][i] = "spearPointTexture"
                         printThings(screen, "spearPointTexture", divisionSize, i, 6)
                     for i in range (11, 13):
-                        objects[i][1] = "brickWallHoleSpearDown"
+                        objects[1][i] = "brickWallHoleSpearDown"
                         printThings(screen, "brickWallHoleSpearDown", divisionSize, i, 1)
                         for j in range (2, 5):
-                            objects[i][j] = "spearTexture"
+                            objects[j][i] = "spearTexture"
                             printThings(screen, "spearTexture", divisionSize, i, j)
-                        objects[i][5] = "spearPointDownTexture"
+                        objects[5][i] = "spearPointDownTexture"
                         printThings(screen, "spearPointDownTexture", divisionSize, i, 5)
-                    objects[14][10] = "brickWallHoleSpearUp"
+                    objects[10][14] = "brickWallHoleSpearUp"
                     printThings(screen, "brickWallHoleSpearUp", divisionSize, 14, 10)
                     for j in range (7, 10):
-                        objects[i][j] = "spearTexture"
+                        objects[j][i] = "spearTexture"
                         printThings(screen, "spearTexture", divisionSize, 14, j)
-                    objects[i][6] = "spearPointTexture"
+                    objects[6][i] = "spearPointTexture"
                     printThings(screen, "spearPointTexture", divisionSize, 14, 6)
-            if objects[Xposition][Yposition] == "spearPointTexture" or objects[Xposition][Yposition] == "spearPointDownTexture":
+            if objects[Yposition][Xposition] == "spearPointTexture" or objects[Yposition][Xposition] == "spearPointDownTexture":
                 respawn(screen, screenWidth, screenHeight)
         case 2 :
             global nbMove
@@ -381,19 +392,20 @@ def interact(screen,screenWidth,screenHeight) :
                     redBridge = False
                     printBridge(screen,divisionSize,actualArea,2)
         case 3:
-            print("Xposition : ",Xposition)
-            print("Yposition : ",Yposition)
-            if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOff" and objects[10][12] == "greyPressurePlateTextureOff":
-                if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOn" and objects[10][12] == "greyPressurePlateTextureOff":
-                    if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOn" and objects[10][12] == "greyPressurePlateTextureOn":
-                        pass
-            else:
-                objects[10][8] == "redPressurePlateTextureOff"
-                objects[10][4] == "bluePressurePlateTextureOff"
-                objects[10][12] == "greyPressurePlateTextureOff"
-        case _ :
-            return
-    
+
+            color_file_model = File(3)
+            color_file_model.push("redPressurePlateTextureOn")
+            color_file_model.push("bluePressurePlateTextureOn")
+            color_file_model.push("greyPressurePlateTextureOn")
+
+            if  actualArea[10][8] == "redPressurePlateTextureOn" or actualArea[10][4] == "bluePressurePlateTextureOn" or actualArea[10][12] == "greyPressurePlateTextureOn":
+                if actualArea[Yposition][Xposition] == "redPressurePlateTextureOn" or actualArea[Yposition][Xposition] == "bluePressurePlateTextureOn" or actualArea[Yposition][Xposition] == "greyPressurePlateTextureOn":
+                    color_file.push(actualArea[Yposition][Xposition])
+                    if color_file == color_file_model:
+                        objects[9][2] = None
+                        printThings(screen,"StoneGroundTexture",divisionSize,2,9)
+
+
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition
