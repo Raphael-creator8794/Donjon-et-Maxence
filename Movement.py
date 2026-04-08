@@ -151,7 +151,7 @@ def passRoom() :
         actualRoom = 0
         actualArea = levelDatas[actualRoom]["area"]
         objects = levelDatas[actualRoom]["objects"]
-    '''
+    
     actualRoom = i[2]
     actualMap = levelDatas[actualRoom]
     actualArea = actualMap["area"]
@@ -284,7 +284,7 @@ def interact(screen,screenWidth,screenHeight) :
             respawn(screen,screenWidth,screenHeight)
         case _ :
             return
-    
+            
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition
