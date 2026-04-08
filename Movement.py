@@ -11,7 +11,7 @@ from Inventory import *
 from File import*
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 0
+level = 1
 nbMove = 0
 color_file = File(3)
 if level == 0 or level == 1:
@@ -315,47 +315,49 @@ def interact(screen,screenWidth,screenHeight) :
                 objects[6][15] = "Holedown"
                 printThings(screen,"HoleUp",divisionSize,15,5)
                 printThings(screen,"Holedown",divisionSize,15,6)
-            print(objects[9][15])
-            print(objects[2][15])
         case 1 :
+            print("Xposition : ",Xposition)
+            print("Yposition : ",Yposition)
             if Xposition == 1 and (Yposition == 1 or Yposition == 10):
                 addObject("smallTorchTexture")
+                actualArea[Yposition][Xposition] = "StoneGroundTexture"
+                
             if Xposition == 6 and (Yposition == 1 or Yposition == 10):
                 if findObjectIndex("smallTorchTexture"):
-                    objects[Xposition][Yposition] = "smallTorchTexture"
+                    objects[Yposition][Xposition] = "smallTorchTexture"
                     printThings(screen, "smallTorchTexture", divisionSize, Xposition, Yposition)
                     removeObject("smallTorchTexture")
-            if objects[6][1] == "smallTorchTexture" and objects[6][10] == "smallTorchTexture":
-                for i in range (8, 16):
+            if objects[1][6] == "smallTorchTexture" and objects[10][6] == "smallTorchTexture":
+                for i in range (8, 15):
                     for j in range (5, 7):
-                        actualArea[i][j] = "roofTexture"
+                        actualArea[j][i] = "roofTexture"
                         printThings(screen, "roofTexture", divisionSize, i, j)
             if Xposition == 8 and (Yposition == 5 or Yposition == 6):
-                if actualArea[Xposition][Yposition] == "roofTexture":
+                if actualArea[Yposition][Xposition] == "roofTexture":
                     for i in range (8,10):
-                        objects[i][10] = "brickWallHoleSpearUp"
+                        objects[10][i] = "brickWallHoleSpearUp"
                         printThings(screen, "brickWallHoleSpearUp", divisionSize, i, 10)
                         for j in range (7, 10):
-                            objects[i][j] = "spearTexture"
+                            objects[j][i] = "spearTexture"
                             printThings(screen, "spearTexture", divisionSize, i, j)
-                        objects[i][6] = "spearPointTexture"
+                        objects[6][i] = "spearPointTexture"
                         printThings(screen, "spearPointTexture", divisionSize, i, 6)
                     for i in range (11, 13):
-                        objects[i][1] = "brickWallHoleSpearDown"
+                        objects[1][i] = "brickWallHoleSpearDown"
                         printThings(screen, "brickWallHoleSpearDown", divisionSize, i, 1)
                         for j in range (2, 5):
-                            objects[i][j] = "spearTexture"
+                            objects[j][i] = "spearTexture"
                             printThings(screen, "spearTexture", divisionSize, i, j)
-                        objects[i][5] = "spearPointDownTexture"
+                        objects[5][i] = "spearPointDownTexture"
                         printThings(screen, "spearPointDownTexture", divisionSize, i, 5)
-                    objects[14][10] = "brickWallHoleSpearUp"
+                    objects[10][14] = "brickWallHoleSpearUp"
                     printThings(screen, "brickWallHoleSpearUp", divisionSize, 14, 10)
                     for j in range (7, 10):
-                        objects[i][j] = "spearTexture"
+                        objects[j][i] = "spearTexture"
                         printThings(screen, "spearTexture", divisionSize, 14, j)
-                    objects[i][6] = "spearPointTexture"
+                    objects[6][i] = "spearPointTexture"
                     printThings(screen, "spearPointTexture", divisionSize, 14, 6)
-            if objects[Xposition][Yposition] == "spearPointTexture" or objects[Xposition][Yposition] == "spearPointDownTexture":
+            if objects[Yposition][Xposition] == "spearPointTexture" or objects[Yposition][Xposition] == "spearPointDownTexture":
                 respawn(screen, screenWidth, screenHeight)
         case 2 :
             global nbMove
