@@ -10,7 +10,7 @@ from time import time
 
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 2
+level = 0
 
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
@@ -150,12 +150,7 @@ def passRoom() :
         actualRoom = 0
         actualArea = levelDatas[actualRoom]["area"]
         objects = levelDatas[actualRoom]["objects"]
-    '''
-    actualRoom = i[2]
-    actualMap = levelDatas[actualRoom]
-    actualArea = actualMap["area"]
-    objects = actualMap["objects"]
-    '''
+
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
@@ -258,10 +253,12 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
                     Xposition += 1
         except IndexError :
             return
-    
+
     interact(screen,screenWidth,screenHeight)
 
 def interact(screen,screenWidth,screenHeight) :
+    global level
+    global objects
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -281,8 +278,23 @@ def interact(screen,screenWidth,screenHeight) :
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
         case "lavaTexture" :
             respawn(screen,screenWidth,screenHeight)
-        case _ :
-            return
+
+    match level:
+        case 0:
+            print("Xposition : ",Xposition)
+            print("Yposition : ",Yposition)
+            if Xposition == 6 and Yposition == 2:
+                printThings(screen,"StoneGroundTexture",divisionSize,7,5)
+                printThings(screen,"StoneGroundTexture",divisionSize,7,6)
+                objects[5][7] = None
+                objects[6][7] = None
+            if objects[9][15] == "torchTexture" and objects[2][15] == "torchTexture":
+                objects[5][15] = "HoleUp"
+                objects[6][15] = "Holedown"
+                printThings(screen,"HoleUp",divisionSize,15,5)
+                printThings(screen,"Holedown",divisionSize,15,6)
+            print(objects[9][15])
+            print(objects[2][15])
     
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
