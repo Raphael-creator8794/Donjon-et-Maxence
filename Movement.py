@@ -281,6 +281,14 @@ def interact(screen,screenWidth,screenHeight) :
             actualArea[Yposition][Xposition] = "bluePressurePlateTextureOff"
             printThings(screen,"bluePressurePlateTextureOff",divisionSize,Xposition,Yposition)
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case "greyPressurePlateTextureOff" :
+            actualArea[Yposition][Xposition] = "greyPressurePlateTextureOn"
+            printThings(screen,"greyPressurePlateTextureOn",divisionSize,Xposition,Yposition)
+            printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case "greyPressurePlateTextureOn" :
+            actualArea[Yposition][Xposition] = "greyPressurePlateTextureOff"
+            printThings(screen,"greyPressurePlateTextureOff",divisionSize,Xposition,Yposition)
+            printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
         case "lavaTexture" :
             respawn(screen,screenWidth,screenHeight)
 
@@ -301,17 +309,19 @@ def interact(screen,screenWidth,screenHeight) :
         case 3:
             print("Xposition : ",Xposition)
             print("Yposition : ",Yposition)
-            if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOff" and objects[10][12] == "greyPressurePlateTextureOff":
-                if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOn" and objects[10][12] == "greyPressurePlateTextureOff":
-                    if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOn" and objects[10][12] == "greyPressurePlateTextureOn":
-                        pass
+            if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOff" or objects[10][12] == "greyPressurePlateTextureOff":
+                if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOn" or objects[10][12] == "greyPressurePlateTextureOff":
+                    if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOn" or objects[10][12] == "greyPressurePlateTextureOn":
+                        objects[9][2] = None
+                        printThings(screen,"StoneGroundTexture",divisionSize,2,9)
             else:
                 objects[10][8] == "redPressurePlateTextureOff"
                 objects[10][4] == "bluePressurePlateTextureOff"
                 objects[10][12] == "greyPressurePlateTextureOff"
-        case _ :
-            return
-    
+                printThings(screen,"redPressurePlateTextureOff",divisionSize,8,10)
+                printThings(screen,"bluePressurePlateTextureOff",divisionSize,4,10)
+                printThings(screen,"greyPressurePlateTextureOff",divisionSize,12,10)
+
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition
