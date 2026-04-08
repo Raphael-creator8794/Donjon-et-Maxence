@@ -121,17 +121,11 @@ def passRoom() :
     Xposition = i[3]
     Yposition = i[4]
     level += 1
-    print(level)
     with open("Levels.json","r") as datas :
         levelDatas = load(datas)[level]
         actualRoom = 0
         actualArea = levelDatas[actualRoom]["area"]
         objects = levelDatas[actualRoom]["objects"]
-    '''
-    actualRoom = i[2]
-    actualMap = levelDatas[actualRoom]
-    actualArea = actualMap["area"]
-    objects = actualMap["objects"]
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
