@@ -8,7 +8,7 @@ from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
 
-level = 1
+level = 0
 
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
