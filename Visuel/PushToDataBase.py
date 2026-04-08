@@ -14,10 +14,10 @@ whiteTexture = [
     ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF']
 ]
 
+voidTexture = [[None for _ in range(8)] for _ in range(8)]
+
 with open("DefaultTexture.json","r") as dataBase :
     dicTexture = load(dataBase)
-
-dicTexture["lavaTexture"] = lavaTexture
 
 with open("DefaultTexture.json","w") as dataBase :
     dump(dicTexture,dataBase,indent = 4)

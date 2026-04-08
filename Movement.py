@@ -11,7 +11,8 @@ from Inventory import *
 
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 1
+level = 0
+nbMove = 0
 
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
@@ -32,6 +33,9 @@ with open("Levels.json","r") as datas :
 actualRoom = 0
 actualArea = levelDatas[actualRoom]["area"]
 objects = levelDatas[actualRoom]["objects"]
+blueBridge = True
+greenBridge = True
+redBridge = True
 lastTimeMovement = 0
 delayMovement = 0.1
 
@@ -114,7 +118,9 @@ def respawn(screen,screenWidth,screenHeight) :
     global levelDatas
     global actualArea
     global objects
+    global nbMove
 
+    nbMove = 0
     nbCall = 0
     writtedPlayer = True
     blinkDelay = 0.1
@@ -160,7 +166,6 @@ def passRoom() :
         actualMap = levelDatas[actualRoom]
         actualArea = actualMap["area"]
         objects = actualMap["objects"]
-
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
@@ -312,7 +317,7 @@ def interact(screen,screenWidth,screenHeight) :
                     printThings(screen, "smallTorchTexture", divisionSize, Xposition, Yposition)
                     removeObject("smallTorchTexture")
             if objects[6][1] == "smallTorchTexture" and objects[6][10] == "smallTorchTexture":
-                for i in range (8, 1):
+                for i in range (8, 16):
                     for j in range (5, 7):
                         actualArea[i][j] = "roofTexture"
                         printThings(screen, "roofTexture", divisionSize, i, j)
@@ -343,6 +348,38 @@ def interact(screen,screenWidth,screenHeight) :
                     printThings(screen, "spearPointTexture", divisionSize, 14, 6)
             if objects[Xposition][Yposition] == "spearPointTexture" or objects[Xposition][Yposition] == "spearPointDownTexture":
                 respawn(screen, screenWidth, screenHeight)
+        case 2 :
+            global nbMove
+            global blueBridge
+            global greenBridge
+            global redBridge
+            nbMove += 1
+            if nbMove > 5 :
+                nbMove = 1
+            if nbMove == 4 and actualArea[10][14] == "redPressurePlateTextureOn" :
+                printThings(screen,"brickWallHoleArrowleft",divisionSize,15,5)
+                printThings(screen,"brickWallHoleArrowleft",divisionSize,15,6)
+            if nbMove == 5 and actualArea[10][14] == "redPressurePlateTextureOn" :
+                launchLeftSpears(screen,divisionSize,actualArea)
+                if (Yposition == 5 or Yposition == 6) :
+                    respawn(screen,screenWidth,screenHeight)
+                else :
+                    retractLeftSpears(screen,divisionSize,actualArea)
+                    screen.delete("all")
+                    printArea(screen,actualArea,objects,maxX,maxY,divisionSize,False)
+                    printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+            if blueBridge :
+                if objects[1][2] == "blueJewelTexture" :
+                    blueBridge = False
+                    printBridge(screen,divisionSize,actualArea,0)
+            if greenBridge :
+                if objects[1][5] == "greenJewelTexture" :
+                    greenBridge = False
+                    printBridge(screen,divisionSize,actualArea,1)
+            if redBridge :
+                if objects[1][8] == "redJewelTexture" :
+                    redBridge = False
+                    printBridge(screen,divisionSize,actualArea,2)
         case 3:
             print("Xposition : ",Xposition)
             print("Yposition : ",Yposition)
