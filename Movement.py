@@ -110,6 +110,10 @@ def movePlayer(screen,direction,Xposition,Yposition,area) :
 def respawn(screen,screenWidth,screenHeight) :
     global Xposition
     global Yposition
+    global levelDatas
+    global actualArea
+    global objects
+
     nbCall = 0
     writtedPlayer = True
     blinkDelay = 0.1
@@ -125,6 +129,12 @@ def respawn(screen,screenWidth,screenHeight) :
             else :
                 printThings(screen,actualArea[Yposition][Xposition],divisionSize,Xposition,Yposition)
             screen.update_idletasks()
+    
+    with open("Levels.json","r") as datas :
+        levelDatas = load(datas)[level]
+    actualArea = levelDatas[actualRoom]["area"]
+    objects = levelDatas[actualRoom]["objects"]
+    
     Xposition,Yposition = matchPosition[level]
     transDown(screen,screenWidth,screenHeight)
     printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
@@ -134,7 +144,6 @@ def passRoom() :
     global actualArea
     global objects
     global actualMap
-    global actualRoom
     global Xposition
     global Yposition
     global levelDatas
@@ -147,7 +156,6 @@ def passRoom() :
     level += 1
     with open("Levels.json","r") as datas :
         levelDatas = load(datas)[level]
-        actualRoom = 0
         actualArea = levelDatas[actualRoom]["area"]
         objects = levelDatas[actualRoom]["objects"]
     
