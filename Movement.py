@@ -155,7 +155,7 @@ def passRoom() :
     actualMap = levelDatas[actualRoom]
     actualArea = actualMap["area"]
     objects = actualMap["objects"]
-    '''
+
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
@@ -311,7 +311,7 @@ def interact(screen,screenWidth,screenHeight) :
                 objects[10][12] == "greyPressurePlateTextureOff"
         case _ :
             return
-            
+    
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition
