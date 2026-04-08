@@ -363,3 +363,4 @@ def moveDirOld(screen,dir,area,le_niveau,level) :
                 printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
             movePlayer(screen,"right",Xposition,Yposition, area)
             Xposition += 1 
+'''
