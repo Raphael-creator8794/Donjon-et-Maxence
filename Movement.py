@@ -7,10 +7,12 @@ from Donjon import maxX,maxY,divisionSize
 from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
+from Inventory import *
 
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 3
+level = 0
+nbMove = 0
 
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
@@ -31,6 +33,9 @@ with open("Levels.json","r") as datas :
 actualRoom = 0
 actualArea = levelDatas[actualRoom]["area"]
 objects = levelDatas[actualRoom]["objects"]
+blueBridge = True
+greenBridge = True
+redBridge = True
 lastTimeMovement = 0
 delayMovement = 0.1
 
@@ -113,7 +118,9 @@ def respawn(screen,screenWidth,screenHeight) :
     global levelDatas
     global actualArea
     global objects
+    global nbMove
 
+    nbMove = 0
     nbCall = 0
     writtedPlayer = True
     blinkDelay = 0.1
@@ -156,14 +163,9 @@ def passRoom() :
     level += 1
     with open("Levels.json","r") as datas :
         levelDatas = load(datas)[level]
-        actualArea = levelDatas[actualRoom]["area"]
-        objects = levelDatas[actualRoom]["objects"]
-    
-    actualRoom = i[2]
-    actualMap = levelDatas[actualRoom]
-    actualArea = actualMap["area"]
-    objects = actualMap["objects"]
-
+        actualMap = levelDatas[actualRoom]
+        actualArea = actualMap["area"]
+        objects = actualMap["objects"]
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
@@ -306,6 +308,78 @@ def interact(screen,screenWidth,screenHeight) :
                 printThings(screen,"Holedown",divisionSize,15,6)
             print(objects[9][15])
             print(objects[2][15])
+        case 1 :
+            if Xposition == 1 and (Yposition == 1 or Yposition == 10):
+                addObject("smallTorchTexture")
+            if Xposition == 6 and (Yposition == 1 or Yposition == 10):
+                if findObjectIndex("smallTorchTexture"):
+                    objects[Xposition][Yposition] = "smallTorchTexture"
+                    printThings(screen, "smallTorchTexture", divisionSize, Xposition, Yposition)
+                    removeObject("smallTorchTexture")
+            if objects[6][1] == "smallTorchTexture" and objects[6][10] == "smallTorchTexture":
+                for i in range (8, 16):
+                    for j in range (5, 7):
+                        actualArea[i][j] = "roofTexture"
+                        printThings(screen, "roofTexture", divisionSize, i, j)
+            if Xposition == 8 and (Yposition == 5 or Yposition == 6):
+                if actualArea[Xposition][Yposition] == "roofTexture":
+                    for i in range (8,10):
+                        objects[i][10] = "brickWallHoleSpearUp"
+                        printThings(screen, "brickWallHoleSpearUp", divisionSize, i, 10)
+                        for j in range (7, 10):
+                            objects[i][j] = "spearTexture"
+                            printThings(screen, "spearTexture", divisionSize, i, j)
+                        objects[i][6] = "spearPointTexture"
+                        printThings(screen, "spearPointTexture", divisionSize, i, 6)
+                    for i in range (11, 13):
+                        objects[i][1] = "brickWallHoleSpearDown"
+                        printThings(screen, "brickWallHoleSpearDown", divisionSize, i, 1)
+                        for j in range (2, 5):
+                            objects[i][j] = "spearTexture"
+                            printThings(screen, "spearTexture", divisionSize, i, j)
+                        objects[i][5] = "spearPointDownTexture"
+                        printThings(screen, "spearPointDownTexture", divisionSize, i, 5)
+                    objects[14][10] = "brickWallHoleSpearUp"
+                    printThings(screen, "brickWallHoleSpearUp", divisionSize, 14, 10)
+                    for j in range (7, 10):
+                        objects[i][j] = "spearTexture"
+                        printThings(screen, "spearTexture", divisionSize, 14, j)
+                    objects[i][6] = "spearPointTexture"
+                    printThings(screen, "spearPointTexture", divisionSize, 14, 6)
+            if objects[Xposition][Yposition] == "spearPointTexture" or objects[Xposition][Yposition] == "spearPointDownTexture":
+                respawn(screen, screenWidth, screenHeight)
+        case 2 :
+            global nbMove
+            global blueBridge
+            global greenBridge
+            global redBridge
+            nbMove += 1
+            if nbMove > 5 :
+                nbMove = 1
+            if nbMove == 4 and actualArea[10][14] == "redPressurePlateTextureOn" :
+                printThings(screen,"brickWallHoleArrowleft",divisionSize,15,5)
+                printThings(screen,"brickWallHoleArrowleft",divisionSize,15,6)
+            if nbMove == 5 and actualArea[10][14] == "redPressurePlateTextureOn" :
+                launchLeftSpears(screen,divisionSize,actualArea)
+                if (Yposition == 5 or Yposition == 6) :
+                    respawn(screen,screenWidth,screenHeight)
+                else :
+                    retractLeftSpears(screen,divisionSize,actualArea)
+                    screen.delete("all")
+                    printArea(screen,actualArea,objects,maxX,maxY,divisionSize,False)
+                    printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+            if blueBridge :
+                if objects[1][2] == "blueJewelTexture" :
+                    blueBridge = False
+                    printBridge(screen,divisionSize,actualArea,0)
+            if greenBridge :
+                if objects[1][5] == "greenJewelTexture" :
+                    greenBridge = False
+                    printBridge(screen,divisionSize,actualArea,1)
+            if redBridge :
+                if objects[1][8] == "redJewelTexture" :
+                    redBridge = False
+                    printBridge(screen,divisionSize,actualArea,2)
         case 3:
             print("Xposition : ",Xposition)
             print("Yposition : ",Yposition)
@@ -361,4 +435,3 @@ def moveDirOld(screen,dir,area,le_niveau,level) :
                 printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
             movePlayer(screen,"right",Xposition,Yposition, area)
             Xposition += 1 
-'''
