@@ -7,10 +7,11 @@ from Donjon import maxX,maxY,divisionSize
 from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
+from Inventory import *
 
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 3
+level = 1
 
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
@@ -302,6 +303,46 @@ def interact(screen,screenWidth,screenHeight) :
                 printThings(screen,"Holedown",divisionSize,15,6)
             print(objects[9][15])
             print(objects[2][15])
+        case 1 :
+            if Xposition == 1 and (Yposition == 1 or Yposition == 10):
+                addObject("smallTorchTexture")
+            if Xposition == 6 and (Yposition == 1 or Yposition == 10):
+                if findObjectIndex("smallTorchTexture"):
+                    objects[Xposition][Yposition] = "smallTorchTexture"
+                    printThings(screen, "smallTorchTexture", divisionSize, Xposition, Yposition)
+                    removeObject("smallTorchTexture")
+            if objects[6][1] == "smallTorchTexture" and objects[6][10] == "smallTorchTexture":
+                for i in range (8, 1):
+                    for j in range (5, 7):
+                        actualArea[i][j] = "roofTexture"
+                        printThings(screen, "roofTexture", divisionSize, i, j)
+            if Xposition == 8 and (Yposition == 5 or Yposition == 6):
+                if actualArea[Xposition][Yposition] == "roofTexture":
+                    for i in range (8,10):
+                        objects[i][10] = "brickWallHoleSpearUp"
+                        printThings(screen, "brickWallHoleSpearUp", divisionSize, i, 10)
+                        for j in range (7, 10):
+                            objects[i][j] = "spearTexture"
+                            printThings(screen, "spearTexture", divisionSize, i, j)
+                        objects[i][6] = "spearPointTexture"
+                        printThings(screen, "spearPointTexture", divisionSize, i, 6)
+                    for i in range (11, 13):
+                        objects[i][1] = "brickWallHoleSpearDown"
+                        printThings(screen, "brickWallHoleSpearDown", divisionSize, i, 1)
+                        for j in range (2, 5):
+                            objects[i][j] = "spearTexture"
+                            printThings(screen, "spearTexture", divisionSize, i, j)
+                        objects[i][5] = "spearPointDownTexture"
+                        printThings(screen, "spearPointDownTexture", divisionSize, i, 5)
+                    objects[14][10] = "brickWallHoleSpearUp"
+                    printThings(screen, "brickWallHoleSpearUp", divisionSize, 14, 10)
+                    for j in range (7, 10):
+                        objects[i][j] = "spearTexture"
+                        printThings(screen, "spearTexture", divisionSize, 14, j)
+                    objects[i][6] = "spearPointTexture"
+                    printThings(screen, "spearPointTexture", divisionSize, 14, 6)
+            if objects[Xposition][Yposition] == "spearPointTexture" or objects[Xposition][Yposition] == "spearPointDownTexture":
+                respawn(screen, screenWidth, screenHeight)
         case 3:
             print("Xposition : ",Xposition)
             print("Yposition : ",Yposition)
