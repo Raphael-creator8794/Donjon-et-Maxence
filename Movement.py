@@ -10,7 +10,7 @@ from time import time
 
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 2
+level = 3
 
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
@@ -145,7 +145,6 @@ def passRoom() :
     Xposition = i[3]
     Yposition = i[4]
     level += 1
-    print(level)
     with open("Levels.json","r") as datas :
         levelDatas = load(datas)[level]
         actualRoom = 0
@@ -259,10 +258,12 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
                     Xposition += 1
         except IndexError :
             return
-    
+
     interact(screen,screenWidth,screenHeight)
 
 def interact(screen,screenWidth,screenHeight) :
+    global level
+    global objects
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -282,9 +283,35 @@ def interact(screen,screenWidth,screenHeight) :
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
         case "lavaTexture" :
             respawn(screen,screenWidth,screenHeight)
+
+    match level:
+        case 0:
+            if Xposition == 6 and Yposition == 2:
+                printThings(screen,"StoneGroundTexture",divisionSize,7,5)
+                printThings(screen,"StoneGroundTexture",divisionSize,7,6)
+                objects[5][7] = None
+                objects[6][7] = None
+            if objects[9][15] == "torchTexture" and objects[2][15] == "torchTexture":
+                objects[5][15] = "HoleUp"
+                objects[6][15] = "Holedown"
+                printThings(screen,"HoleUp",divisionSize,15,5)
+                printThings(screen,"Holedown",divisionSize,15,6)
+            print(objects[9][15])
+            print(objects[2][15])
+        case 3:
+            print("Xposition : ",Xposition)
+            print("Yposition : ",Yposition)
+            if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOff" and objects[10][12] == "greyPressurePlateTextureOff":
+                if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOn" and objects[10][12] == "greyPressurePlateTextureOff":
+                    if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOn" and objects[10][12] == "greyPressurePlateTextureOn":
+                        pass
+            else:
+                objects[10][8] == "redPressurePlateTextureOff"
+                objects[10][4] == "bluePressurePlateTextureOff"
+                objects[10][12] == "greyPressurePlateTextureOff"
         case _ :
             return
-'''          
+    
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition

@@ -50,13 +50,7 @@ if __name__ == "__main__" :
     def transRightLink() :
         transRight(screen,screenWidth,screenHeight)
 
-    def printStart() :
-        """with open("Jeu.json","r",encoding="utf-8") as fichier:
-            dict = json.load(fichier)
-            le_niveaux = dict[str(level)]
-            if texture != "grassTexture":
-                printThings(screen,matchTexture[texture],divisionSize,dico,ligne)"""
-        
+    def printStart() :        
         
         if level == 0:
             createCarpet(actualArea,10,4,13,7,darkBlue)
