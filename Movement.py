@@ -306,8 +306,6 @@ def interact(screen,screenWidth,screenHeight) :
                 objects[6][15] = "Holedown"
                 printThings(screen,"HoleUp",divisionSize,15,5)
                 printThings(screen,"Holedown",divisionSize,15,6)
-            print(objects[9][15])
-            print(objects[2][15])
         case 1 :
             if Xposition == 1 and (Yposition == 1 or Yposition == 10):
                 addObject("smallTorchTexture")
@@ -381,8 +379,6 @@ def interact(screen,screenWidth,screenHeight) :
                     redBridge = False
                     printBridge(screen,divisionSize,actualArea,2)
         case 3:
-            print("Xposition : ",Xposition)
-            print("Yposition : ",Yposition)
             if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOff" and objects[10][12] == "greyPressurePlateTextureOff":
                 if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOn" and objects[10][12] == "greyPressurePlateTextureOff":
                     if objects[10][8] == "redPressurePlateTextureOn" and objects[10][4] == "bluePressurePlateTextureOn" and objects[10][12] == "greyPressurePlateTextureOn":
