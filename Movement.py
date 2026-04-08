@@ -130,9 +130,9 @@ def passRoom() :
     '''
     actualRoom = i[2]
     actualMap = levelDatas[actualRoom]
-    actualArea = levelDatas[actualRoom]["area"]
-    objects = levelDatas[actualRoom]["objects"]
-    '''
+    actualArea = actualMap["area"]
+    objects = actualMap["objects"]
+
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
     global Yposition
@@ -257,6 +257,8 @@ def interact(screen) :
             actualArea[Yposition][Xposition] = "bluePressurePlateTextureOff"
             printThings(screen,"bluePressurePlateTextureOff",divisionSize,Xposition,Yposition)
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
+        case "stairsTexture" :
+            pass
         case _ :
             return
 
