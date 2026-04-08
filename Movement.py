@@ -156,13 +156,9 @@ def passRoom() :
     level += 1
     with open("Levels.json","r") as datas :
         levelDatas = load(datas)[level]
-        actualArea = levelDatas[actualRoom]["area"]
-        objects = levelDatas[actualRoom]["objects"]
-    
-    actualRoom = i[2]
-    actualMap = levelDatas[actualRoom]
-    actualArea = actualMap["area"]
-    objects = actualMap["objects"]
+        actualMap = levelDatas[actualRoom]
+        actualArea = actualMap["area"]
+        objects = actualMap["objects"]
 
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
@@ -361,4 +357,3 @@ def moveDirOld(screen,dir,area,le_niveau,level) :
                 printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
             movePlayer(screen,"right",Xposition,Yposition, area)
             Xposition += 1 
-'''
