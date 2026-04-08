@@ -150,7 +150,7 @@ def passRoom() :
     global Yposition
     global levelDatas
     global level
-    for i in levelDatas[actualRoom]["door"] :
+    for i in levelDatas[0]["door"] :
         if i[0] == Xposition and i[1] == Yposition :
             break
     Xposition = i[3]
@@ -158,8 +158,8 @@ def passRoom() :
     level += 1
     with open("Levels.json","r") as datas :
         levelDatas = load(datas)[level]
-        actualArea = levelDatas[actualRoom]["area"]
-        objects = levelDatas[actualRoom]["objects"]
+        actualArea = levelDatas[0]["area"]
+        objects = levelDatas[0]["objects"]
     
     actualRoom = i[2]
     actualMap = levelDatas[actualRoom]
