@@ -10,7 +10,7 @@ from time import time
 from File import*
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 3
+level = 0
 
 color_file = File(3)
 
@@ -318,9 +318,7 @@ def interact(screen,screenWidth,screenHeight) :
             print(objects[9][15])
             print(objects[2][15])
         case 3:
-            print("Xposition : ",Xposition)
-            print("Yposition : ",Yposition)
-            
+
             color_file_model = File(3)
             color_file_model.push("redPressurePlateTextureOn")
             color_file_model.push("bluePressurePlateTextureOn")
@@ -329,9 +327,6 @@ def interact(screen,screenWidth,screenHeight) :
             if  actualArea[10][8] == "redPressurePlateTextureOn" or actualArea[10][4] == "bluePressurePlateTextureOn" or actualArea[10][12] == "greyPressurePlateTextureOn":
                 if actualArea[Yposition][Xposition] == "redPressurePlateTextureOn" or actualArea[Yposition][Xposition] == "bluePressurePlateTextureOn" or actualArea[Yposition][Xposition] == "greyPressurePlateTextureOn":
                     color_file.push(actualArea[Yposition][Xposition])
-                    print(color_file == color_file_model)
-                    print(color_file)
-                    print(color_file_model)
                     if color_file == color_file_model:
                         objects[9][2] = None
                         printThings(screen,"StoneGroundTexture",divisionSize,2,9)
