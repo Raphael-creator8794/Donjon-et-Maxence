@@ -127,7 +127,7 @@ def passRoom() :
         actualRoom = 0
         actualArea = levelDatas[actualRoom]["area"]
         objects = levelDatas[actualRoom]["objects"]
-    '''
+    
     actualRoom = i[2]
     actualMap = levelDatas[actualRoom]
     actualArea = actualMap["area"]
@@ -263,7 +263,6 @@ def interact(screen) :
             return
 
 
-'''
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition
@@ -305,4 +304,3 @@ def moveDirOld(screen,dir,area,le_niveau,level) :
                 printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
             movePlayer(screen,"right",Xposition,Yposition, area)
             Xposition += 1 
-'''
