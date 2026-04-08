@@ -309,18 +309,23 @@ def interact(screen,screenWidth,screenHeight) :
         case 3:
             print("Xposition : ",Xposition)
             print("Yposition : ",Yposition)
+            color_list = []
             if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOff" or objects[10][12] == "greyPressurePlateTextureOff":
+                color_list.append("redPressurePlateTextureOn")
                 if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOn" or objects[10][12] == "greyPressurePlateTextureOff":
+                    color_list.append("bluePressurePlateTextureOn")
                     if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOn" or objects[10][12] == "greyPressurePlateTextureOn":
-                        objects[9][2] = None
-                        printThings(screen,"StoneGroundTexture",divisionSize,2,9)
-            else:
-                objects[10][8] == "redPressurePlateTextureOff"
-                objects[10][4] == "bluePressurePlateTextureOff"
-                objects[10][12] == "greyPressurePlateTextureOff"
-                printThings(screen,"redPressurePlateTextureOff",divisionSize,8,10)
-                printThings(screen,"bluePressurePlateTextureOff",divisionSize,4,10)
-                printThings(screen,"greyPressurePlateTextureOff",divisionSize,12,10)
+                        color_list.append("greyPressurePlateTextureOn")
+                        if color_list == ["redPressurePlateTextureOn","bluePressurePlateTextureOn","greyPressurePlateTextureOn"]:
+                            objects[9][2] = None
+                            printThings(screen,"StoneGroundTexture",divisionSize,2,9)
+                        else:
+                            objects[10][8] == "redPressurePlateTextureOff"
+                            objects[10][4] == "bluePressurePlateTextureOff"
+                            objects[10][12] == "greyPressurePlateTextureOff"
+                            printThings(screen,"redPressurePlateTextureOff",divisionSize,8,10)
+                            printThings(screen,"bluePressurePlateTextureOff",divisionSize,4,10)
+                            printThings(screen,"greyPressurePlateTextureOff",divisionSize,12,10)
 
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
