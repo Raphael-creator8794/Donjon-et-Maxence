@@ -70,10 +70,6 @@ if __name__ == "__main__" :
             printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
             printThings(screen,playerTexture,divisionSize,(maxX-15)//2,(maxY)//2)
 
-
-        
-
-
     def printSettings() :
         screen.delete("all")
         screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill=orange)
