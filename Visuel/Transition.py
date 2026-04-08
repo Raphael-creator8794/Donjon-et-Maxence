@@ -167,10 +167,11 @@ def launchLeftSpears(screen,divisionSize,area) :
         printThings(screen,"spearPointLeftTexture",divisionSize,13-i,6)
         screen.update_idletasks()
 
+
 def retractLeftSpears(screen,divisionSize,area) :
     for i in range(14) :
         lastCall = time()
-        while time() < lastCall + 0.1 :
+        while time() < lastCall + 0.05 :
             pass
         printThings(screen,"spearPointLeftTexture",divisionSize,1+i,5)
         printThings(screen,"spearPointLeftTexture",divisionSize,1+i,6)
@@ -188,6 +189,36 @@ def printBridge(screen,divisionSize,actualArea,indexBridge) :
             actualArea[9+j][Xorigin+i] = "roofTexture"
             printThings(screen,"roofTexture",divisionSize,Xorigin+i,9+j)
             screen.update_idletasks()
+
+def launchUpSpears(screen,divisionSize,area) :
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,5)
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,6)
+    for i in range(13) :
+        lastCall = time()
+        while time() < lastCall + 0.01 :
+            pass
+        printThings(screen,area[5][14-i],divisionSize,14-i,5)
+        printThings(screen,area[6][14-i],divisionSize,14-i,6)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,5)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,6)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,5)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,6)
+        screen.update_idletasks()
+
+def launchDownSpears(screen,divisionSize,area) :
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,5)
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,6)
+    for i in range(13) :
+        lastCall = time()
+        while time() < lastCall + 0.01 :
+            pass
+        printThings(screen,area[5][14-i],divisionSize,14-i,5)
+        printThings(screen,area[6][14-i],divisionSize,14-i,6)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,5)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,6)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,5)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,6)
+        screen.update_idletasks()
 
 if __name__ == "__main__" :
 

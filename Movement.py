@@ -11,7 +11,7 @@ from Inventory import *
 
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
-level = 0
+level = 2
 nbMove = 0
 
 if level == 0 or level == 1:
@@ -119,7 +119,13 @@ def respawn(screen,screenWidth,screenHeight) :
     global actualArea
     global objects
     global nbMove
+    global blueBridge
+    global greenBridge
+    global redBridge
 
+    blueBridge = True
+    greenBridge = True
+    redBridge = True
     nbMove = 0
     nbCall = 0
     writtedPlayer = True
