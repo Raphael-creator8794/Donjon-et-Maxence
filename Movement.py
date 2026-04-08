@@ -10,7 +10,7 @@ from time import time
 from Inventory import *
 from File import*
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
-
+bridge = True
 level = 1
 nbMove = 0
 color_file = File(3)
@@ -275,6 +275,7 @@ def interact(screen,screenWidth,screenHeight) :
     global level
     global objects
     global color_file
+    global bridge
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -328,10 +329,13 @@ def interact(screen,screenWidth,screenHeight) :
                     printThings(screen, "smallTorchTexture", divisionSize, Xposition, Yposition)
                     removeObject("smallTorchTexture")
             if objects[1][6] == "smallTorchTexture" and objects[10][6] == "smallTorchTexture":
-                for i in range (8, 15):
-                    for j in range (5, 7):
-                        actualArea[j][i] = "roofTexture"
-                        printThings(screen, "roofTexture", divisionSize, i, j)
+                if bridge == True:
+                    for i in range (8, 15):
+                        for j in range (5, 7):
+                            actualArea[j][i] = "roofTexture"
+                            objects[j][i] = None
+                            printThings(screen, "roofTexture", divisionSize, i, j)
+                bridge = False
             if Xposition == 8 and (Yposition == 5 or Yposition == 6):
                 if actualArea[Yposition][Xposition] == "roofTexture":
                     for i in range (8,10):
@@ -350,8 +354,8 @@ def interact(screen,screenWidth,screenHeight) :
                             printThings(screen, "spearTexture", divisionSize, i, j)
                         objects[5][i] = "spearPointDownTexture"
                         printThings(screen, "spearPointDownTexture", divisionSize, i, 5)
-                    objects[10][14] = "brickWallHoleSpearUp"
-                    printThings(screen, "brickWallHoleSpearUp", divisionSize, 14, 10)
+                    objects[11][14] = "brickWallHoleSpearUp"
+                    printThings(screen, "brickWallHoleSpearUp", divisionSize, 14, 11)
                     for j in range (7, 10):
                         objects[j][i] = "spearTexture"
                         printThings(screen, "spearTexture", divisionSize, 14, j)
