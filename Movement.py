@@ -8,7 +8,9 @@ from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
 
-level = 1
+matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
+
+level = 2
 
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
@@ -33,7 +35,6 @@ lastTimeMovement = 0
 delayMovement = 0.1
 
 isMovable = ["crateTexture","torchTexture","chestTexture","stoneTexture","blueJewelTexture","greenJewelTexture","redJewelTexture"]
-isInteractible = []
 
 def colision(niveau):
     global Xposition
@@ -106,6 +107,29 @@ def movePlayer(screen,direction,Xposition,Yposition,area) :
             case "right" :
                 printThings(screen,playerTexture,divisionSize,Xposition+1,Yposition)
 
+def respawn(screen,screenWidth,screenHeight) :
+    global Xposition
+    global Yposition
+    nbCall = 0
+    writtedPlayer = True
+    blinkDelay = 0.1
+    lastCall = time()
+    while nbCall < 6 :
+        now = time()
+        if now > lastCall + blinkDelay :
+            lastCall = now
+            writtedPlayer = not(writtedPlayer)
+            nbCall += 1
+            if writtedPlayer :
+                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+            else :
+                printThings(screen,actualArea[Yposition][Xposition],divisionSize,Xposition,Yposition)
+            screen.update_idletasks()
+    Xposition,Yposition = matchPosition[level]
+    transDown(screen,screenWidth,screenHeight)
+    printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+    printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+
 def passRoom() :
     global actualArea
     global objects
@@ -132,6 +156,7 @@ def passRoom() :
     actualMap = levelDatas[actualRoom]
     actualArea = actualMap["area"]
     objects = actualMap["objects"]
+    '''
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
@@ -235,11 +260,9 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
         except IndexError :
             return
     
-    interact(screen)
-    """if actualArea[Yposition][Xposition] in isInteractible :
-        pass"""
+    interact(screen,screenWidth,screenHeight)
 
-def interact(screen) :
+def interact(screen,screenWidth,screenHeight) :
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -257,13 +280,11 @@ def interact(screen) :
             actualArea[Yposition][Xposition] = "bluePressurePlateTextureOff"
             printThings(screen,"bluePressurePlateTextureOff",divisionSize,Xposition,Yposition)
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
-        case "stairsTexture" :
-            pass
+        case "lavaTexture" :
+            respawn(screen,screenWidth,screenHeight)
         case _ :
             return
-
-
-'''
+    
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
     global Xposition
@@ -305,4 +326,3 @@ def moveDirOld(screen,dir,area,le_niveau,level) :
                 printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
             movePlayer(screen,"right",Xposition,Yposition, area)
             Xposition += 1 
-'''
