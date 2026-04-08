@@ -2462,23 +2462,23 @@
     "orbTexture": [
         [
             "#DBA10D",
-            "#DEFF00",
+            "#F8DC0B",
             "#AE00FF",
             "#AE00FF",
             "#AE00FF",
             "#AE00FF",
-            "#DEFF00",
+            "#F8DC0B",
             "#DBA10D"
         ],
         [
-            "#DEFF00",
+            "#F8DC0B",
             "#AE00FF",
             "#AE00FF",
             "#D489F7",
             "#D489F7",
             "#AE00FF",
             "#5B0086",
-            "#DEFF00"
+            "#F8DC0B"
         ],
         [
             "#AE00FF",
@@ -2521,23 +2521,23 @@
             "#5B0086"
         ],
         [
-            "#DEFF00",
+            "#F8DC0B",
             "#5B0086",
             "#AE00FF",
             "#AE00FF",
             "#AE00FF",
             "#5B0086",
             "#5B0086",
-            "#DEFF00"
+            "#F8DC0B"
         ],
         [
             "#DBA10D",
-            "#DEFF00",
+            "#F8DC0B",
             "#5B0086",
             "#5B0086",
             "#5B0086",
             "#5B0086",
-            "#DEFF00",
+            "#F8DC0B",
             "#DBA10D"
         ]
     ],
@@ -3199,14 +3199,14 @@
     ],
     "redBaseTexture": [
         [
-            null,
+            "#3B3B3B",
             "#D40000",
             "#D40000",
             "#D40000",
             "#D40000",
             "#D40000",
             "#D40000",
-            null
+            "#3B3B3B"
         ],
         [
             "#D40000",
@@ -3269,26 +3269,26 @@
             "#D40000"
         ],
         [
-            null,
+            "#3B3B3B",
             "#D40000",
             "#D40000",
             "#D40000",
             "#D40000",
             "#D40000",
             "#D40000",
-            null
+            "#3B3B3B"
         ]
     ],
     "greenBaseTexture": [
         [
-            null,
+            "#3B3B3B",
             "#008132",
             "#008132",
             "#008132",
             "#008132",
             "#008132",
             "#008132",
-            null
+            "#3B3B3B"
         ],
         [
             "#008132",
@@ -3351,26 +3351,26 @@
             "#008132"
         ],
         [
-            null,
+            "#3B3B3B",
             "#008132",
             "#008132",
             "#008132",
             "#008132",
             "#008132",
             "#008132",
-            null
+            "#3B3B3B"
         ]
     ],
     "blueBaseTexture": [
         [
-            null,
+            "#3B3B3B",
             "#006EFF",
             "#006EFF",
             "#006EFF",
             "#006EFF",
             "#006EFF",
             "#006EFF",
-            null
+            "#3B3B3B"
         ],
         [
             "#006EFF",
@@ -3433,14 +3433,14 @@
             "#006EFF"
         ],
         [
-            null,
+            "#3B3B3B",
             "#006EFF",
             "#006EFF",
             "#006EFF",
             "#006EFF",
             "#006EFF",
             "#006EFF",
-            null
+            "#3B3B3B"
         ]
     ],
     "greyPressurePlateTextureOn": [
@@ -5163,6 +5163,88 @@
             "#3B3B3B",
             "#3B3B3B",
             "#3B3B3B"
+        ]
+    ],
+    "spearPointDownTexture": [
+        [
+            null,
+            null,
+            null,
+            "#5E2B0E",
+            "#694703",
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            "#5E2B0E",
+            "#694703",
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            "#5E2B0E",
+            "#694703",
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            "#5E2B0E",
+            "#694703",
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            "#5E2B0E",
+            "#694703",
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            "#474646",
+            "#474646",
+            "#474646",
+            "#B9B9B9",
+            "#B9B9B9",
+            "#B9B9B9",
+            null
+        ],
+        [
+            null,
+            null,
+            "#474646",
+            "#474646",
+            "#B9B9B9",
+            "#B9B9B9",
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            "#474646",
+            "#B9B9B9",
+            null,
+            null,
+            null
         ]
     ]
 }
