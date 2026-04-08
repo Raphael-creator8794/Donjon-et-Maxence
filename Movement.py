@@ -7,10 +7,12 @@ from Donjon import maxX,maxY,divisionSize
 from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
-
+from File import*
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 
 level = 3
+
+color_file = File(3)
 
 if level == 0 or level == 1:
     Xposition = (maxX-13)//2
@@ -272,6 +274,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
 def interact(screen,screenWidth,screenHeight) :
     global level
     global objects
+    global color_file
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -317,23 +320,22 @@ def interact(screen,screenWidth,screenHeight) :
         case 3:
             print("Xposition : ",Xposition)
             print("Yposition : ",Yposition)
-            color_list = []
-            if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOff" or objects[10][12] == "greyPressurePlateTextureOff":
-                color_list.append("redPressurePlateTextureOn")
-                if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOn" or objects[10][12] == "greyPressurePlateTextureOff":
-                    color_list.append("bluePressurePlateTextureOn")
-                    if objects[10][8] == "redPressurePlateTextureOn" or objects[10][4] == "bluePressurePlateTextureOn" or objects[10][12] == "greyPressurePlateTextureOn":
-                        color_list.append("greyPressurePlateTextureOn")
-                        if color_list == ["redPressurePlateTextureOn","bluePressurePlateTextureOn","greyPressurePlateTextureOn"]:
-                            objects[9][2] = None
-                            printThings(screen,"StoneGroundTexture",divisionSize,2,9)
-                        else:
-                            objects[10][8] == "redPressurePlateTextureOff"
-                            objects[10][4] == "bluePressurePlateTextureOff"
-                            objects[10][12] == "greyPressurePlateTextureOff"
-                            printThings(screen,"redPressurePlateTextureOff",divisionSize,8,10)
-                            printThings(screen,"bluePressurePlateTextureOff",divisionSize,4,10)
-                            printThings(screen,"greyPressurePlateTextureOff",divisionSize,12,10)
+            
+            color_file_model = File(3)
+            color_file_model.push("redPressurePlateTextureOn")
+            color_file_model.push("bluePressurePlateTextureOn")
+            color_file_model.push("greyPressurePlateTextureOn")
+
+            if  actualArea[10][8] == "redPressurePlateTextureOn" or actualArea[10][4] == "bluePressurePlateTextureOn" or actualArea[10][12] == "greyPressurePlateTextureOn":
+                if actualArea[Yposition][Xposition] == "redPressurePlateTextureOn" or actualArea[Yposition][Xposition] == "bluePressurePlateTextureOn" or actualArea[Yposition][Xposition] == "greyPressurePlateTextureOn":
+                    color_file.push(actualArea[Yposition][Xposition])
+                    print(color_file == color_file_model)
+                    print(color_file)
+                    print(color_file_model)
+                    if color_file == color_file_model:
+                        objects[9][2] = None
+                        printThings(screen,"StoneGroundTexture",divisionSize,2,9)
+
 
 def moveDirOld(screen,dir,area,le_niveau,level) :
     return
