@@ -8,11 +8,20 @@ from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
 from Inventory import *
+from CreateComments import *
 from File import*
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
-bridge = True
-level = 3
+startMessage = [
+    None ,
+    "Sali salut" ,
+    "Le niveau semble être piégé. Cette plaque rouge devrait pouvoir les désactiver" ,
+    None ,
+    None
+]
+
+level = 0
 nbMove = 0
+bridge = True
 color_file = File(3)
 
 
@@ -108,8 +117,14 @@ def respawn(screen,screenWidth,screenHeight) :
     global actualArea
     global objects
     global nbMove
+    global blueBridge
+    global greenBridge
+    global redBridge
     global bridge
-
+    
+    blueBridge = True
+    greenBridge = True
+    redBridge = True
     bridge = True
     nbMove = 0
     nbCall = 0
@@ -138,7 +153,7 @@ def respawn(screen,screenWidth,screenHeight) :
     printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
     printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
 
-def passRoom() :
+def passRoom(screen) :
     global actualArea
     global objects
     global actualMap
@@ -157,6 +172,10 @@ def passRoom() :
         actualMap = levelDatas[actualRoom]
         actualArea = actualMap["area"]
         objects = actualMap["objects"]
+    
+    theMessage = startMessage[level]
+    if theMessage != None :
+        addComment(screen,theMessage)
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition

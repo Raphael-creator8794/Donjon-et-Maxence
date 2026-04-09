@@ -12,7 +12,6 @@ if notDefined :
     from Inventory import *
     from Movement import *
     from CreateComments import *
-    import json
 
 # Global variable
 screenWidth = 800

@@ -9,7 +9,7 @@ from File import *
 isOpen = False
 actualColor = black
 isAdmin = True
-tool = "brush"
+tool = "Pinceau"
 
 listTexture = [[]]
 for nameTexture in matchTexture.keys() :
@@ -46,9 +46,11 @@ def printEditor(screen,screenWidth,screenHeight) :
     printThings(screen,matchTexture[listTexture[page.getValue()][indexTexture]],quartScreen//2,1,(indexTexture+1.25)*2)#(0.1+indexTexture)*quartScreen)
   
   # Les Boutons pour éditer
+  listText = ["Editer","Restorer"]
   for i in [0,1] :
     for j in [1,2,3] :
       screen.create_rectangle((0.45+0.3*i)*screenWidth,(0.2+j)*quartScreen,(0.65+0.3*i)*screenWidth,(0.8+j)*quartScreen,fill = middlecolor,width = 0)
+      screen.create_text(screenWidth*(i*0.3+0.55),(0.5+j)*quartScreen,text = listText[i],font = ("Verdana",15))
 
 def clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) :
   quartScreen = screenHeight//4
@@ -103,12 +105,13 @@ def printEditTexture(window,screenHeight,textureName,texture) :
   printTools(editCanva,quartPopupSize)
   
 def printTools(canva,quartPopupSize) :
-  listButton = ["brush","pipette","eraser","save"]
+  listButton = ["Pinceau","Pipette","Gomme","Sauvegarder"]
   for i in range(4) :
     fillColor = topColor
     if tool == listButton[i] :
       fillColor = middlecolor
     canva.create_rectangle(3*quartPopupSize,(1.25+i*0.7)*quartPopupSize,3.5*quartPopupSize,(1.65+i*0.7)*quartPopupSize,fill = fillColor,width = 0)
+    canva.create_text(3.25*quartPopupSize,(1.45+i*0.7)*quartPopupSize,text = listButton[i])
 
 def printEditColors(canva,canvaSize) :
   pixelColorSize = canvaSize/20
@@ -118,6 +121,17 @@ def printEditColors(canva,canvaSize) :
   listPastColors = pastColors.getValues()
   for j in range(len(listPastColors)) :
     canva.create_rectangle(pixelColorSize*(2*j+5),pixelColorSize*3,pixelColorSize*(2*j+6),pixelColorSize*4,width = 2,fill = listPastColors[j])
+  searchTexture = [
+    [None,None,None,None,None,None,None,None,None],
+    [None,None,None,None,black,black,None,None,None],
+    [None,None,None,black,None,None,black,None,None],
+    [None,None,None,black,None,None,black,None,None],
+    [None,None,black,black,black,black,None,None,None],
+    [None,black,black,black,None,None,None,None,None],
+    [None,black,black,None,None,None,None,None,None],
+    [None,None,None,None,None,None,None,None,None]
+  ]
+  printThings(canva,searchTexture,pixelColorSize,17,3)
 
 def editTexture(event,canva,screenSize,textureName,texture) :
   Xposition = event.x
@@ -170,30 +184,30 @@ def editTexture(event,canva,screenSize,textureName,texture) :
       Xindex = int((Xposition - 0.5*quartSize)//pixelSize)
       Yindex = int((Yposition - 0.5*quartSize)//pixelSize)
       match tool :
-        case "brush" :
+        case "Pinceau" :
           texture[Yindex][Xindex] = actualColor
           printProjectedTexture(canva,quartSize,texture)
-        case "pipette" :
+        case "Pipette" :
           if texture[Yindex][Xindex] == None :
             return
           actualColor = texture[Yindex][Xindex]
           if not(actualColor in pastColors.getValues()) :
             pastColors.push(actualColor)
-          tool = "brush"
+          tool = "Pinceau"
           printTools(canva,quartSize)
           printEditColors(canva,screenSize)
-        case "eraser" :
+        case "Gomme" :
           texture[Yindex][Xindex] = None
           printProjectedTexture(canva,quartSize,texture)
     elif (Xposition > 3*quartSize and Xposition < 3.5*quartSize) :
       if Yposition > 0.25*quartSize and Yposition < 0.65*quartSize :
-        tool = "brush"
+        tool = "Pinceau"
         printTools(canva,quartSize)
       elif Yposition > 0.95*quartSize and Yposition < 1.35*quartSize :
-        tool = "pipette"
+        tool = "Pipette"
         printTools(canva,quartSize)
       elif Yposition > 1.65*quartSize and Yposition < 2.05*quartSize :
-        tool = "eraser"
+        tool = "Gomme"
         printTools(canva,quartSize)
       elif Yposition > 2.35*quartSize and Yposition < 2.75*quartSize :
         saveTexture(textureName,texture)
