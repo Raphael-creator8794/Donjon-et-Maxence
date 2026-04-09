@@ -41,7 +41,7 @@ def printMenu(screen,screenWidth,screenHeight) :
     screen.create_rectangle(screenWidth//4,8*indexThickness,screenWidth*3//4,9*indexThickness,outline = borderColor,width = 3,fill="#D36221")
     screen.create_text(screenWidth//2,(8.5*indexThickness)//1,text = "Jouer",font = labelStyle)
     screen.create_rectangle(screenWidth//4,10*indexThickness,screenWidth*3//4,11*indexThickness,outline = borderColor,width = 3,fill="#994514")
-    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramètres",font = labelStyle)
+    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Editeur",font = labelStyle)
     screen.create_rectangle(screenWidth//4,12*indexThickness,screenWidth*3//4,13*indexThickness,outline = borderColor,width = 3,fill="#57270B")
     screen.create_text(screenWidth//2,(12.5*indexThickness)//1,text = "Sortir",font = labelStyle)
 
