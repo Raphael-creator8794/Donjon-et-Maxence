@@ -8,7 +8,7 @@ from File import *
 
 isOpen = False
 actualColor = black
-isAdmin = True
+isAdmin = False
 tool = "Pinceau"
 
 listTexture = [[]]

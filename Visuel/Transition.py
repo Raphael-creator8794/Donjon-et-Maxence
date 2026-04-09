@@ -157,7 +157,7 @@ def launchLeftSpears(screen,divisionSize,area) :
     printThings(screen,"brickWallHoleSpearleft",divisionSize,15,6)
     for i in range(13) :
         lastCall = time()
-        while time() < lastCall + 0.01 :
+        while time() < lastCall + 0.001 :
             pass
         printThings(screen,area[5][14-i],divisionSize,14-i,5)
         printThings(screen,area[6][14-i],divisionSize,14-i,6)
@@ -171,7 +171,7 @@ def launchLeftSpears(screen,divisionSize,area) :
 def retractLeftSpears(screen,divisionSize,area) :
     for i in range(14) :
         lastCall = time()
-        while time() < lastCall + 0.05 :
+        while time() < lastCall + 0.02 :
             pass
         printThings(screen,"spearPointLeftTexture",divisionSize,1+i,5)
         printThings(screen,"spearPointLeftTexture",divisionSize,1+i,6)

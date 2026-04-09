@@ -19,7 +19,7 @@ startMessage = [
     None
 ]
 
-level = 0
+level = 2
 nbMove = 0
 bridge = True
 color_file = File(3)
