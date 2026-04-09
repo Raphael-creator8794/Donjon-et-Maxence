@@ -400,8 +400,6 @@ def interact(screen,screenWidth,screenHeight) :
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 3:
-            print("Xposition : ",Xposition)
-            print("Yposition : ",Yposition)
 
             color_file_model = File(3)
             color_file_model.push("redPressurePlateTextureOn")
@@ -420,8 +418,23 @@ def interact(screen,screenWidth,screenHeight) :
             if Xposition == 3 and Yposition == 1:
                 addObject("upsideDownTrianglePotionTexture")
                 removeObject("keyTexture")
-                actualArea[1][3] = "OpenchestTexture"
-
+                actualArea[1][3] = "OpenchestTexture" 
+            if Xposition == 12 and Yposition == 1:
+    
+                removeObject("upsideDownTrianglePotionTexture")
+                actualArea[1][12] = "BreakorbTexture"
+                objects[1][8] = "DragonHeadUpright"
+                objects[1][7] = "DragonHeadUpleft"
+                objects[2][7] = "DragonHeadDownleft"
+                objects[2][8] = "DragonHeadDownright"
+                objects[0][7] = "DragonHornLeft"
+                objects[0][8] = "DragonHornRight"
+                printThings(screen,"DragonHeadUpright",divisionSize,8,1)
+                printThings(screen,"DragonHeadUpleft",divisionSize,7,1)
+                printThings(screen,"DragonHeadDownleft",divisionSize,7,2)
+                printThings(screen,"DragonHeadDownright",divisionSize,8,2)
+                printThings(screen,"DragonHornLeft",divisionSize,7,0)
+                printThings(screen,"DragonHornRight",divisionSize,8,0)
  
 if level == 0:
     Xposition = (maxX-13)//2
