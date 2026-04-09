@@ -1,5 +1,6 @@
-#Quoicoubesque group
-#modif test
+
+
+# Importations
 notDefined = True
 if notDefined :
     notDefined = False
@@ -8,15 +9,13 @@ if notDefined :
     from Visuel.PrintThings import *
     from Visuel.TexturePack import *
     from Visuel.TextureEditor import *
-    from Visuel.PrintMap import *
     from Inventory import *
     from Movement import *
 
 
-# Global variable
+# Variables globales
 screenWidth = 800
 screenHeight = 600
-bannerWidth = int((screenWidth*0.3)//1)
 divisionSize = 50
 maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
@@ -25,18 +24,7 @@ iClicked = False
 
 if __name__ == "__main__" :
 
-    # Test variable
-    testPlayer = [
-        [None,None,None,None,None,None,None,None],
-        [None,None,black,black,black,black,None,None],
-        [None,black,black,orange,orange,black,black,None],
-        [None,black,orange,orange,orange,orange,black,None],
-        [None,None,purple,purple,purple,purple,None,None],
-        [None,purple,None,purple,purple,None,purple,None],
-        [None,None,None,purple,purple,None,None,None],
-        [None,None,purple,None,None,purple,None,None]
-    ]
-
+# Fonction de tranistions visuels
     def transDownLink() :
         transDown(screen,screenWidth,screenHeight)
 
@@ -49,8 +37,12 @@ if __name__ == "__main__" :
     def transRightLink() :
         transRight(screen,screenWidth,screenHeight)
 
+
     def printStart() :        
-        
+        """
+        Cette fonction permet d'afficher le niveau voulu sur l'écran
+        On distingue l'area, la zone au sols, les objets qui constitus tout ce qui va être intéractif, et les tapis qui sont des éléments de décors
+        """
         if level == 0:
             createCarpet(actualArea,10,4,13,7,darkBlue)
             createCarpet(actualArea,11,5,12,6,red)
@@ -69,11 +61,11 @@ if __name__ == "__main__" :
             printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
             printThings(screen,playerTexture,divisionSize,(maxX-15)//2,(maxY)//2)
 
-    def printSettings() :
-        screen.delete("all")
-        screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill=orange)
 
     def clickSituation(event) :
+        """
+        Cette fonction est une machine d'état qui permet la gestion du menu
+        """
         Xaxe = event.x
         Yaxe = event.y
         global state
@@ -107,12 +99,12 @@ if __name__ == "__main__" :
                     objects[9][9] = "torchOffTexture"
                     printThings(screen,"torchOffTexture",divisionSize,9,2)
                     printThings(screen,"torchOffTexture",divisionSize,9,9)
-            case "settings" :
-                if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
-                    printMenu(screen,screenWidth,screenHeight)
-                    state = "menu"
+
 
     def keySituation(event) :
+        """
+        Cette fonction permet de lancer le jeu et d'initialiser les fonctions liés au gameplay
+        """
         global Xposition
         global Yposition
         global actualArea
@@ -128,8 +120,14 @@ if __name__ == "__main__" :
                 moveDir(screen,pressedKey,screenWidth,screenHeight)
 
     def printHey(event = None) :
+        """
+        Cette fonction, dont la complexité est d'une rare violence, affiche "Hey" dans le terminal 
+        (Très utile pour faire des print espions)
+        """
         print("Hey !")
 
+
+# Initialisations des fenêtres Tkinter
     window = Tk()
     window.title("Donjon")
     window.geometry(str(screenWidth)+"x"+str(screenHeight))
@@ -140,7 +138,5 @@ if __name__ == "__main__" :
     printMenu(screen,screenWidth,screenHeight)
     screen.bind("<Button-1>", clickSituation )
     screen.bind("<a>", printHey)
-    commentBanner = Canvas(window,height = screenHeight,width = bannerWidth,bg = black)
-    commentBanner.place(x = screenWidth,y = 0)
     window.bind("<Key>", keySituation )
     window.mainloop()

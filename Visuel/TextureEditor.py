@@ -1,4 +1,4 @@
-#
+
 from Visuel.FloatLoop import *
 from tkinter import *
 from json import *
@@ -46,7 +46,7 @@ def printEditor(screen,screenWidth,screenHeight) :
     printThings(screen,matchTexture[listTexture[page.getValue()][indexTexture]],quartScreen//2,1,(indexTexture+1.25)*2)#(0.1+indexTexture)*quartScreen)
   
   # Les Boutons pour éditer
-  listText = ["Editer","Restorer"]
+  listText = ["Editer","Restaurer"]
   for i in [0,1] :
     for j in [1,2,3] :
       screen.create_rectangle((0.45+0.3*i)*screenWidth,(0.2+j)*quartScreen,(0.65+0.3*i)*screenWidth,(0.8+j)*quartScreen,fill = middlecolor,width = 0)
