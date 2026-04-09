@@ -11,7 +11,7 @@ from Inventory import *
 from File import*
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 bridge = True
-level = 1
+level = 0
 nbMove = 0
 color_file = File(3)
 if level == 0 or level == 1:
