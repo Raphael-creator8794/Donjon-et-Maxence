@@ -102,18 +102,14 @@ if __name__ == "__main__" :
                 Yindex = int(((Yaxe/screenHeight)*maxY)//1)
                 Xindex = int(((Xaxe/screenWidth)*maxX)//1)
                 if objects[Yindex][Xindex] == "treeTexture" :
-                    printHey()
                     for i in [2,9] :
                         for j in range(8,16) :
                             objects[i][j] = None
                             printThings(screen,actualArea[i][j],divisionSize,j,i)
                     objects[2][9] = "torchOffTexture"
                     objects[9][9] = "torchOffTexture"
-                    printThings(screen,"torchTexture",divisionSize,9,2)
-                    printThings(screen,"torchTexture",divisionSize,9,9)
-                return
-                if Xaxe < screenWidth/10 and Yaxe < screenHeight/10 :
-                    printMap(screen,screenWidth,screenHeight,roomsToMap(levelDatas))
+                    printThings(screen,"torchOffTexture",divisionSize,9,2)
+                    printThings(screen,"torchOffTexture",divisionSize,9,9)
             case "settings" :
                 if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
                     printMenu(screen,screenWidth,screenHeight)

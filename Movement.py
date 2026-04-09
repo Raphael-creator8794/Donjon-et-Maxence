@@ -9,7 +9,7 @@ from time import time
 from Inventory import *
 from CreateComments import *
 from File import*
-matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
+matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxY-6)//2)]
 startMessage = [
     None ,
     "Sali salut" ,
@@ -120,6 +120,7 @@ def respawn(screen,screenWidth,screenHeight) :
     global greenBridge
     global redBridge
     global bridge
+    global lastMaxX
     
     blueBridge = True
     greenBridge = True
@@ -127,6 +128,7 @@ def respawn(screen,screenWidth,screenHeight) :
     bridge = True
     nbMove = 0
     nbCall = 0
+    lastMaxX = 7
     writtedPlayer = True
     blinkDelay = 0.1
     lastCall = time()
@@ -307,7 +309,7 @@ def interact(screen,screenWidth,screenHeight) :
                 actualArea[6][15] = "Holedown"
                 printThings(screen,"HoleUp",divisionSize,15,5)
                 printThings(screen,"Holedown",divisionSize,15,6)
-            if Xposition == 15 and (Yposition == 5 or Yposition == 6):
+            if Xposition == 15 and (Yposition == 5 or Yposition == 6) and actualArea[5][15] == "HoleUp"and actualArea[6][15] == "Holedown":
                 transDown(screen,screenWidth,screenHeight)
                 passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
