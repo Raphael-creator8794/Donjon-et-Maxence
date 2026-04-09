@@ -19,7 +19,7 @@ startMessage = [
     None
 ]
 
-level = 2
+level = 0
 nbMove = 0
 bridge = True
 color_file = File(3)
@@ -306,7 +306,7 @@ def interact(screen,screenWidth,screenHeight) :
                 printThings(screen,"Holedown",divisionSize,15,6)
             if Xposition == 15 and (Yposition == 5 or Yposition == 6):
                 transDown(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 1 :
@@ -358,7 +358,7 @@ def interact(screen,screenWidth,screenHeight) :
                 respawn(screen, screenWidth, screenHeight)
             if Xposition == 15 and (Yposition == 5 or Yposition == 6):
                 transDown(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 2 :
@@ -396,7 +396,7 @@ def interact(screen,screenWidth,screenHeight) :
                     printBridge(screen,divisionSize,actualArea,2)
             if Xposition == 0 and (Yposition == 9 or Yposition == 10):
                 transDown(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 3:
