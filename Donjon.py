@@ -16,7 +16,6 @@ if notDefined :
 # Global variable
 screenWidth = 800
 screenHeight = 600
-bannerWidth = int((screenWidth*0.3)//1)
 divisionSize = 50
 maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
@@ -107,10 +106,7 @@ if __name__ == "__main__" :
                     objects[9][9] = "torchOffTexture"
                     printThings(screen,"torchOffTexture",divisionSize,9,2)
                     printThings(screen,"torchOffTexture",divisionSize,9,9)
-            case "settings" :
-                if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
-                    printMenu(screen,screenWidth,screenHeight)
-                    state = "menu"
+
 
     def keySituation(event) :
         global Xposition
@@ -140,7 +136,5 @@ if __name__ == "__main__" :
     printMenu(screen,screenWidth,screenHeight)
     screen.bind("<Button-1>", clickSituation )
     screen.bind("<a>", printHey)
-    commentBanner = Canvas(window,height = screenHeight,width = bannerWidth,bg = black)
-    commentBanner.place(x = screenWidth,y = 0)
     window.bind("<Key>", keySituation )
     window.mainloop()
