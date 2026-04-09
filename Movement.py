@@ -11,7 +11,7 @@ from Inventory import *
 from File import*
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
 bridge = True
-level = 2
+level = 3
 nbMove = 0
 color_file = File(3)
 
@@ -343,8 +343,7 @@ def interact(screen,screenWidth,screenHeight) :
             global blueBridge
             global greenBridge
             global redBridge
-            print("Xposition : ",Xposition)
-            print("Yposition : ",Yposition)
+
             nbMove += 1
             if nbMove > 5 :
                 nbMove = 1
@@ -378,7 +377,8 @@ def interact(screen,screenWidth,screenHeight) :
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 3:
-
+            print("Xposition : ",Xposition)
+            print("Yposition : ",Yposition)
 
             color_file_model = File(3)
             color_file_model.push("redPressurePlateTextureOn")
@@ -391,7 +391,15 @@ def interact(screen,screenWidth,screenHeight) :
                     if color_file == color_file_model:
                         objects[9][2] = None
                         printThings(screen,"StoneGroundTexture",divisionSize,2,9)
+            if Xposition == 1 and Yposition == 9:
+                addObject("keyTexture")
+                actualArea[9][1] = "StoneGroundTexture"
+            if Xposition == 3 and Yposition == 1:
+                addObject("upsideDownTrianglePotionTexture")
+                removeObject("keyTexture")
+                actualArea[1][3] = "OpenchestTexture"
 
+ 
 if level == 0:
     Xposition = (maxX-13)//2
     Yposition = (maxY)//2
@@ -407,45 +415,3 @@ elif level == 3:
 elif level == 4:
     Xposition = (maxX-15)//2
     Yposition = (maxY)//2
-
-def moveDirOld(screen,dir,area,le_niveau,level) :
-    return
-    global Xposition
-    global Yposition
-    if dir == "'z'":
-        if Yposition > 0 and colision(level)[3] is True:
-            if movable(level,"up") :
-                modifierjson("Jeu.json",Yposition-2,Xposition,{list(le_niveau[Yposition-1][Xposition])[0] : True},str(level))
-                modifierjson("Jeu.json",Yposition-1,Xposition,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition-2)
-                printThings(screen,grassTexture,divisionSize,Xposition,Yposition-1)
-            movePlayer(screen,"up",Xposition,Yposition, area)
-            Yposition -= 1
-    if dir == "'q'":
-        if Xposition > 0 and colision(level)[1] is True:
-            if movable(level,"left") :
-                modifierjson("Jeu.json",Yposition,Xposition-2,{list(le_niveau[Yposition][Xposition-1])[0]: True},str(level))
-                modifierjson("Jeu.json",Yposition,Xposition-1,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                printThings(screen,squarePotionTexture,divisionSize,Xposition-2,Yposition)
-                printThings(screen,grassTexture,divisionSize,Xposition-1,Yposition)
-            movePlayer(screen,"left",Xposition,Yposition, area)
-            Xposition -= 1
-    if dir == "'s'":
-        if Yposition < maxY-1 and colision(level)[2] is True:
-            if movable(level,"down") :
-                modifierjson("Jeu.json",Yposition+2,Xposition,{list(le_niveau[Yposition+1][Xposition])[0]: True},str(level))
-                modifierjson("Jeu.json",Yposition+1,Xposition,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition+2)
-                printThings(screen,grassTexture,divisionSize,Xposition,Yposition+1)
-            movePlayer(screen,"down",Xposition,Yposition, area)
-            Yposition += 1
-    if dir == "'d'":
-        if Xposition < maxX-1 and colision(level)[0] is True:
-            if movable(level,"right") :
-                for cle in le_niveau[Yposition][Xposition+2].keys():
-                    modifierjson("Jeu.json",Yposition,Xposition+2,{list(le_niveau[Yposition][Xposition+1])[0]: True},str(level))
-                modifierjson("Jeu.json",Yposition,Xposition+1,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                printThings(screen,squarePotionTexture,divisionSize,Xposition+2,Yposition)
-                printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
-            movePlayer(screen,"right",Xposition,Yposition, area)
-            Xposition += 1 
