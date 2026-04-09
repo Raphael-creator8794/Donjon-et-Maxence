@@ -81,7 +81,7 @@ if __name__ == "__main__" :
                             transUpLink()
                             printStart()
                         case 10 :
-                            state = "settings"
+                            state = "editor"
                             transDownLink()
                             printEditor(screen,screenWidth,screenHeight)
                         case 12 :
@@ -99,6 +99,8 @@ if __name__ == "__main__" :
                     objects[9][9] = "torchOffTexture"
                     printThings(screen,"torchOffTexture",divisionSize,9,2)
                     printThings(screen,"torchOffTexture",divisionSize,9,9)
+            case "editor" :
+                clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight)
 
 
     def keySituation(event) :
