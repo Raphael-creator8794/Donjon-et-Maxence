@@ -1,4 +1,4 @@
-#Maxence FERTRE
+
 class File :
     def __init__(self, capacity=None) :
         self.values = []

@@ -1,4 +1,4 @@
-#Quoicoubesque group
+
 from json import *
 lightBlue = "#A0F1FF"
 glass = "#D4F6FC"

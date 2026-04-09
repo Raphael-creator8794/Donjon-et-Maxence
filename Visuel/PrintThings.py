@@ -1,4 +1,4 @@
-#Quoicoubesque group
+
 from tkinter import *
 from random import randint
 from Visuel.TexturePack import *
