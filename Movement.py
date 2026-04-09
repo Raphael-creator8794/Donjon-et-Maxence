@@ -19,7 +19,7 @@ startMessage = [
     None
 ]
 
-level = 0
+level = 2
 nbMove = 0
 color_file = File(3)
 if level == 0 or level == 1:
