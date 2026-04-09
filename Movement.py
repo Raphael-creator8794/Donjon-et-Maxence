@@ -21,19 +21,9 @@ startMessage = [
 
 level = 0
 nbMove = 0
+bridge = True
 color_file = File(3)
-if level == 0 or level == 1:
-    Xposition = (maxX-13)//2
-    Yposition = (maxY)//2
-elif level == 2:
-    Xposition = (maxX-15)//2
-    Yposition = (maxY)//2
-elif level == 3:
-    Xposition = (maxX-15)//2
-    Yposition = (maxY)//2
-elif level == 4:
-    Xposition = (maxX-15)//2
-    Yposition = (maxY)//2
+
 
 
 with open("Levels.json","r") as datas :
@@ -203,12 +193,6 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"up",Xposition,Yposition, actualArea)
                 Yposition -= 1
-            elif theObject  == "Holedown" :
-                Yposition -= 1
-                transUp(screen,screenWidth,screenHeight)
-                passRoom(screen)
-                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             elif theObject in isMovable :
                 if objects[Yposition-2][Xposition] == None :
                     printThings(screen,actualArea[Yposition-1][Xposition],divisionSize,Xposition,Yposition-1)
@@ -226,12 +210,6 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"left",Xposition,Yposition, actualArea)
                 Xposition -= 1
-            elif theObject == "Holedown" or theObject == "HoleUp" :
-                Xposition -= 1
-                transLeft(screen,screenWidth,screenHeight)
-                passRoom(screen)
-                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             elif theObject in isMovable :
                 if objects[Yposition][Xposition-2] == None :
                     printThings(screen,actualArea[Yposition][Xposition-1],divisionSize,Xposition-1,Yposition)
@@ -249,12 +227,6 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"down",Xposition,Yposition, actualArea)
                 Yposition += 1
-            elif theObject == "HoleUp" :
-                Yposition += 1
-                transDown(screen,screenWidth,screenHeight)
-                passRoom(screen)
-                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             elif theObject in isMovable :
                 if objects[Yposition+2][Xposition] == None :
                     printThings(screen,actualArea[Yposition+1][Xposition],divisionSize,Xposition,Yposition+1)
@@ -272,12 +244,6 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             if theObject == None :
                 movePlayer(screen,"right",Xposition,Yposition, actualArea)
                 Xposition += 1
-            elif theObject == "Holedown" or theObject == "HoleUp" :
-                Xposition += 1
-                transRight(screen,screenWidth,screenHeight)
-                passRoom(screen)
-                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
-                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             elif theObject in isMovable :
                 if objects[Yposition][Xposition+2] == None :
                     printThings(screen,actualArea[Yposition][Xposition+1],divisionSize,Xposition+1,Yposition)
@@ -296,6 +262,8 @@ def interact(screen,screenWidth,screenHeight) :
     global objects
     global color_file
     global bridge
+    global Xposition
+    global Yposition
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -332,10 +300,15 @@ def interact(screen,screenWidth,screenHeight) :
                 objects[5][7] = None
                 objects[6][7] = None
             if objects[9][15] == "torchTexture" and objects[2][15] == "torchTexture":
-                objects[5][15] = "HoleUp"
-                objects[6][15] = "Holedown"
+                actualArea[5][15] = "HoleUp"
+                actualArea[6][15] = "Holedown"
                 printThings(screen,"HoleUp",divisionSize,15,5)
                 printThings(screen,"Holedown",divisionSize,15,6)
+            if Xposition == 15 and (Yposition == 5 or Yposition == 6):
+                transDown(screen,screenWidth,screenHeight)
+                passRoom()
+                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 1 :
             if actualArea[Yposition][Xposition] == "smallTorchTexture":
                 addObject("smallTorchTexture")
@@ -383,11 +356,17 @@ def interact(screen,screenWidth,screenHeight) :
 
             if actualArea[Yposition][Xposition] == "spearPointTexture" or actualArea[Yposition][Xposition] == "spearPointDownTexture" or actualArea[Yposition][Xposition] == "lavaTexture":
                 respawn(screen, screenWidth, screenHeight)
+            if Xposition == 15 and (Yposition == 5 or Yposition == 6):
+                transDown(screen,screenWidth,screenHeight)
+                passRoom()
+                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 2 :
             global nbMove
             global blueBridge
             global greenBridge
             global redBridge
+
             nbMove += 1
             if nbMove > 5 :
                 nbMove = 1
@@ -415,7 +394,14 @@ def interact(screen,screenWidth,screenHeight) :
                 if objects[1][8] == "redJewelTexture" :
                     redBridge = False
                     printBridge(screen,divisionSize,actualArea,2)
+            if Xposition == 0 and (Yposition == 9 or Yposition == 10):
+                transDown(screen,screenWidth,screenHeight)
+                passRoom()
+                printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
+                printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 3:
+            print("Xposition : ",Xposition)
+            print("Yposition : ",Yposition)
 
             color_file_model = File(3)
             color_file_model.push("redPressurePlateTextureOn")
@@ -428,46 +414,27 @@ def interact(screen,screenWidth,screenHeight) :
                     if color_file == color_file_model:
                         objects[9][2] = None
                         printThings(screen,"StoneGroundTexture",divisionSize,2,9)
+            if Xposition == 1 and Yposition == 9:
+                addObject("keyTexture")
+                actualArea[9][1] = "StoneGroundTexture"
+            if Xposition == 3 and Yposition == 1:
+                addObject("upsideDownTrianglePotionTexture")
+                removeObject("keyTexture")
+                actualArea[1][3] = "OpenchestTexture"
 
-
-def moveDirOld(screen,dir,area,le_niveau,level) :
-    return
-    global Xposition
-    global Yposition
-    if dir == "'z'":
-        if Yposition > 0 and colision(level)[3] is True:
-            if movable(level,"up") :
-                modifierjson("Jeu.json",Yposition-2,Xposition,{list(le_niveau[Yposition-1][Xposition])[0] : True},str(level))
-                modifierjson("Jeu.json",Yposition-1,Xposition,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition-2)
-                printThings(screen,grassTexture,divisionSize,Xposition,Yposition-1)
-            movePlayer(screen,"up",Xposition,Yposition, area)
-            Yposition -= 1
-    if dir == "'q'":
-        if Xposition > 0 and colision(level)[1] is True:
-            if movable(level,"left") :
-                modifierjson("Jeu.json",Yposition,Xposition-2,{list(le_niveau[Yposition][Xposition-1])[0]: True},str(level))
-                modifierjson("Jeu.json",Yposition,Xposition-1,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                printThings(screen,squarePotionTexture,divisionSize,Xposition-2,Yposition)
-                printThings(screen,grassTexture,divisionSize,Xposition-1,Yposition)
-            movePlayer(screen,"left",Xposition,Yposition, area)
-            Xposition -= 1
-    if dir == "'s'":
-        if Yposition < maxY-1 and colision(level)[2] is True:
-            if movable(level,"down") :
-                modifierjson("Jeu.json",Yposition+2,Xposition,{list(le_niveau[Yposition+1][Xposition])[0]: True},str(level))
-                modifierjson("Jeu.json",Yposition+1,Xposition,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                printThings(screen,squarePotionTexture,divisionSize,Xposition,Yposition+2)
-                printThings(screen,grassTexture,divisionSize,Xposition,Yposition+1)
-            movePlayer(screen,"down",Xposition,Yposition, area)
-            Yposition += 1
-    if dir == "'d'":
-        if Xposition < maxX-1 and colision(level)[0] is True:
-            if movable(level,"right") :
-                for cle in le_niveau[Yposition][Xposition+2].keys():
-                    modifierjson("Jeu.json",Yposition,Xposition+2,{list(le_niveau[Yposition][Xposition+1])[0]: True},str(level))
-                modifierjson("Jeu.json",Yposition,Xposition+1,{list(le_niveau[Yposition][Xposition])[0]: False},str(level))
-                printThings(screen,squarePotionTexture,divisionSize,Xposition+2,Yposition)
-                printThings(screen,grassTexture,divisionSize,Xposition+1,Yposition)
-            movePlayer(screen,"right",Xposition,Yposition, area)
-            Xposition += 1 
+ 
+if level == 0:
+    Xposition = (maxX-13)//2
+    Yposition = (maxY)//2
+elif level == 1:
+    Xposition = (maxX-13)//2
+    Yposition = (maxY)//2
+elif level == 2:
+    Xposition = (maxX-15)//2
+    Yposition = (maxY)//2
+elif level == 3:
+    Xposition = (maxX-15)//2
+    Yposition = (maxY)//2
+elif level == 4:
+    Xposition = (maxX-15)//2
+    Yposition = (maxY)//2
