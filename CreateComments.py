@@ -3,7 +3,7 @@ notDefined = True
 if notDefined :
     from tkinter import *
     from File import *
-    from Donjon import refresh
+    #from Donjon import refresh
     notDefined = False
 
 nbLine =  0
