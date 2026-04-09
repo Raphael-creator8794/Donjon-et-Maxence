@@ -173,9 +173,9 @@ def passRoom(screen) :
         actualArea = actualMap["area"]
         objects = actualMap["objects"]
     
-    theMessage = startMessage[level]
+    """theMessage = startMessage[level]
     if theMessage != None :
-        addComment(screen,theMessage)
+        addComment(screen,theMessage)"""
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
