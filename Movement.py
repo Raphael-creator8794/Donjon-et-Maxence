@@ -7,23 +7,18 @@ from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
 from Inventory import *
-from CreateComments import *
 from File import*
 
-matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX)//2,(maxY-6)//2)]
-startMessage = [
-    None ,
-    "Sali salut" ,
-    "Le niveau semble être piégé. Cette plaque rouge devrait pouvoir les désactiver" ,
-    None ,
-    None
-]
+matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxY)//2)]
+
 
 level = 0
 nbMove = 0
 lastMaxX = 7
 bridge = True
 traps = True
+torcheoff1 = False
+torcheoff2 = False
 color_file = File(3)
 Xposition,Yposition = matchPosition[level]
 
@@ -174,10 +169,6 @@ def passRoom(screen) :
         actualMap = levelDatas[actualRoom]
         actualArea = actualMap["area"]
         objects = actualMap["objects"]
-    
-    """theMessage = startMessage[level]
-    if theMessage != None :
-        addComment(screen,theMessage)"""
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
@@ -267,6 +258,7 @@ def interact(screen,screenWidth,screenHeight) :
     global Xposition
     global Yposition
     global lastMaxX
+    global traps
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -294,17 +286,22 @@ def interact(screen,screenWidth,screenHeight) :
             printThings(screen,playerTexture,divisionSize,Xposition,Yposition)
         case "lavaTexture" :
             respawn(screen,screenWidth,screenHeight)
+            traps = True
 
     match level:
         case 0:
+            global torcheoff1
+            global torcheoff2
             if Xposition == 6 and Yposition == 2:
                 printThings(screen,"StoneGroundTexture",divisionSize,7,5)
                 printThings(screen,"StoneGroundTexture",divisionSize,7,6)
                 objects[5][7] = None
                 objects[6][7] = None
-            if objects[9][15] == "torchOffTexture":
+            if objects[9][15] == "torchOffTexture" and torcheoff1 == False:
+                torcheoff1 = True
                 printThings(screen,"torchTexture",divisionSize,15,9)
-            if objects[2][15] == "torchOffTexture":
+            if objects[2][15] == "torchOffTexture" and torcheoff2 == False:
+                torcheoff2 = True
                 printThings(screen,"torchTexture",divisionSize,15,2)
             if objects[9][15] == "torchOffTexture" and objects[2][15] == "torchOffTexture":
                 actualArea[5][15] = "HoleUp"
@@ -338,33 +335,6 @@ def interact(screen,screenWidth,screenHeight) :
             if Xposition > lastMaxX :
                 lastMaxX = Xposition
                 lauchVerticaleSpear(screen,divisionSize,actualArea,Xposition)
-            """if Xposition == 8 and (Yposition == 5 or Yposition == 6):
-                if not(bridge):
-                    for i in range (8,10):
-                        objects[11][i] = "brickWallHoleSpearUp"
-                        printThings(screen, "brickWallHoleSpearUp", divisionSize, i, 11)
-                        for j in range (7, 11):
-                            objects[j][i] = "spearTexture"
-                            printThings(screen, "spearTexture", divisionSize, i, j)
-                        actualArea[6][i] = "spearPointTexture"
-                        printThings(screen, "spearPointTexture", divisionSize, i, 6)
-                    for i in range (11, 13):
-                        objects[0][i] = "brickWallHoleSpearDown"
-                        printThings(screen, "brickWallHoleSpearDown", divisionSize, i, 0)
-                        for j in range (1, 5):
-                            objects[j][i] = "spearTexture"
-                            printThings(screen, "spearTexture", divisionSize, i, j)
-                        actualArea[5][i] = "spearPointDownTexture"
-                        printThings(screen, "spearPointDownTexture", divisionSize, i, 5)
-                    objects[11][14] = "brickWallHoleSpearUp"
-                    printThings(screen, "brickWallHoleSpearUp", divisionSize, 14, 11)
-                    for j in range (7, 11):
-                        objects[j][14] = "spearTexture"
-                        printThings(screen, "spearTexture", divisionSize, 14, j)
-                    actualArea[6][14] = "spearPointTexture"
-                    printThings(screen, "spearPointTexture", divisionSize, 14, 6)
-
-            if actualArea[Yposition][Xposition] == "spearPointTexture" or actualArea[Yposition][Xposition] == "spearPointDownGroundTexture" :"""
             if (Xposition,Yposition) in [(8,6),(9,6),(11,5),(12,5),(14,6)] :
                 respawn(screen, screenWidth, screenHeight)
             if Xposition == 15 and (Yposition == 5 or Yposition == 6):
@@ -377,7 +347,7 @@ def interact(screen,screenWidth,screenHeight) :
             global blueBridge
             global greenBridge
             global redBridge
-            global traps
+            
             if Xposition == 12 and (Yposition == 6 or Yposition == 5):
                 traps = False
             if traps:
@@ -391,7 +361,6 @@ def interact(screen,screenWidth,screenHeight) :
                     launchLeftSpears(screen,divisionSize,actualArea)
                     if (Yposition == 5 or Yposition == 6) :
                         respawn(screen,screenWidth,screenHeight)
-                        traps = True
                     else :
                         retractLeftSpears(screen,divisionSize,actualArea)
                         screen.delete("all")
@@ -451,19 +420,3 @@ def interact(screen,screenWidth,screenHeight) :
                 printThings(screen,"DragonHornLeft",divisionSize,7,0)
                 printThings(screen,"DragonHornRight",divisionSize,8,0)
  
-"""if level == 0:
-    Xposition = (maxX-13)//2
-    Yposition = (maxY)//2
-elif level == 1:
-    Xposition = (maxX-13)//2
-    Yposition = (maxY)//2
-elif level == 2:
-    Xposition = (maxX-15)//2
-    Yposition = (maxY)//2
-elif level == 3:
-    Xposition = (maxX-15)//2
-    Yposition = (maxY)//2
-elif level == 4:
-    Xposition = (maxX-15)//2
-    Yposition = (maxY)//2
-"""

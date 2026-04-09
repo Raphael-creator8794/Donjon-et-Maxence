@@ -11,7 +11,7 @@ if notDefined :
     from Visuel.PrintMap import *
     from Inventory import *
     from Movement import *
-    from CreateComments import *
+
 
 # Global variable
 screenWidth = 800
@@ -22,10 +22,7 @@ maxX = screenWidth//divisionSize
 maxY = screenHeight//divisionSize
 state = "menu"
 iClicked = False
-"""
-def refresh() :
-    window.update_idletasks()
-"""
+
 if __name__ == "__main__" :
 
     # Test variable
@@ -133,9 +130,6 @@ if __name__ == "__main__" :
     def printHey(event = None) :
         print("Hey !")
 
-    def addAie(event) :
-        addComment(commentBanner,"Aïe")
-
     window = Tk()
     window.title("Donjon")
     window.geometry(str(screenWidth)+"x"+str(screenHeight))
@@ -148,7 +142,5 @@ if __name__ == "__main__" :
     screen.bind("<a>", printHey)
     commentBanner = Canvas(window,height = screenHeight,width = bannerWidth,bg = black)
     commentBanner.place(x = screenWidth,y = 0)
-    initParametres(screenHeight,bannerWidth,20)
-    commentBanner.bind("<Button-1>", addAie )
     window.bind("<Key>", keySituation )
     window.mainloop()
