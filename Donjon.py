@@ -23,6 +23,9 @@ maxY = screenHeight//divisionSize
 state = "menu"
 iClicked = False
 
+def refresh() :
+    window.update_idletasks()
+
 if __name__ == "__main__" :
 
     # Test variable

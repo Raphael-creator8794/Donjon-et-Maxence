@@ -1,6 +1,10 @@
 #
-from tkinter import *
-from File import *
+notDefined = True
+if notDefined :
+    from tkinter import *
+    from File import *
+    from Donjon import refresh
+    notDefined = False
 
 nbLine =  0
 textStyle = 0
@@ -28,3 +32,4 @@ def addComment(canva , comment) :
     bannerCenter = bannerWidth/2
     for i in range(len(listComment)) :
         canva.create_text(bannerCenter,(i+0.5)*lineThickness,text = listComment[i],fill = "#FFFFFF",font = textStyle)
+    refresh()
