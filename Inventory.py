@@ -1,6 +1,6 @@
 #Quoicoubesque group
 from tkinter import *
-from Visuel.printThings import *
+from Visuel.PrintThings import *
 inventory = []
 def seeInventory(window, iClicked):
     global inventory
@@ -10,7 +10,7 @@ def seeInventory(window, iClicked):
         popup.title("Inventaire")
         popup.geometry("250x600")
         popup.config(bg = "#D6B36D")
-        canvas = Canvas(popup, height = 600, width = 100, bg = "#D6B36D")
+        canvas = Canvas(popup, height = 580, width = 100, bg = "#D6B36D")
         canvas.place(x = 10, y = 10)
         yIndex = 0
         yPos = 60

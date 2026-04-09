@@ -1,9 +1,13 @@
 #Quoicoubesque group
 from tkinter import *
 from random import randint
-from Visuel.texturePack import *
+from Visuel.TexturePack import *
 
-#--- Main Function ----------------------------------------------------------------------
+nbIndex = 20
+borderColor = "#FFFFFF"
+writtingStyle = "Verdana"
+labelStyle = (writtingStyle,"13")
+
 '''----- printThings -----------
 > -- Objectif -- :
     Afficher à une certaine position un objet.
@@ -11,13 +15,15 @@ from Visuel.texturePack import *
     screen : /Canvas/ Le canva sur lequel on affiche l'objet
     pixelGrid : /list/ La couleur de chaque pixel de l'objet
     divisionSize : /int/ La taille de la case où affiche l'objet
-    Xindex : /int/ La position horizontal de l'ojet
-    Yindex : /int/ La position vertical de l'ojet
+    Xindex : /int/ La position horizontal de l'objet
+    Yindex : /int/ La position vertical de l'objet
 > -- Retourne -- :
     Rien
 '''
 def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
     pixelSize = divisionSize/8
+    if type(pixelGrid) == str :
+        pixelGrid = matchTexture[pixelGrid]
     for i in range(8) :
         for j in range(8) :
             if pixelGrid[i][j] == None :
@@ -26,6 +32,18 @@ def printThings(screen,pixelGrid,divisionSize,Xindex,Yindex) :
             else :
                 # Creer un pixel à la position i,j de la couleur de la case i,j de pixelGrid
                 screen.create_rectangle(Xindex*divisionSize+j*pixelSize,Yindex*divisionSize+i*pixelSize,Xindex*divisionSize+(j+1)*pixelSize,Yindex*divisionSize+(i+1)*pixelSize,width = 0,fill = pixelGrid[i][j])
+
+def printMenu(screen,screenWidth,screenHeight) :
+    screen.delete("all")
+    screen.create_rectangle(0,0,screenWidth,screenHeight//4,fill="#D36221")
+    screen.create_rectangle(0,screenHeight//4,screenWidth,screenHeight,fill=backgroundColor)
+    indexThickness = screenHeight//nbIndex
+    screen.create_rectangle(screenWidth//4,8*indexThickness,screenWidth*3//4,9*indexThickness,outline = borderColor,width = 3,fill="#D36221")
+    screen.create_text(screenWidth//2,(8.5*indexThickness)//1,text = "Jouer",font = labelStyle)
+    screen.create_rectangle(screenWidth//4,10*indexThickness,screenWidth*3//4,11*indexThickness,outline = borderColor,width = 3,fill="#994514")
+    screen.create_text(screenWidth//2,(10.5*indexThickness)//1,text = "Paramètres",font = labelStyle)
+    screen.create_rectangle(screenWidth//4,12*indexThickness,screenWidth*3//4,13*indexThickness,outline = borderColor,width = 3,fill="#57270B")
+    screen.create_text(screenWidth//2,(12.5*indexThickness)//1,text = "Sortir",font = labelStyle)
 
 def createCarpet(area, x1, y1, x2, y2, color):
     rows = y2 - y1

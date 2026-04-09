@@ -1,0 +1,155 @@
+[
+    [
+        {
+            "height" : 3 ,
+            "width" : 4 ,
+            "Xpos" : 5 ,
+            "Ypos" : 6 ,
+            "seen" : true ,
+            "door" :  [[15,6,1,1,6]] ,
+            "area" : [
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "greyBaseTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture","StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "greyBaseTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture", "grassTexture"]
+            ] ,
+            "objects" : [
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"],
+                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
+                ["forestTexture", null, null, null, null, null, "stoneTexture", "brickWallTexture",null, "torchTexture", null, null, null, null, null, null],
+                ["forestTexture", "stoneTexture", null, null, null, null, null, "brickWallTexture", null, null, null, null, null, null, null, null],
+                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
+                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
+                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
+                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
+                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", null,null, null, null, null, null, null, null],
+                ["forestTexture", null, "stoneTexture", null, null, "stoneTexture", null, "brickWallTexture", null,"torchTexture", null, null, null, null, null, null],
+                ["forestTexture", null, null, null, null, null, null, "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
+                ["forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture", "forestTexture"]
+            ]
+        }
+    ],
+    [
+        {
+            "height" : 3 ,
+            "width" : 4 ,
+            "Xpos" : 5 ,
+            "Ypos" : 6 ,
+            "seen" : true ,
+            "door" : [[15,6,2,1,6]],
+            "area" : [
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "smallTorchTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "greyBaseTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "DoorUpright"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "Doordownright"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "smallTorchTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "greyBaseTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"]
+            ] ,
+            "objects" : [
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallHole", "brickWallHole", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallHole", "brickWallHole", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallHole", "brickWallTexture"]
+            ]
+        }
+    ],
+    [
+        {
+            "height" : 3 ,
+            "width" : 4 ,
+            "Xpos" : 5 ,
+            "Ypos" : 6 ,
+            "seen" : true ,
+            "door" : [[0,9,3,0,5]] ,
+            "area" : [
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "blueBaseTexture", "StoneGroundTexture", "StoneGroundTexture", "greenBaseTexture", "StoneGroundTexture", "StoneGroundTexture", "redBaseTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["DoorUpleft", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["DoorDownleft", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["DoorUpleft", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["DoorDownleft", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture", "lavaTexture", "lavaTexture", "lavaTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"]
+            ] ,
+            "objects" : [
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture", null, "brickWallTexture", "brickWallTexture", null, "brickWallTexture","brickWallTexture", null, "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture","brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, "greenJewelTexture", null, "redJewelTexture", null, "blueJewelTexture", null,"brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
+               ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", null, null, "brickWallTexture"],
+                [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallHole"],
+                [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallHole"],
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", null, "brickWallTexture", "brickWallTexture", null, "brickWallTexture", "brickWallTexture", null, "brickWallTexture", "brickWallTexture", null, null,"brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", null, null, "brickWallTexture"],
+                [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,  "brickWallTexture"],
+                [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,  "brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"]
+            ]
+        }
+    ],
+    [
+        {
+            "height" : 3 ,
+            "width" : 4 ,
+            "Xpos" : 5 ,
+            "Ypos" : 6 ,
+            "seen" : true ,
+            "door" : [] ,
+            "area" : [
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "chestTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "orbTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["DoorUpleft", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["DoorDownleft", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "keyTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "bluePressurePlateTextureOff", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "redPressurePlateTextureOff", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "greyPressurePlateTextureOff", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"],
+                ["StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture", "StoneGroundTexture"]
+            ] ,
+            "objects" : [
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "ChaindoorTexture", "ChaindoorTexture", "ChaindoorTexture", "ChaindoorTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
+                ["brickWallTexture", null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
+                [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
+                [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,"brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", null, "brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", null, "brickWallTexture"],
+                ["brickWallTexture", null, "brickWallTexture", null, null, null, null, null, null,null, null, null, null, null, null, "brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture","brickWallTexture", "brickWallTexture", null, "brickWallTexture", "brickWallTexture", "brickWallTexture",null, "brickWallTexture", "brickWallTexture", "brickWallTexture", null, "brickWallTexture", "brickWallTexture", "brickWallTexture"],
+                ["brickWallTexture", "brickWallTexture", "brickWallTexture","brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture", "brickWallTexture"]
+            ]
+        }
+    ]
+
+]

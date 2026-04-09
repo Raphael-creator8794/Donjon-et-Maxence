@@ -1,24 +1,36 @@
 #Quoicoubesque group
 from json import *
+lightBlue = "#A0F1FF"
 glass = "#D4F6FC"
 white = "#FFFFFF"
+lightGrey = "#B9B9B9"
 grey = "#474646"
+darkGrey = "#383636"
 black = "#000000"
-brown = "#2E2106"
-lightBrown = "#694703"
-darkGreen = "#003D0F"
-green = "#008132"
-lightGreen = "#00BE49"
-neonGreen = "#00FF00"
-backgroundColor = "#D2DF89"
-gold = "#F8DC0B"
-orange = "#F78012"
-darkRed = "#8C3113"
 purple = "#440439"
+brown = "#2E2106"
+topColor = "#5E2B0E"
+lightBrown = "#694703"
+middlecolor = "#9C9B46"
+bottomColor = "#D1C97B"
+backgroundColor = "#D2DF89"
+neonGreen = "#00FF00"
+lightGreen = "#00BE49"
+green = "#008132"
+darkGreen = "#003D0F"
 darkBlue = "#2B0D71"
 neonBlue = "#006EFF"
+darkPurple = "#5B0086"
 neonPurple = "#AE00FF"
+lightPurple = "#D489F7"
 neonPink = "#FF00FF"
+lightRed = "#FE0000"
+red = "#D40000"
+otherDarkRed = "#B50202"
+darkRed = "#8C3113"
+orange = "#F78012"
+gold = "#F8DC0B"
+
 
 '''----- verifTexture -----------
 > -- Objectif -- :
@@ -72,9 +84,44 @@ grassTexture = [
     [lightGreen,lightGreen,green,lightGreen,lightGreen,lightGreen,lightGreen,lightGreen],
     [lightGreen,lightGreen,lightGreen,green,lightGreen,green,lightGreen,lightGreen],
     [lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,lightGreen,green,lightGreen],
-    [lightGreen,green,lightGreen,lightGreen,lightGreen,green,lightGreen,green],
+    [lightGreen,green,lightGreen,lightGreen,lightGreen,green,lightGreen,green]
 ]
 verifTexture(grassTexture)
+
+lavaTexture = [
+    [orange,orange,orange,gold,orange,orange,gold,orange],
+    [orange,gold,orange,orange,orange,gold,orange,orange],
+    [orange,orange,gold,gold,orange,orange,orange,gold],
+    [gold,orange,orange,orange,orange,gold,orange,orange],
+    [orange,orange,gold,orange,orange,orange,orange,orange],
+    [orange,orange,orange,gold,orange,gold,orange,orange],
+    [orange,orange,orange,orange,orange,orange,gold,orange],
+    [orange,gold,orange,orange,orange,gold,orange,gold]
+]
+verifTexture(lavaTexture)
+
+stoneTexture = [
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,lightGrey,grey,None,None,None],
+    [None,None,lightGrey,grey,grey,grey,None,None],
+    [None,None,lightGrey,grey,grey,darkGrey,darkGrey,None],
+    [None,lightGrey,grey,grey,darkGrey,darkGrey,darkGrey,None],
+    [None,grey,grey,grey,darkGrey,darkGrey,darkGrey,None],
+    [None,None,None,None,None,None,None,None]
+]
+verifTexture(playerTexture)
+
+crateTexture = [
+    ["#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#CD853F", "#CD853F", "#CD853F", "#CD853F", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#CD853F", "#DEB887", "#DEB887", "#CD853F", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#CD853F", "#DEB887", "#DEB887", "#CD853F", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#CD853F", "#CD853F", "#CD853F", "#CD853F", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#A0522D", "#8B5A2B"],
+    ["#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B", "#8B5A2B"]
+]
 
 chestTexture =  [
     [None,None,None,None,None,None,None,None],
@@ -88,7 +135,7 @@ chestTexture =  [
 ]
 verifTexture(chestTexture)
 
-torchTexture =  [
+torchOnTexture =  [
     [None,darkRed,None,orange,orange,None,None,darkRed],
     [None,None,orange,gold,orange,orange,None,None],
     [darkRed,None,orange,gold,gold,orange,None,None],
@@ -98,7 +145,19 @@ torchTexture =  [
     [None,None,None,grey,grey,None,None,None],
     [None,None,grey,grey,grey,grey,None,None]
 ]
-verifTexture(torchTexture)
+verifTexture(torchOnTexture)
+
+torchOffTexture =  [
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,None,None,None,None,None],
+    [None,None,None,black,black,None,None,None],
+    [None,None,grey,grey,grey,grey,None,None],
+    [None,None,None,grey,grey,None,None,None],
+    [None,None,None,grey,grey,None,None,None],
+    [None,None,None,grey,grey,None,None,None],
+    [None,None,grey,grey,grey,grey,None,None]
+]
+verifTexture(torchOffTexture)
 
 roundPotionTexture =  [
     [None,None,None,None,None,None,None,None],

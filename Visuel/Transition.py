@@ -1,10 +1,10 @@
 #Quoicoubesque group
-from Visuel.printThings import *
-from Visuel.texturePack import *
+from Visuel.PrintThings import *
+from Visuel.TexturePack import *
 from time import time
 from tkinter import *
 
-delay = 0.01
+delay = 0.001
 nbPoint = 20
 black = "#000000"
 backgroundColor = "#D2DF89"
@@ -39,6 +39,7 @@ def transDown(screen,screenWidth,screenHeight) :
                 screen.create_rectangle(wideness*(i+0.25),(token+2.25)*amplitude,wideness*(i+0.75),(token+2.75)*amplitude,fill = black)
             screen.update_idletasks() # On réactualise le fenetre pour afficher les carrées créé
             token += 1 # Prochaine ligne
+    screen.delete("all")
 
 '''----- transUp -----------
 > -- Objectif -- :
@@ -65,6 +66,7 @@ def transUp(screen,screenWidth,screenHeight) :
                 screen.create_rectangle(wideness*(i+0.25),(token-2.25)*amplitude,wideness*(i+0.75),(token-2.75)*amplitude,fill = black)
             screen.update_idletasks()
             token -= 1
+    screen.delete("all")
 
 '''----- transLeft -----------
 > -- Objectif -- :
@@ -91,6 +93,7 @@ def transLeft(screen,screenWidth,screenHeight) :
                 screen.create_rectangle(wideness*(token-2.25),amplitude*(i+0.25),wideness*(token-2.75),amplitude*(i+0.75),fill = black)
             screen.update_idletasks()
             token -= 1
+    screen.delete("all")
 
 '''----- transRight -----------
 > -- Objectif -- :
@@ -117,6 +120,7 @@ def transRight(screen,screenWidth,screenHeight) :
                 screen.create_rectangle(wideness*(token+2.25),amplitude*(i+0.25),wideness*(token+2.75),amplitude*(i+0.75),fill = black)
             screen.update_idletasks()
             token += 1
+    screen.delete("all")
 
 '''----- printArea -----------
 > -- Objectif -- :
@@ -130,19 +134,91 @@ def transRight(screen,screenWidth,screenHeight) :
 > -- Retourne -- :
     Rien
 '''
-def printArea(screen,areaBlocks,maxX,maxY,divisionSize) :
-    delay = 0
+def printArea(screen,areaBlocks,objects,maxX,maxY,divisionSize,animation = True) :
+    delay = 0.000
     for i in range(maxY) :
         Jrange = list(range(maxX))
         if ((-1)**i) == -1 :
             Jrange = Jrange[::-1]
+        lastCall = time()
         for j in Jrange :
-            lastCall = time()
             while (time() - lastCall < delay) :
                 # On attend d'avoir attendu assez longtemps
                 continue
             printThings(screen,areaBlocks[i][j],divisionSize,j,i)
+            if objects[i][j] != None :
+                printThings(screen,objects[i][j],divisionSize,j,i)
+            lastCall = time()
+            if animation :
+                screen.update_idletasks()
+
+def launchLeftSpears(screen,divisionSize,area) :
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,5)
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,6)
+    for i in range(13) :
+        lastCall = time()
+        while time() < lastCall + 0.001 :
+            pass
+        printThings(screen,area[5][14-i],divisionSize,14-i,5)
+        printThings(screen,area[6][14-i],divisionSize,14-i,6)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,5)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,6)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,5)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,6)
+        screen.update_idletasks()
+
+
+def retractLeftSpears(screen,divisionSize,area) :
+    for i in range(14) :
+        lastCall = time()
+        while time() < lastCall + 0.02 :
+            pass
+        printThings(screen,"spearPointLeftTexture",divisionSize,1+i,5)
+        printThings(screen,"spearPointLeftTexture",divisionSize,1+i,6)
+        printThings(screen,area[5][i],divisionSize,i,5)
+        printThings(screen,area[6][i],divisionSize,i,6)
+        screen.update_idletasks()
+
+def printBridge(screen,divisionSize,actualArea,indexBridge) :
+    Xorigin = indexBridge*4 + 1
+    for i in range(3) :
+        for j in range(2) :
+            lastCall = time()
+            while time() < lastCall + 0.1 :
+                pass
+            actualArea[9+j][Xorigin+i] = "roofTexture"
+            printThings(screen,"roofTexture",divisionSize,Xorigin+i,9+j)
             screen.update_idletasks()
+
+def launchUpSpears(screen,divisionSize,area) :
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,5)
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,6)
+    for i in range(13) :
+        lastCall = time()
+        while time() < lastCall + 0.01 :
+            pass
+        printThings(screen,area[5][14-i],divisionSize,14-i,5)
+        printThings(screen,area[6][14-i],divisionSize,14-i,6)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,5)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,6)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,5)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,6)
+        screen.update_idletasks()
+
+def launchDownSpears(screen,divisionSize,area) :
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,5)
+    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,6)
+    for i in range(13) :
+        lastCall = time()
+        while time() < lastCall + 0.01 :
+            pass
+        printThings(screen,area[5][14-i],divisionSize,14-i,5)
+        printThings(screen,area[6][14-i],divisionSize,14-i,6)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,5)
+        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,6)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,5)
+        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,6)
+        screen.update_idletasks()
 
 if __name__ == "__main__" :
 
