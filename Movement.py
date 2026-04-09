@@ -8,8 +8,6 @@ from Inventory import *
 from File import*
 
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxY)//2)]
-
-
 level = 0
 nbMove = 0
 lastMaxX = 7
@@ -83,14 +81,6 @@ def movable(niveau,direction):
                 for valeur in le_niveau[Yposition][Xposition+1].values():
                     return (valeur is True)
 
-def modifierjson(Json,X,Y,data,niveau):
-    with open(Json,"r",encoding="utf-8") as fichier:
-        dict = json.load(fichier)
-        listex2 = dict[niveau]
-        listex2[X][Y] = data
-        dict[niveau] = listex2
-    with open(Json,"w",encoding="utf-8") as fichier:
-        json.dump(dict,fichier,indent = 2)
 
 def movePlayer(screen,direction,Xposition,Yposition,area) :
         printThings(screen,area[Yposition][Xposition],divisionSize,Xposition,Yposition)
