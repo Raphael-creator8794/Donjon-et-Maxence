@@ -426,7 +426,7 @@ def interact(screen,screenWidth,screenHeight) :
                 addObject("upsideDownTrianglePotionTexture")
                 removeObject("keyTexture")
                 actualArea[1][3] = "OpenchestTexture" 
-            if Xposition == 12 and Yposition == 1:
+            if Xposition == 12 and Yposition == 1 and findObjectIndex("upsideDownTrianglePotionTexture"):
     
                 removeObject("upsideDownTrianglePotionTexture")
                 actualArea[1][12] = "BreakorbTexture"
