@@ -20,11 +20,10 @@ startMessage = [
 
 level = 0
 nbMove = 0
+lastMaxX = 7
 bridge = True
 traps = True
 color_file = File(3)
-
-
 
 with open("Levels.json","r") as datas :
     levelDatas = load(datas)[level]
@@ -164,18 +163,17 @@ def passRoom(screen) :
     for i in levelDatas[0]["door"] :
         if i[0] == Xposition and i[1] == Yposition :
             break
-    Xposition = i[3]
-    Yposition = i[4]
     level += 1
+    Xposition,Yposition = matchPosition[level]
     with open("Levels.json","r") as datas :
         levelDatas = load(datas)[level]
         actualMap = levelDatas[actualRoom]
         actualArea = actualMap["area"]
         objects = actualMap["objects"]
     
-    theMessage = startMessage[level]
+    """theMessage = startMessage[level]
     if theMessage != None :
-        addComment(screen,theMessage)
+        addComment(screen,theMessage)"""
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
@@ -264,6 +262,7 @@ def interact(screen,screenWidth,screenHeight) :
     global bridge
     global Xposition
     global Yposition
+    global lastMaxX
     match actualArea[Yposition][Xposition] :
         case "redPressurePlateTextureOff" :
             actualArea[Yposition][Xposition] = "redPressurePlateTextureOn"
@@ -330,9 +329,12 @@ def interact(screen,screenWidth,screenHeight) :
                             actualArea[j][i] = "roofTexture"
                             objects[j][i] = None
                             printThings(screen, "roofTexture", divisionSize, i, j)
+                            screen.update_idletasks()
                 bridge = False
-
-            if Xposition == 8 and (Yposition == 5 or Yposition == 6):
+            if Xposition > lastMaxX :
+                lastMaxX = Xposition
+                lauchVerticaleSpear(screen,divisionSize,actualArea,Xposition)
+            """if Xposition == 8 and (Yposition == 5 or Yposition == 6):
                 if not(bridge):
                     for i in range (8,10):
                         objects[11][i] = "brickWallHoleSpearUp"
@@ -358,7 +360,8 @@ def interact(screen,screenWidth,screenHeight) :
                     actualArea[6][14] = "spearPointTexture"
                     printThings(screen, "spearPointTexture", divisionSize, 14, 6)
 
-            if actualArea[Yposition][Xposition] == "spearPointTexture" or actualArea[Yposition][Xposition] == "spearPointDownTexture" or actualArea[Yposition][Xposition] == "lavaTexture":
+            if actualArea[Yposition][Xposition] == "spearPointTexture" or actualArea[Yposition][Xposition] == "spearPointDownGroundTexture" :"""
+            if (Xposition,Yposition) in [(8,6),(9,6),(11,5),(12,5),(14,6)] :
                 respawn(screen, screenWidth, screenHeight)
             if Xposition == 15 and (Yposition == 5 or Yposition == 6):
                 transDown(screen,screenWidth,screenHeight)
