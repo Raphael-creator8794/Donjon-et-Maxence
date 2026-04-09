@@ -8,10 +8,18 @@ from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
 from Inventory import *
+from CreateComments import *
 
 matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxX-15)//2)]
+startMessage = [
+    None ,
+    "Sali salut" ,
+    "Le niveau semble être piégé. Cette plaque rouge devrait pouvoir les désactiver" ,
+    None ,
+    None
+]
 
-level = 2
+level = 0
 nbMove = 0
 
 if level == 0 or level == 1:
@@ -153,7 +161,7 @@ def respawn(screen,screenWidth,screenHeight) :
     printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
     printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
 
-def passRoom() :
+def passRoom(screen) :
     global actualArea
     global objects
     global actualMap
@@ -172,6 +180,10 @@ def passRoom() :
         actualMap = levelDatas[actualRoom]
         actualArea = actualMap["area"]
         objects = actualMap["objects"]
+    
+    theMessage = startMessage[level]
+    if theMessage != None :
+        addComment(screen,theMessage)
 
 def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
     global Xposition
@@ -192,7 +204,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             elif theObject  == "Holedown" :
                 Yposition -= 1
                 transUp(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             elif theObject in isMovable :
@@ -215,7 +227,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             elif theObject == "Holedown" or theObject == "HoleUp" :
                 Xposition -= 1
                 transLeft(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             elif theObject in isMovable :
@@ -238,7 +250,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             elif theObject == "HoleUp" :
                 Yposition += 1
                 transDown(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             elif theObject in isMovable :
@@ -261,7 +273,7 @@ def moveDir(screen,dir,screenWidth,screenHeight) : #,area,objects
             elif theObject == "Holedown" or theObject == "HoleUp" :
                 Xposition += 1
                 transRight(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             elif theObject in isMovable :
