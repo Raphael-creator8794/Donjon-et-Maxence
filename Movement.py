@@ -19,7 +19,7 @@ startMessage = [
     None
 ]
 
-level = 2
+level = 0
 nbMove = 0
 bridge = True
 traps = True
