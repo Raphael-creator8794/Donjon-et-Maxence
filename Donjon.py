@@ -107,8 +107,8 @@ if __name__ == "__main__" :
                         for j in range(8,16) :
                             objects[i][j] = None
                             printThings(screen,actualArea[i][j],divisionSize,j,i)
-                    objects[2][9] = "torchTexture"
-                    objects[9][9] = "torchTexture"
+                    objects[2][9] = "torchOffTexture"
+                    objects[9][9] = "torchOffTexture"
                     printThings(screen,"torchTexture",divisionSize,9,2)
                     printThings(screen,"torchTexture",divisionSize,9,9)
                 return
