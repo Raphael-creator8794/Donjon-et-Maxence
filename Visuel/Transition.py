@@ -1,4 +1,4 @@
-#Quoicoubesque group
+
 from Visuel.PrintThings import *
 from Visuel.TexturePack import *
 from time import time
@@ -190,34 +190,34 @@ def printBridge(screen,divisionSize,actualArea,indexBridge) :
             printThings(screen,"roofTexture",divisionSize,Xorigin+i,9+j)
             screen.update_idletasks()
 
-def launchUpSpears(screen,divisionSize,area) :
-    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,5)
-    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,6)
-    for i in range(13) :
+def lauchVerticaleSpear(screen,divisionSize,area,index) :
+    listIndex = index - 8
+    listSpear = ["up","up",None,"down","down",None,"up",None]
+    if listSpear[listIndex] == "up" :
+        launchUpSpear(screen,divisionSize,area,index)
+    elif listSpear[listIndex] == "down" :
+        launchDownSpear(screen,divisionSize,area,index)
+
+def launchUpSpear(screen,divisionSize,area,Xpos) :
+    printThings(screen,"brickWallHoleSpearUp",divisionSize,Xpos,11)
+    for i in range(4) :
         lastCall = time()
-        while time() < lastCall + 0.01 :
+        while time() < lastCall + 0.001 :
             pass
-        printThings(screen,area[5][14-i],divisionSize,14-i,5)
-        printThings(screen,area[6][14-i],divisionSize,14-i,6)
-        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,5)
-        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,6)
-        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,5)
-        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,6)
+        printThings(screen,area[10-i][Xpos],divisionSize,Xpos,10-i)
+        printThings(screen,"spearPointUpTexture",divisionSize,Xpos,9-i)
+        printThings(screen,"spearTexture",divisionSize,Xpos,10-i)
         screen.update_idletasks()
 
-def launchDownSpears(screen,divisionSize,area) :
-    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,5)
-    printThings(screen,"brickWallHoleSpearleft",divisionSize,15,6)
-    for i in range(13) :
+def launchDownSpear(screen,divisionSize,area,Xpos) :
+    printThings(screen,"brickWallHoleSpearDown",divisionSize,Xpos,0)
+    for i in range(4) :
         lastCall = time()
-        while time() < lastCall + 0.01 :
+        while time() < lastCall + 0.001 :
             pass
-        printThings(screen,area[5][14-i],divisionSize,14-i,5)
-        printThings(screen,area[6][14-i],divisionSize,14-i,6)
-        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,5)
-        printThings(screen,"spearHorizontalTexture",divisionSize,14-i,6)
-        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,5)
-        printThings(screen,"spearPointLeftTexture",divisionSize,13-i,6)
+        printThings(screen,area[i+1][Xpos],divisionSize,Xpos,i+1)
+        printThings(screen,"spearPointDownTexture",divisionSize,Xpos,i+2)
+        printThings(screen,"spearTexture",divisionSize,Xpos,i+1)
         screen.update_idletasks()
 
 if __name__ == "__main__" :

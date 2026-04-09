@@ -1,4 +1,4 @@
-#Quoicoubesque group
+
 from tkinter import *
 from Visuel.PrintThings import *
 inventory = []
