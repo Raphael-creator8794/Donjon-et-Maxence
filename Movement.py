@@ -163,9 +163,8 @@ def passRoom(screen) :
     for i in levelDatas[0]["door"] :
         if i[0] == Xposition and i[1] == Yposition :
             break
-    Xposition = i[3]
-    Yposition = i[4]
     level += 1
+    Xposition,Yposition = matchPosition[level]
     with open("Levels.json","r") as datas :
         levelDatas = load(datas)[level]
         actualMap = levelDatas[actualRoom]
