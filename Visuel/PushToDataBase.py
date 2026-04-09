@@ -1,4 +1,4 @@
-#Maxence FERTRE
+
 
 from json import *
 from TexturePack import *

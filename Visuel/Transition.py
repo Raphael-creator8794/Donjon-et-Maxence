@@ -1,4 +1,4 @@
-#Quoicoubesque group
+
 from Visuel.PrintThings import *
 from Visuel.TexturePack import *
 from time import time

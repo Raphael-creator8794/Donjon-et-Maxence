@@ -1,6 +1,4 @@
-"""definingMovement = True
-if definingMovement :
-    definingMovement = False"""
+
 import json
 from Donjon import maxX,maxY,divisionSize
 from Visuel.PrintThings import *
