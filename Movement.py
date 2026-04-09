@@ -119,7 +119,9 @@ def respawn(screen,screenWidth,screenHeight) :
     global actualArea
     global objects
     global nbMove
+    global bridge
 
+    bridge = True
     nbMove = 0
     nbCall = 0
     writtedPlayer = True
@@ -317,51 +319,51 @@ def interact(screen,screenWidth,screenHeight) :
                 printThings(screen,"HoleUp",divisionSize,15,5)
                 printThings(screen,"Holedown",divisionSize,15,6)
         case 1 :
-            print("Xposition : ",Xposition)
-            print("Yposition : ",Yposition)
-            if Xposition == 1 and (Yposition == 1 or Yposition == 10):
+            if actualArea[Yposition][Xposition] == "smallTorchTexture":
                 addObject("smallTorchTexture")
                 actualArea[Yposition][Xposition] = "StoneGroundTexture"
                 
-            if Xposition == 6 and (Yposition == 1 or Yposition == 10):
+            if actualArea[Yposition][Xposition] == "greyBaseTexture":
                 if findObjectIndex("smallTorchTexture"):
-                    objects[Yposition][Xposition] = "smallTorchTexture"
-                    printThings(screen, "smallTorchTexture", divisionSize, Xposition, Yposition)
                     removeObject("smallTorchTexture")
-            if objects[1][6] == "smallTorchTexture" and objects[10][6] == "smallTorchTexture":
-                if bridge == True:
+                    actualArea[Yposition][Xposition] = "smallTorchTexture"
+
+            if actualArea[1][6] == "smallTorchTexture" and actualArea[10][6] == "smallTorchTexture":
+                if bridge:
                     for i in range (8, 15):
                         for j in range (5, 7):
                             actualArea[j][i] = "roofTexture"
                             objects[j][i] = None
                             printThings(screen, "roofTexture", divisionSize, i, j)
                 bridge = False
+
             if Xposition == 8 and (Yposition == 5 or Yposition == 6):
-                if actualArea[Yposition][Xposition] == "roofTexture":
+                if not(bridge):
                     for i in range (8,10):
-                        objects[10][i] = "brickWallHoleSpearUp"
-                        printThings(screen, "brickWallHoleSpearUp", divisionSize, i, 10)
-                        for j in range (7, 10):
+                        objects[11][i] = "brickWallHoleSpearUp"
+                        printThings(screen, "brickWallHoleSpearUp", divisionSize, i, 11)
+                        for j in range (7, 11):
                             objects[j][i] = "spearTexture"
                             printThings(screen, "spearTexture", divisionSize, i, j)
-                        objects[6][i] = "spearPointTexture"
+                        actualArea[6][i] = "spearPointTexture"
                         printThings(screen, "spearPointTexture", divisionSize, i, 6)
                     for i in range (11, 13):
-                        objects[1][i] = "brickWallHoleSpearDown"
-                        printThings(screen, "brickWallHoleSpearDown", divisionSize, i, 1)
-                        for j in range (2, 5):
+                        objects[0][i] = "brickWallHoleSpearDown"
+                        printThings(screen, "brickWallHoleSpearDown", divisionSize, i, 0)
+                        for j in range (1, 5):
                             objects[j][i] = "spearTexture"
                             printThings(screen, "spearTexture", divisionSize, i, j)
-                        objects[5][i] = "spearPointDownTexture"
+                        actualArea[5][i] = "spearPointDownTexture"
                         printThings(screen, "spearPointDownTexture", divisionSize, i, 5)
                     objects[11][14] = "brickWallHoleSpearUp"
                     printThings(screen, "brickWallHoleSpearUp", divisionSize, 14, 11)
-                    for j in range (7, 10):
-                        objects[j][i] = "spearTexture"
+                    for j in range (7, 11):
+                        objects[j][14] = "spearTexture"
                         printThings(screen, "spearTexture", divisionSize, 14, j)
-                    objects[6][i] = "spearPointTexture"
+                    actualArea[6][14] = "spearPointTexture"
                     printThings(screen, "spearPointTexture", divisionSize, 14, 6)
-            if objects[Yposition][Xposition] == "spearPointTexture" or objects[Yposition][Xposition] == "spearPointDownTexture":
+
+            if actualArea[Yposition][Xposition] == "spearPointTexture" or actualArea[Yposition][Xposition] == "spearPointDownTexture" or actualArea[Yposition][Xposition] == "lavaTexture":
                 respawn(screen, screenWidth, screenHeight)
         case 2 :
             global nbMove
