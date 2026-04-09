@@ -55,6 +55,12 @@ class File :
             self.add(value)
             return popValue
 
+    def __eq__(self, value):
+        if type(value) == File :
+            return value.getValues() == self.getValues()
+        else :
+            return self.getValues() == value
+
 if __name__ == "__main__" :
     maFile = File(7)
     maFile.add("Lola")
