@@ -37,7 +37,7 @@ redBridge = True
 lastTimeMovement = 0
 delayMovement = 0.1
 
-isMovable = ["crateTexture","torchTexture","chestTexture","stoneTexture","blueJewelTexture","greenJewelTexture","redJewelTexture"]
+isMovable = ["crateTexture","torchTexture","chestTexture","stoneTexture","blueJewelTexture","greenJewelTexture","redJewelTexture","torchOffTexture"]
 
 def colision(niveau):
     global Xposition
@@ -299,7 +299,11 @@ def interact(screen,screenWidth,screenHeight) :
                 printThings(screen,"StoneGroundTexture",divisionSize,7,6)
                 objects[5][7] = None
                 objects[6][7] = None
-            if objects[9][15] == "torchTexture" and objects[2][15] == "torchTexture":
+            if objects[9][15] == "torchOffTexture":
+                printThings(screen,"torchTexture",divisionSize,15,9)
+            if objects[2][15] == "torchOffTexture":
+                printThings(screen,"torchTexture",divisionSize,15,2)
+            if objects[9][15] == "torchOffTexture" and objects[2][15] == "torchOffTexture":
                 actualArea[5][15] = "HoleUp"
                 actualArea[6][15] = "Holedown"
                 printThings(screen,"HoleUp",divisionSize,15,5)
@@ -418,7 +422,7 @@ def interact(screen,screenWidth,screenHeight) :
             if Xposition == 1 and Yposition == 9:
                 addObject("keyTexture")
                 actualArea[9][1] = "StoneGroundTexture"
-            if Xposition == 3 and Yposition == 1:
+            if Xposition == 3 and Yposition == 1 and findObjectIndex("keyTexture"):
                 addObject("upsideDownTrianglePotionTexture")
                 removeObject("keyTexture")
                 actualArea[1][3] = "OpenchestTexture" 
