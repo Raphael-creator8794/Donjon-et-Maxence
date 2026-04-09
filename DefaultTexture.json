@@ -2871,84 +2871,84 @@
     ],
     "spearPointTexture": [
         [
-            null,
-            null,
-            null,
+            "#381D15",
+            "#381D15",
+            "#381D15",
             "#474646",
             "#B9B9B9",
-            null,
-            null,
-            null
+            "#381D15",
+            "#381D15",
+            "#381D15"
         ],
         [
-            null,
-            null,
+            "#5E2B0E",
+            "#5E2B0E",
             "#474646",
             "#474646",
             "#B9B9B9",
             "#B9B9B9",
-            null,
-            null
+            "#5E2B0E",
+            "#5E2B0E"
         ],
         [
-            null,
+            "#381D15",
             "#474646",
             "#474646",
             "#474646",
             "#B9B9B9",
             "#B9B9B9",
             "#B9B9B9",
-            null
+            "#381D15"
         ],
         [
-            null,
-            null,
-            null,
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#381D15",
+            "#5E2B0E",
+            "#5E2B0E"
         ],
         [
-            null,
-            null,
-            null,
+            "#381D15",
+            "#381D15",
+            "#381D15",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#381D15",
+            "#381D15",
+            "#381D15"
         ],
         [
-            null,
-            null,
-            null,
+            "#5E2B0E",
+            "#5E2B0E",
+            "#381D15",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E"
         ],
         [
-            null,
-            null,
-            null,
+            "#381D15",
+            "#381D15",
+            "#381D15",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#381D15",
+            "#381D15",
+            "#381D15"
         ],
         [
-            null,
-            null,
-            null,
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E"
         ]
     ],
     "blueJewelTexture": [
@@ -5249,84 +5249,84 @@
     ],
     "spearPointDownTexture": [
         [
-            null,
-            null,
-            null,
+            "#381D15",
+            "#381D15",
+            "#381D15",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#381D15",
+            "#381D15",
+            "#381D15"
         ],
         [
-            null,
-            null,
-            null,
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E"
         ],
         [
-            null,
-            null,
-            null,
+            "#381D15",
+            "#381D15",
+            "#381D15",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#381D15",
+            "#381D15",
+            "#381D15"
         ],
         [
-            null,
-            null,
-            null,
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#381D15",
+            "#5E2B0E",
+            "#5E2B0E"
         ],
         [
-            null,
-            null,
-            null,
+            "#381D15",
+            "#381D15",
+            "#381D15",
             "#5E2B0E",
             "#694703",
-            null,
-            null,
-            null
+            "#381D15",
+            "#381D15",
+            "#381D15"
         ],
         [
-            null,
+            "#5E2B0E",
             "#474646",
             "#474646",
             "#474646",
             "#B9B9B9",
             "#B9B9B9",
             "#B9B9B9",
-            null
+            "#5E2B0E"
         ],
         [
-            null,
-            null,
+            "#381D15",
+            "#381D15",
             "#474646",
             "#474646",
             "#B9B9B9",
             "#B9B9B9",
-            null,
-            null
+            "#381D15",
+            "#381D15"
         ],
         [
-            null,
-            null,
-            null,
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E",
             "#474646",
             "#B9B9B9",
-            null,
-            null,
-            null
+            "#5E2B0E",
+            "#5E2B0E",
+            "#5E2B0E"
         ]
     ],
     "spearPointLeftTexture": [
