@@ -9,7 +9,8 @@ from time import time
 from Inventory import *
 from CreateComments import *
 from File import*
-matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX-15)//2,(maxX-15)//2),((maxX-15)//2,(maxY-6)//2)]
+
+matchPosition = [((maxX-13)//2,(maxY)//2),((maxX-13)//2,(maxY)//2),((maxX-15)//2,(maxY)//2),((maxX)//2,(maxY-6)//2)]
 startMessage = [
     None ,
     "Sali salut" ,
@@ -24,6 +25,7 @@ lastMaxX = 7
 bridge = True
 traps = True
 color_file = File(3)
+Xposition,Yposition = matchPosition[level]
 
 with open("Levels.json","r") as datas :
     levelDatas = load(datas)[level]
@@ -389,6 +391,7 @@ def interact(screen,screenWidth,screenHeight) :
                     launchLeftSpears(screen,divisionSize,actualArea)
                     if (Yposition == 5 or Yposition == 6) :
                         respawn(screen,screenWidth,screenHeight)
+                        traps = True
                     else :
                         retractLeftSpears(screen,divisionSize,actualArea)
                         screen.delete("all")
@@ -448,7 +451,7 @@ def interact(screen,screenWidth,screenHeight) :
                 printThings(screen,"DragonHornLeft",divisionSize,7,0)
                 printThings(screen,"DragonHornRight",divisionSize,8,0)
  
-if level == 0:
+"""if level == 0:
     Xposition = (maxX-13)//2
     Yposition = (maxY)//2
 elif level == 1:
@@ -463,3 +466,4 @@ elif level == 3:
 elif level == 4:
     Xposition = (maxX-15)//2
     Yposition = (maxY)//2
+"""

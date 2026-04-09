@@ -138,7 +138,7 @@ if __name__ == "__main__" :
 
     window = Tk()
     window.title("Donjon")
-    window.geometry(str(screenWidth+bannerWidth)+"x"+str(screenHeight))
+    window.geometry(str(screenWidth)+"x"+str(screenHeight))
     window.config(bg = "#888888")
 
     screen = Canvas(window,height = screenHeight,width = screenWidth,bg = black)
