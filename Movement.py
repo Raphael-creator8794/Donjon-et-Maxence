@@ -22,6 +22,7 @@ startMessage = [
 level = 2
 nbMove = 0
 bridge = True
+traps = True
 color_file = File(3)
 
 
@@ -306,7 +307,7 @@ def interact(screen,screenWidth,screenHeight) :
                 printThings(screen,"Holedown",divisionSize,15,6)
             if Xposition == 15 and (Yposition == 5 or Yposition == 6):
                 transDown(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 1 :
@@ -358,7 +359,7 @@ def interact(screen,screenWidth,screenHeight) :
                 respawn(screen, screenWidth, screenHeight)
             if Xposition == 15 and (Yposition == 5 or Yposition == 6):
                 transDown(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 2 :
@@ -366,22 +367,25 @@ def interact(screen,screenWidth,screenHeight) :
             global blueBridge
             global greenBridge
             global redBridge
-
-            nbMove += 1
-            if nbMove > 5 :
-                nbMove = 1
-            if nbMove == 4 and actualArea[10][14] == "redPressurePlateTextureOn" :
-                printThings(screen,"brickWallHoleArrowleft",divisionSize,15,5)
-                printThings(screen,"brickWallHoleArrowleft",divisionSize,15,6)
-            if nbMove == 5 and actualArea[10][14] == "redPressurePlateTextureOn" :
-                launchLeftSpears(screen,divisionSize,actualArea)
-                if (Yposition == 5 or Yposition == 6) :
-                    respawn(screen,screenWidth,screenHeight)
-                else :
-                    retractLeftSpears(screen,divisionSize,actualArea)
-                    screen.delete("all")
-                    printArea(screen,actualArea,objects,maxX,maxY,divisionSize,False)
-                    printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
+            global traps
+            if Xposition == 12 and (Yposition == 6 or Yposition == 5):
+                traps = False
+            if traps:
+                nbMove += 1
+                if nbMove > 5 :
+                    nbMove = 1
+                if nbMove == 4 :
+                    printThings(screen,"brickWallHoleArrowleft",divisionSize,15,5)
+                    printThings(screen,"brickWallHoleArrowleft",divisionSize,15,6)
+                if nbMove == 5:
+                    launchLeftSpears(screen,divisionSize,actualArea)
+                    if (Yposition == 5 or Yposition == 6) :
+                        respawn(screen,screenWidth,screenHeight)
+                    else :
+                        retractLeftSpears(screen,divisionSize,actualArea)
+                        screen.delete("all")
+                        printArea(screen,actualArea,objects,maxX,maxY,divisionSize,False)
+                        printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
             if blueBridge :
                 if objects[1][2] == "blueJewelTexture" :
                     blueBridge = False
@@ -396,7 +400,7 @@ def interact(screen,screenWidth,screenHeight) :
                     printBridge(screen,divisionSize,actualArea,2)
             if Xposition == 0 and (Yposition == 9 or Yposition == 10):
                 transDown(screen,screenWidth,screenHeight)
-                passRoom()
+                passRoom(screen)
                 printArea(screen,actualArea,objects,maxX,maxY,divisionSize)
                 printThings(screen,"playerTexture",divisionSize,Xposition,Yposition)
         case 3:
