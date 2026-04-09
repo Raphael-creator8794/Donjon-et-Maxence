@@ -3,7 +3,6 @@ if definingMovement :
     definingMovement = False"""
 import json
 from Donjon import maxX,maxY,divisionSize
-#from Donjon import Xposition,Yposition
 from Visuel.PrintThings import *
 from Visuel.Transition import *
 from time import time
@@ -318,9 +317,9 @@ def interact(screen,screenWidth,screenHeight) :
             if actualArea[Yposition][Xposition] == "greyBaseTexture":
                 if findObjectIndex("smallTorchTexture"):
                     removeObject("smallTorchTexture")
-                    actualArea[Yposition][Xposition] = "smallTorchTexture"
+                    actualArea[Yposition][Xposition] = "greyBaseFireTexture"
 
-            if actualArea[1][6] == "smallTorchTexture" and actualArea[10][6] == "smallTorchTexture":
+            if actualArea[1][6] == "greyBaseFireTexture" and actualArea[10][6] == "greyBaseFireTexture":
                 if bridge:
                     for i in range (8, 15):
                         for j in range (5, 7):
