@@ -37,7 +37,7 @@ if __name__ == "__main__" :
     def transRightLink() :
         transRight(screen,screenWidth,screenHeight)
 
-
+# Fonctions principaless
     def printStart() :        
         """
         Cette fonction permet d'afficher le niveau voulu sur l'écran
