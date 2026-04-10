@@ -100,7 +100,9 @@ if __name__ == "__main__" :
                     printThings(screen,"torchOffTexture",divisionSize,9,2)
                     printThings(screen,"torchOffTexture",divisionSize,9,9)
             case "editor" :
-                clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight)
+                if clickedEditor(screen,Xaxe,Yaxe,screenWidth,screenHeight) == "Resume" :
+                    state = "menu"
+                    printMenu(screen,screenWidth,screenHeight)
 
 
     def keySituation(event) :
